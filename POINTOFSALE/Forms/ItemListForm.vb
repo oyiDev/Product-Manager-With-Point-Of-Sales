@@ -51,6 +51,7 @@
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         POSForm.Enabled = True
+        POSForm.txtBarcode.Focus()
         Me.Hide()
     End Sub
 End Class

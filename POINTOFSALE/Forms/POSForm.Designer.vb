@@ -65,7 +65,6 @@ Partial Class POSForm
         Me.btn8 = New System.Windows.Forms.Button()
         Me.btn7 = New System.Windows.Forms.Button()
         Me.btnZRead = New System.Windows.Forms.Button()
-        Me.btnXRead = New System.Windows.Forms.Button()
         Me.BtnEditQty = New System.Windows.Forms.Button()
         Me.txtnumber = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
@@ -344,7 +343,7 @@ Partial Class POSForm
         Me.BtnRecord.Name = "BtnRecord"
         Me.BtnRecord.Size = New System.Drawing.Size(125, 40)
         Me.BtnRecord.TabIndex = 27
-        Me.BtnRecord.Text = "RECORD"
+        Me.BtnRecord.Text = "(F8) CASH OUT"
         Me.BtnRecord.UseVisualStyleBackColor = False
         '
         'Panel2
@@ -541,26 +540,12 @@ Partial Class POSForm
         Me.btnZRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnZRead.Font = New System.Drawing.Font("Bahnschrift SemiCondensed", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnZRead.ForeColor = System.Drawing.Color.Black
-        Me.btnZRead.Location = New System.Drawing.Point(884, 453)
+        Me.btnZRead.Location = New System.Drawing.Point(765, 453)
         Me.btnZRead.Name = "btnZRead"
-        Me.btnZRead.Size = New System.Drawing.Size(97, 51)
+        Me.btnZRead.Size = New System.Drawing.Size(216, 51)
         Me.btnZRead.TabIndex = 0
-        Me.btnZRead.Text = "Z - READ"
+        Me.btnZRead.Text = "(crl + Z) Z - READ"
         Me.btnZRead.UseVisualStyleBackColor = False
-        '
-        'btnXRead
-        '
-        Me.btnXRead.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnXRead.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnXRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnXRead.Font = New System.Drawing.Font("Bahnschrift SemiCondensed", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnXRead.ForeColor = System.Drawing.Color.Black
-        Me.btnXRead.Location = New System.Drawing.Point(765, 453)
-        Me.btnXRead.Name = "btnXRead"
-        Me.btnXRead.Size = New System.Drawing.Size(102, 51)
-        Me.btnXRead.TabIndex = 0
-        Me.btnXRead.Text = "X - READ"
-        Me.btnXRead.UseVisualStyleBackColor = False
         '
         'BtnEditQty
         '
@@ -590,7 +575,6 @@ Partial Class POSForm
         Me.ClientSize = New System.Drawing.Size(1007, 589)
         Me.ControlBox = False
         Me.Controls.Add(Me.txtnumber)
-        Me.Controls.Add(Me.btnXRead)
         Me.Controls.Add(Me.btnZRead)
         Me.Controls.Add(Me.GbNumber)
         Me.Controls.Add(Me.Label4)
@@ -665,7 +649,6 @@ Partial Class POSForm
     Friend WithEvents btn4 As Button
     Friend WithEvents btn8 As Button
     Friend WithEvents btnZRead As Button
-    Friend WithEvents btnXRead As Button
     Friend WithEvents BtnEditQty As Button
     Friend WithEvents txtnumber As TextBox
 End Class

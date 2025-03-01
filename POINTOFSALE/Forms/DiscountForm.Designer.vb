@@ -22,34 +22,35 @@ Partial Class DiscountForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LblName = New System.Windows.Forms.Label()
+        Me.Lblnumber = New System.Windows.Forms.Label()
         Me.TxtName = New System.Windows.Forms.TextBox()
         Me.TxtIdNum = New System.Windows.Forms.TextBox()
         Me.BtnEnter = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.lbldisType = New System.Windows.Forms.Label()
+        Me.lblid = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'LblName
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(53, 49)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 14)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Name:"
+        Me.LblName.AutoSize = True
+        Me.LblName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblName.Location = New System.Drawing.Point(53, 49)
+        Me.LblName.Name = "LblName"
+        Me.LblName.Size = New System.Drawing.Size(41, 14)
+        Me.LblName.TabIndex = 0
+        Me.LblName.Text = "Name:"
         '
-        'Label2
+        'Lblnumber
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(53, 102)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 14)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "ID number:"
+        Me.Lblnumber.AutoSize = True
+        Me.Lblnumber.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lblnumber.Location = New System.Drawing.Point(53, 102)
+        Me.Lblnumber.Name = "Lblnumber"
+        Me.Lblnumber.Size = New System.Drawing.Size(67, 14)
+        Me.Lblnumber.TabIndex = 1
+        Me.Lblnumber.Text = "ID number:"
         '
         'TxtName
         '
@@ -89,7 +90,7 @@ Partial Class DiscountForm
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(75, 23)
         Me.BtnClose.TabIndex = 4
-        Me.BtnClose.Text = "CLOSE"
+        Me.BtnClose.Text = "CANCEL"
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'lbldisType
@@ -102,6 +103,16 @@ Partial Class DiscountForm
         Me.lbldisType.TabIndex = 5
         Me.lbldisType.Text = "discount type"
         '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblid.Location = New System.Drawing.Point(347, 9)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(12, 15)
+        Me.lblid.TabIndex = 5
+        Me.lblid.Text = "0"
+        '
         'DiscountForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -109,13 +120,14 @@ Partial Class DiscountForm
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(371, 206)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblid)
         Me.Controls.Add(Me.lbldisType)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.BtnEnter)
         Me.Controls.Add(Me.TxtIdNum)
         Me.Controls.Add(Me.TxtName)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Lblnumber)
+        Me.Controls.Add(Me.LblName)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "DiscountForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -124,11 +136,12 @@ Partial Class DiscountForm
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LblName As Label
+    Friend WithEvents Lblnumber As Label
     Friend WithEvents TxtName As TextBox
     Friend WithEvents TxtIdNum As TextBox
     Friend WithEvents BtnEnter As Button
     Friend WithEvents BtnClose As Button
     Friend WithEvents lbldisType As Label
+    Friend WithEvents lblid As Label
 End Class

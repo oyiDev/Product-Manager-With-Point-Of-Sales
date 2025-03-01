@@ -60,7 +60,6 @@ Public Class PaymentForm
                 Dim order As New OrderRepo
                 order.UpdateInventory()
                 order.PrintReceipt()
-                'order.RecordTransaction()
                 order.AddTransaction()
                 order.ClearDataGridView()
 
@@ -83,6 +82,8 @@ Public Class PaymentForm
 
     Private Sub BtnSenior_Click(sender As Object, e As EventArgs) Handles BtnSenior.Click
         DiscountForm.lbldisType.Text = "SENIOR"
+        DiscountForm.LblName.Text = "NAME"
+        DiscountForm.Lblnumber.Text = "ID No"
         DiscountForm.Show()
         DiscountForm.TxtName.Focus()
         Me.Enabled = False
@@ -90,6 +91,8 @@ Public Class PaymentForm
 
     Private Sub BtnPwd_Click(sender As Object, e As EventArgs) Handles BtnPwd.Click
         DiscountForm.lbldisType.Text = "PWD"
+        DiscountForm.LblName.Text = "NAME"
+        DiscountForm.Lblnumber.Text = "ID No"
         DiscountForm.Show()
         DiscountForm.TxtName.Focus()
         Me.Enabled = False
@@ -97,7 +100,13 @@ Public Class PaymentForm
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Dim repo As New OrderRepo
-        repo.ClearDataGridView()
+        POSForm.txtTransSubtotal.Text = "₱ 00.00"
+        txtAmount.Text = "₱ 00.00"
+        txtCash.Text = "₱ 00.00"
+        txtChange.Text = "₱ 00.00"
+        TxtVat.Text = "₱ 00.00"
+        txtDiscount.Text = "₱ 00.00"
+        txtGtotal.Text = "₱ 00.00"
         POSForm.Enabled = True
         Me.Hide()
     End Sub

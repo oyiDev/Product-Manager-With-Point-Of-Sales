@@ -43,4 +43,23 @@ Public Class LoadItemData
             ItemListForm.Hide()
         End If
     End Sub
+
+    Public Sub LoadAllTransactions()
+        Try
+            connect_me()
+            Dim query As String = "SELECT * FROM transactions"
+            Dim cmd As New OdbcCommand(query, con)
+            Dim adapter As New OdbcDataAdapter(cmd)
+            Dim table As New DataTable()
+            adapter.Fill(table)
+
+            TransactionForm.dgRecordTrans.Rows.Clear()
+
+            For Each row As DataRow In table.Rows
+                TransactionForm.dgRecordTrans.Rows.Add(row("transaction_id"), row("name"), row("user_type"), row("transaction_date"), row("total_amount"), row("payment_method"), row("discount"))
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error Loading Transactions: " & ex.Message)
+        End Try
+    End Sub
 End Class

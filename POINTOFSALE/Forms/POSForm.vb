@@ -1,6 +1,4 @@
-﻿Imports Microsoft.SqlServer
-
-Public Class POSForm
+﻿Public Class POSForm
 
     Private Sub POSForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim repo As New OrderRepo
@@ -8,6 +6,8 @@ Public Class POSForm
         repo.get_number()
         txtnumber.Hide()
         dgTransaction.Enabled = False
+        dgTransaction.DefaultCellStyle.SelectionBackColor = Color.White
+        dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
         Me.KeyPreview = True
 
         Try
@@ -19,6 +19,8 @@ Public Class POSForm
 
     Private Sub POSForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
+            Case Keys.F8
+                BtnRecord.PerformClick()
             Case Keys.F9
                 btnItemList.PerformClick()
             Case Keys.F10
@@ -36,6 +38,10 @@ Public Class POSForm
             Case Keys.X
                 If e.Control Then
                     btnExit.PerformClick()
+                End If
+            Case Keys.Z
+                If e.Control Then
+                    btnZRead.PerformClick()
                 End If
         End Select
     End Sub
@@ -70,6 +76,8 @@ Public Class POSForm
             dgTransaction.Enabled = True
             lblAction.Text = "DELETE"
             dgTransaction.Focus()
+            dgTransaction.DefaultCellStyle.SelectionBackColor = Color.Tomato
+            dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Tomato
         End If
     End Sub
 
@@ -78,6 +86,8 @@ Public Class POSForm
             dgTransaction.Enabled = True
             lblAction.Text = "EDIT"
             dgTransaction.Focus()
+            dgTransaction.DefaultCellStyle.SelectionBackColor = Color.Gold
+            dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Gold
         End If
     End Sub
 
@@ -87,8 +97,12 @@ Public Class POSForm
             Case Keys.Enter
                 If lblAction.Text = "DELETE" Then
                     orderRepo.DeleteItem(e)
+                    dgTransaction.DefaultCellStyle.SelectionBackColor = Color.White
+                    dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
                 ElseIf lblAction.Text = "EDIT" Then
                     orderRepo.EditItemQty()
+                    dgTransaction.DefaultCellStyle.SelectionBackColor = Color.White
+                    dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
                 End If
         End Select
     End Sub
@@ -122,9 +136,15 @@ Public Class POSForm
 
     Private Sub btnZRead_Click(sender As Object, e As EventArgs) Handles btnZRead.Click
         ReadingForm.Show()
+        ReadingForm.c1.Focus()
+        Me.Enabled = False
     End Sub
 
     Private Sub BtnRecord_Click(sender As Object, e As EventArgs) Handles BtnRecord.Click
-        TransactionForm.Show()
+        DiscountForm.Show()
+        DiscountForm.lbldisType.Text = "CASH OUT"
+        DiscountForm.LblName.Text = "REMARK"
+        DiscountForm.Lblnumber.Text = "AMOUNT"
+        Me.Enabled = False
     End Sub
 End Class
