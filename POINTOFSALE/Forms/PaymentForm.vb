@@ -61,6 +61,7 @@ Public Class PaymentForm
                 order.UpdateInventory()
                 order.PrintReceipt()
                 order.AddTransaction()
+                order.OpenCashDrawer()
                 order.ClearDataGridView()
 
                 Dim loadItem As New LoadItemData
