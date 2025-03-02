@@ -86,8 +86,15 @@
     <Compile Include="DAL\ModConnection.vb" />
     <Compile Include="DAL\OrderRepo.vb" />
     <Compile Include="DAL\ProductRepo.vb" />
+    <Compile Include="DAL\StopScan.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
+    <Compile Include="Forms\ConTransForm.Designer.vb">
+      <DependentUpon>ConTransForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConTransForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\DiscountForm.Designer.vb">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </Compile>
@@ -174,6 +181,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\ConTransForm.resx">
+      <DependentUpon>ConTransForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </EmbeddedResource>
