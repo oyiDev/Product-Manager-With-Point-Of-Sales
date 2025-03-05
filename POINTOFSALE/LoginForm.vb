@@ -27,6 +27,7 @@
             MessageBox.Show("Welcome Admin!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)
             'Admin Dash Board
             txtPassword.Clear()
+            adminMainForm.Show()
             Me.Hide()
 
         ElseIf userInfo IsNot Nothing AndAlso userInfo.Role = "cashier" Then

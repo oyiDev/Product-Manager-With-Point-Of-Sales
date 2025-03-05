@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -88,16 +88,46 @@
     <Compile Include="DAL\ProductRepo.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
+    <Compile Include="Forms\adminMainForm.Designer.vb">
+      <DependentUpon>adminMainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\adminMainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard.Designer.vb">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\DiscountForm.Designer.vb">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\DiscountForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\InventoryDashboard.Designer.vb">
+      <DependentUpon>InventoryDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ItemListForm.Designer.vb">
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\ItemListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageStock.Designer.vb">
+      <DependentUpon>ManageStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageSupplier.Designer.vb">
+      <DependentUpon>ManageSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PaymentForm.Designer.vb">
@@ -174,8 +204,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\adminMainForm.resx">
+      <DependentUpon>adminMainForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InventoryDashboard.resx">
+      <DependentUpon>InventoryDashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
