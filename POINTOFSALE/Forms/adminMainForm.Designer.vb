@@ -22,6 +22,7 @@ Partial Class adminMainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(adminMainForm))
         Me.adminMainPanel = New System.Windows.Forms.DataGridView()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.btnManageProduct = New System.Windows.Forms.Button()
@@ -107,6 +108,7 @@ Partial Class adminMainForm
         '
         'PictureBox1
         '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(273, 210)
@@ -116,6 +118,7 @@ Partial Class adminMainForm
         '
         'PictureBox2
         '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(26, 216)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(39, 32)
@@ -125,6 +128,7 @@ Partial Class adminMainForm
         '
         'PictureBox3
         '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
         Me.PictureBox3.Location = New System.Drawing.Point(26, 274)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(39, 32)
@@ -134,6 +138,7 @@ Partial Class adminMainForm
         '
         'PictureBox4
         '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
         Me.PictureBox4.Location = New System.Drawing.Point(26, 332)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(39, 32)
@@ -143,6 +148,7 @@ Partial Class adminMainForm
         '
         'PictureBox5
         '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
         Me.PictureBox5.Location = New System.Drawing.Point(26, 385)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(39, 32)
@@ -173,6 +179,7 @@ Partial Class adminMainForm
         '
         'PictureBox8
         '
+        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
         Me.PictureBox8.Location = New System.Drawing.Point(194, 599)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(39, 32)
@@ -182,6 +189,7 @@ Partial Class adminMainForm
         '
         'exitBtn
         '
+        Me.exitBtn.BackColor = System.Drawing.Color.Snow
         Me.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.exitBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.exitBtn.Location = New System.Drawing.Point(71, 590)
@@ -189,10 +197,11 @@ Partial Class adminMainForm
         Me.exitBtn.Size = New System.Drawing.Size(169, 53)
         Me.exitBtn.TabIndex = 2
         Me.exitBtn.Text = "Exit"
-        Me.exitBtn.UseVisualStyleBackColor = True
+        Me.exitBtn.UseVisualStyleBackColor = False
         '
         'PictureBox6
         '
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
         Me.PictureBox6.Location = New System.Drawing.Point(26, 439)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(39, 32)

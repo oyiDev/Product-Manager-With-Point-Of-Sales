@@ -202,6 +202,9 @@
     <EmbeddedResource Include="Forms\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashboardForm.resx">
+      <DependentUpon>DashboardForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageSupplier.resx">
+      <DependentUpon>ManageSupplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>
