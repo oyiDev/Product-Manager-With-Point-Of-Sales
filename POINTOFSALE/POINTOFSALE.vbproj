@@ -219,6 +219,9 @@
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageSupplier.resx">
+      <DependentUpon>ManageSupplier.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>
     </EmbeddedResource>

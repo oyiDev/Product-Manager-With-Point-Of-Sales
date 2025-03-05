@@ -35,6 +35,15 @@ Public Class adminMainForm
         btnManageStock.BackColor = Color.White
         btnManageSupplier.BackColor = Color.White
         btnManageUser.BackColor = Color.White
+
+        adminMainPanel.Controls.Clear()
+
+        ManageSupplier.TopLevel = False
+        ManageSupplier.FormBorderStyle = FormBorderStyle.None
+        ManageSupplier.Dock = DockStyle.Fill
+
+        adminMainPanel.Controls.Add(ManageSupplier)
+        ManageSupplier.Show()
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
