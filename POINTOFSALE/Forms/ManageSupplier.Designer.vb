@@ -125,6 +125,7 @@ Partial Class ManageSupplier
         '
         'add_supplierBtn
         '
+        Me.add_supplierBtn.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.add_supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_supplierBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.add_supplierBtn.Location = New System.Drawing.Point(773, 536)
@@ -132,12 +133,13 @@ Partial Class ManageSupplier
         Me.add_supplierBtn.Size = New System.Drawing.Size(181, 32)
         Me.add_supplierBtn.TabIndex = 9
         Me.add_supplierBtn.Text = "Add Supplier"
-        Me.add_supplierBtn.UseVisualStyleBackColor = True
+        Me.add_supplierBtn.UseVisualStyleBackColor = False
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(779, 536)
+        Me.PictureBox2.Location = New System.Drawing.Point(782, 536)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(35, 31)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
