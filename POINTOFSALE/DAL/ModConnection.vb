@@ -1,5 +1,4 @@
 ﻿Imports System.Data.Odbc
-
 Module ModConnection
     Public con As New OdbcConnection
     Public constring As String
