@@ -37,18 +37,16 @@ Partial Class InventoryDashboard
         Me.txt_generic = New System.Windows.Forms.TextBox()
         Me.cb_category = New System.Windows.Forms.ComboBox()
         Me.txt_brand = New System.Windows.Forms.TextBox()
-        Me.txt_formulation = New System.Windows.Forms.TextBox()
+        Me.txt_formula = New System.Windows.Forms.TextBox()
         Me.txt_description = New System.Windows.Forms.TextBox()
         Me.txt_price = New System.Windows.Forms.TextBox()
         Me.txt_qty = New System.Windows.Forms.TextBox()
         Me.search_product = New System.Windows.Forms.TextBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.add_btn = New System.Windows.Forms.Button()
-        Me.edit_btn = New System.Windows.Forms.Button()
         Me.update_btn = New System.Windows.Forms.Button()
         Me.delete_btn = New System.Windows.Forms.Button()
         Me.addBox = New System.Windows.Forms.PictureBox()
-        Me.editBox = New System.Windows.Forms.PictureBox()
         Me.updateBox = New System.Windows.Forms.PictureBox()
         Me.deleteBox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -57,7 +55,6 @@ Partial Class InventoryDashboard
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.editBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.updateBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -205,12 +202,12 @@ Partial Class InventoryDashboard
         Me.txt_brand.Size = New System.Drawing.Size(114, 20)
         Me.txt_brand.TabIndex = 15
         '
-        'txt_formulation
+        'txt_formula
         '
-        Me.txt_formulation.Location = New System.Drawing.Point(108, 271)
-        Me.txt_formulation.Name = "txt_formulation"
-        Me.txt_formulation.Size = New System.Drawing.Size(114, 20)
-        Me.txt_formulation.TabIndex = 16
+        Me.txt_formula.Location = New System.Drawing.Point(108, 271)
+        Me.txt_formula.Name = "txt_formula"
+        Me.txt_formula.Size = New System.Drawing.Size(114, 20)
+        Me.txt_formula.TabIndex = 16
         '
         'txt_description
         '
@@ -261,22 +258,11 @@ Partial Class InventoryDashboard
         Me.add_btn.Text = "Add"
         Me.add_btn.UseVisualStyleBackColor = True
         '
-        'edit_btn
-        '
-        Me.edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.edit_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edit_btn.Location = New System.Drawing.Point(393, 572)
-        Me.edit_btn.Name = "edit_btn"
-        Me.edit_btn.Size = New System.Drawing.Size(115, 36)
-        Me.edit_btn.TabIndex = 23
-        Me.edit_btn.Text = "Edit"
-        Me.edit_btn.UseVisualStyleBackColor = True
-        '
         'update_btn
         '
         Me.update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.update_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.update_btn.Location = New System.Drawing.Point(559, 572)
+        Me.update_btn.Location = New System.Drawing.Point(396, 572)
         Me.update_btn.Name = "update_btn"
         Me.update_btn.Size = New System.Drawing.Size(121, 36)
         Me.update_btn.TabIndex = 24
@@ -287,7 +273,7 @@ Partial Class InventoryDashboard
         '
         Me.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.delete_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete_btn.Location = New System.Drawing.Point(724, 572)
+        Me.delete_btn.Location = New System.Drawing.Point(565, 572)
         Me.delete_btn.Name = "delete_btn"
         Me.delete_btn.Size = New System.Drawing.Size(116, 36)
         Me.delete_btn.TabIndex = 25
@@ -303,18 +289,9 @@ Partial Class InventoryDashboard
         Me.addBox.TabIndex = 26
         Me.addBox.TabStop = False
         '
-        'editBox
-        '
-        Me.editBox.Location = New System.Drawing.Point(397, 576)
-        Me.editBox.Name = "editBox"
-        Me.editBox.Size = New System.Drawing.Size(30, 29)
-        Me.editBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.editBox.TabIndex = 27
-        Me.editBox.TabStop = False
-        '
         'updateBox
         '
-        Me.updateBox.Location = New System.Drawing.Point(561, 575)
+        Me.updateBox.Location = New System.Drawing.Point(399, 576)
         Me.updateBox.Name = "updateBox"
         Me.updateBox.Size = New System.Drawing.Size(30, 29)
         Me.updateBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -323,7 +300,7 @@ Partial Class InventoryDashboard
         '
         'deleteBox
         '
-        Me.deleteBox.Location = New System.Drawing.Point(727, 576)
+        Me.deleteBox.Location = New System.Drawing.Point(568, 576)
         Me.deleteBox.Name = "deleteBox"
         Me.deleteBox.Size = New System.Drawing.Size(30, 29)
         Me.deleteBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -357,18 +334,16 @@ Partial Class InventoryDashboard
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.deleteBox)
         Me.Controls.Add(Me.updateBox)
-        Me.Controls.Add(Me.editBox)
         Me.Controls.Add(Me.addBox)
         Me.Controls.Add(Me.delete_btn)
         Me.Controls.Add(Me.update_btn)
-        Me.Controls.Add(Me.edit_btn)
         Me.Controls.Add(Me.add_btn)
         Me.Controls.Add(Me.searchBox)
         Me.Controls.Add(Me.search_product)
         Me.Controls.Add(Me.txt_qty)
         Me.Controls.Add(Me.txt_price)
         Me.Controls.Add(Me.txt_description)
-        Me.Controls.Add(Me.txt_formulation)
+        Me.Controls.Add(Me.txt_formula)
         Me.Controls.Add(Me.txt_brand)
         Me.Controls.Add(Me.cb_category)
         Me.Controls.Add(Me.txt_generic)
@@ -392,7 +367,6 @@ Partial Class InventoryDashboard
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.editBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.updateBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -415,18 +389,16 @@ Partial Class InventoryDashboard
     Friend WithEvents txt_generic As TextBox
     Friend WithEvents cb_category As ComboBox
     Friend WithEvents txt_brand As TextBox
-    Friend WithEvents txt_formulation As TextBox
+    Friend WithEvents txt_formula As TextBox
     Friend WithEvents txt_description As TextBox
     Friend WithEvents txt_price As TextBox
     Friend WithEvents txt_qty As TextBox
     Friend WithEvents search_product As TextBox
     Friend WithEvents searchBox As PictureBox
     Friend WithEvents add_btn As Button
-    Friend WithEvents edit_btn As Button
     Friend WithEvents update_btn As Button
     Friend WithEvents delete_btn As Button
     Friend WithEvents addBox As PictureBox
-    Friend WithEvents editBox As PictureBox
     Friend WithEvents updateBox As PictureBox
     Friend WithEvents deleteBox As PictureBox
     Friend WithEvents Label2 As Label

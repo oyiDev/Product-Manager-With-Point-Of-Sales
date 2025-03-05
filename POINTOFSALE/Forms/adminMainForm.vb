@@ -10,12 +10,12 @@ Public Class adminMainForm
 
         adminMainPanel.Controls.Clear()
 
-        Dashboard.TopLevel = False
-        Dashboard.FormBorderStyle = FormBorderStyle.None
-        Dashboard.Dock = DockStyle.Fill
+        DashboardForm.TopLevel = False
+        DashboardForm.FormBorderStyle = FormBorderStyle.None
+        DashboardForm.Dock = DockStyle.Fill
 
-        adminMainPanel.Controls.Add(Dashboard)
-        Dashboard.Show()
+        adminMainPanel.Controls.Add(DashboardForm)
+        DashboardForm.Show()
     End Sub
 
     Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles exitBtn.Click
