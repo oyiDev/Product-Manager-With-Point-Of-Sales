@@ -6,6 +6,18 @@ Public Class OrderRepo
     Dim reader As OdbcDataReader
 
     Public Sub ScanProduct(barcode As String)
+        Dim timeNow As DateTime = DateTime.Now ' Get current time
+        Dim resumeTime As DateTime = DateTime.Today.AddHours(7) ' 7:00 AM
+
+        ' Check if scanning is paused
+        If StopScan.StopScanActive Then
+            If timeNow >= resumeTime Then
+                StopScan.StopScanActive = False ' Resume scanning after 7:00 AM
+            Else
+                MessageBox.Show("Today transaction is CLOSED until 7:00 AM.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+        End If
 
         Dim query As String = "SELECT barcode, genericname, price, qty, (price * qty) as amount FROM products WHERE barcode = ?"
 
@@ -325,11 +337,6 @@ Public Class OrderRepo
 
     Public Sub SaveTransactionsToDatabase()
         Try
-            If TransactionForm.dgRecordTrans.Rows.Count = 0 OrElse (TransactionForm.dgRecordTrans.Rows.Count = 1 AndAlso TransactionForm.dgRecordTrans.Rows(0).IsNewRow) Then
-                MessageBox.Show("No transactions to save.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
-
             For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
                 If Not row.IsNewRow Then
 
@@ -348,7 +355,7 @@ Public Class OrderRepo
             Next
 
             MessageBox.Show("Transactions saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            TransactionForm.dgRecordTrans.Rows.Clear()
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -472,9 +479,6 @@ Public Class OrderRepo
 
     Public Sub PrintZread()
         Try
-            MessageBox.Show("Printing Z-reading...")
-
-            ' Create a new DataTable
             Dim dt As New DataTable
             dt.Columns.Add("netamount", Type.GetType("System.String"))
             dt.Columns.Add("cashsales", Type.GetType("System.String"))
@@ -500,7 +504,7 @@ Public Class OrderRepo
             ' Add a new row with the values
             dt.Rows.Add(netAmount, cashSales, otherPayment, Tdiscount, totalCashOut, totalCash, variance, TCashCount, thiskawnt)
 
-            PrintForm.Show()
+            'PrintForm.Show()
             ' Load the report
             Dim report As New ZreadReport()
             'report.Load("C:\Users\Rip\source\repos\Manage-Product-with-Point-Of-Sale\POINTOFSALE\Reports\ReceiptReport.rpt")
@@ -508,7 +512,7 @@ Public Class OrderRepo
             report.SetDataSource(dt)
             ' Print the report
             report.PrintToPrinter(1, False, 0, 0)
-            PrintForm.CViewer.ReportSource = report
+            'PrintForm.CViewer.ReportSource = report
 
             MessageBox.Show("Z-reading printed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -527,5 +531,25 @@ Public Class OrderRepo
         PaymentForm.TxtVat.Text = "₱ 00.00"
         PaymentForm.txtDiscount.Text = "₱ 00.00"
         PaymentForm.txtGtotal.Text = "₱ 00.00"
+    End Sub
+
+    Public Sub ClearRedings()
+        ReadingForm.TxtNetAmount.Clear()
+        ReadingForm.TxtCashSales.Clear()
+        ReadingForm.TxtOthersPayment.Clear()
+        ReadingForm.TxtTDiscount.Clear()
+        ReadingForm.TxtTCashOut.Clear()
+        ReadingForm.TxtTotalCash.Clear()
+        ReadingForm.TxtVariance.Clear()
+        ReadingForm.c1.Clear()
+        ReadingForm.c5.Clear()
+        ReadingForm.c10.Clear()
+        ReadingForm.c20.Clear()
+        ReadingForm.p50.Clear()
+        ReadingForm.p100.Clear()
+        ReadingForm.p200.Clear()
+        ReadingForm.p500.Clear()
+        ReadingForm.p1000.Clear()
+        ReadingForm.lblTCashCount.Text = "0.00"
     End Sub
 End Class

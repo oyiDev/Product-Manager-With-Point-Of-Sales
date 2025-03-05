@@ -135,6 +135,8 @@
     End Sub
 
     Private Sub btnZRead_Click(sender As Object, e As EventArgs) Handles btnZRead.Click
+        Dim repo As New OrderRepo
+        repo.Zread()
         ReadingForm.Show()
         ReadingForm.c1.Focus()
         Me.Enabled = False
