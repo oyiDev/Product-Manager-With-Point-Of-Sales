@@ -47,10 +47,10 @@ Partial Class ItemListForm
         Me.Label1.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(11, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 25)
+        Me.Label1.Size = New System.Drawing.Size(103, 27)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "SEARCH:"
         '
@@ -58,10 +58,10 @@ Partial Class ItemListForm
         '
         Me.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtSearch.Font = New System.Drawing.Font("Arial Rounded MT Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearch.Location = New System.Drawing.Point(119, 6)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(630, 31)
+        Me.TxtSearch.Size = New System.Drawing.Size(630, 30)
         Me.TxtSearch.TabIndex = 1
         '
         'BtnEnter

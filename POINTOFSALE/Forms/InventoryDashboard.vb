@@ -2,11 +2,11 @@
 Public Class InventoryDashboard
     Private Sub add_btn_Click(sender As Object, e As EventArgs) Handles add_btn.Click
 
-        Dim br As String = txt_barcode.Text.Trim
         Dim ct As String = cb_category.Text.Trim
+        Dim br As String = txt_barcode.Text.Trim
         Dim gn As String = txt_generic.Text.Trim
         Dim bn As String = txt_brand.Text.Trim
-        Dim fm As String = txt_formulation.Text.Trim
+        Dim fm As String = txt_formula.Text.Trim
         Dim dp As String = txt_description.Text.Trim
         Dim pr As String = txt_price.Text.Trim
         Dim qt As String = txt_qty.Text.Trim
@@ -18,7 +18,16 @@ Public Class InventoryDashboard
 
             With mycmd
                 .Connection = con
-                .CommandText = "INSERT INTO `products` (`barcode`, `category` ,`genericname`, `brandname`, `formula`, `description`, `price`, `qty`, `expiredate`) VALUES (?,?,?,?,?,?,?,?,?)"
+                .CommandText = "INSERT INTO `products` (`category`, `barcode` ,`genericname`, `brandname`, `formula`, `description`, `price`, `qty`, `expiredate`) VALUES (?,?,?,?,?,?,?,?,?)"
+                .Parameters.AddWithValue("@category", ct)
+                .Parameters.AddWithValue("@barcode", br)
+                .Parameters.AddWithValue("@genericname", gn)
+                .Parameters.AddWithValue("@brandname", bn)
+                .Parameters.AddWithValue("@formula", fm)
+                .Parameters.AddWithValue("@description", dp)
+                .Parameters.AddWithValue("@price", pr)
+                .Parameters.AddWithValue("@qty", qt)
+                .Parameters.AddWithValue("@expiredate", ed)
                 .ExecuteNonQuery()
 
 
@@ -26,22 +35,22 @@ Public Class InventoryDashboard
             MessageBox.Show("Add product success!", "Add", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             RefreshMe()
-            txt_barcode.Clear()
             cb_category.Enabled = True
+            txt_barcode.Clear()
             txt_generic.Clear()
             txt_brand.Clear()
-            txt_formulation.Clear()
+            txt_formula.Clear()
             txt_description.Clear()
             txt_price.Clear()
             txt_qty.Clear()
 
         Catch ex As Exception
+            Console.WriteLine("Error" & ex.Message)
             MessageBox.Show("Error Adding" & ex.Message)
-        Finally
-            con.Close()
         End Try
 
     End Sub
+
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefreshMe()
     End Sub
@@ -74,12 +83,12 @@ Public Class InventoryDashboard
             Dim row As DataGridViewRow = dg_product.Rows(e.RowIndex)
 
             ' Populate textboxes with the selected row's data
-            txt_barcode.Text = row.Cells("id").Value.ToString()
-            cb_category.Text = row.Cells("barcode").Value.ToString()
-            txt_generic.Text = row.Cells("category").Value.ToString()
-            txt_brand.Text = row.Cells("genericname").Value.ToString()
-            txt_formulation.Text = row.Cells("brandname").Value.ToString()
-            txt_description.Text = row.Cells("formula").Value.ToString()
+            cb_category.Text = row.Cells("category").Value.ToString()
+            txt_barcode.Text = row.Cells("barcode").Value.ToString()
+            txt_generic.Text = row.Cells("genericname").Value.ToString()
+            txt_brand.Text = row.Cells("brandname").Value.ToString()
+            txt_formula.Text = row.Cells("formula").Value.ToString()
+            txt_description.Text = row.Cells("description").Value.ToString()
             txt_price.Text = row.Cells("price").Value.ToString()
             txt_qty.Text = row.Cells("qty").Value.ToString()
 
@@ -91,11 +100,11 @@ Public Class InventoryDashboard
             Dim selectedRow As DataGridViewRow = dg_product.SelectedRows(0)
 
             ' Update DataGridView with new values
-            selectedRow.Cells("barcode").Value = txt_barcode.Text
             selectedRow.Cells("category").Value = cb_category.Text
+            selectedRow.Cells("barcode").Value = txt_barcode.Text
             selectedRow.Cells("genericname").Value = txt_generic.Text
             selectedRow.Cells("brandname").Value = txt_brand.Text
-            selectedRow.Cells("formula").Value = txt_formulation.Text
+            selectedRow.Cells("formula").Value = txt_formula.Text
             selectedRow.Cells("description").Value = txt_description.Text
             selectedRow.Cells("price").Value = txt_price.Text
             selectedRow.Cells("qty").Value = txt_qty.Text
