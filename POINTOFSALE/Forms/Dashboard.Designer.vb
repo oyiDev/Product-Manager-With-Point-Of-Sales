@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class DashboardForm
+Partial Class Dashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -41,7 +41,7 @@ Partial Class DashboardForm
         Me.dg_dashboard.Location = New System.Drawing.Point(154, 193)
         Me.dg_dashboard.Name = "dg_dashboard"
         Me.dg_dashboard.Size = New System.Drawing.Size(721, 335)
-        Me.dg_dashboard.TabIndex = 7
+        Me.dg_dashboard.TabIndex = 10
         '
         'totalUser_pnl
         '
@@ -51,7 +51,7 @@ Partial Class DashboardForm
         Me.totalUser_pnl.Location = New System.Drawing.Point(542, 53)
         Me.totalUser_pnl.Name = "totalUser_pnl"
         Me.totalUser_pnl.Size = New System.Drawing.Size(222, 109)
-        Me.totalUser_pnl.TabIndex = 6
+        Me.totalUser_pnl.TabIndex = 9
         '
         'totalUser_lbl
         '
@@ -81,7 +81,7 @@ Partial Class DashboardForm
         Me.totalProduct_pnl.Location = New System.Drawing.Point(281, 53)
         Me.totalProduct_pnl.Name = "totalProduct_pnl"
         Me.totalProduct_pnl.Size = New System.Drawing.Size(222, 109)
-        Me.totalProduct_pnl.TabIndex = 5
+        Me.totalProduct_pnl.TabIndex = 8
         '
         'totalProduct_lbl
         '
@@ -103,7 +103,7 @@ Partial Class DashboardForm
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Total Product"
         '
-        'DashboardForm
+        'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -111,9 +111,8 @@ Partial Class DashboardForm
         Me.Controls.Add(Me.dg_dashboard)
         Me.Controls.Add(Me.totalUser_pnl)
         Me.Controls.Add(Me.totalProduct_pnl)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "DashboardForm"
-        Me.Text = "DashboardForm"
+        Me.Name = "Dashboard"
+        Me.Text = "Dashboard"
         CType(Me.dg_dashboard, System.ComponentModel.ISupportInitialize).EndInit()
         Me.totalUser_pnl.ResumeLayout(False)
         Me.totalUser_pnl.PerformLayout()

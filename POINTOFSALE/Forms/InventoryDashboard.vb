@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
 Public Class InventoryDashboard
+
+    'add product function'
     Private Sub add_btn_Click(sender As Object, e As EventArgs) Handles add_btn.Click
 
         Dim ct As String = cb_category.Text.Trim
@@ -72,10 +74,39 @@ Public Class InventoryDashboard
 
     End Sub
 
-    Public Sub search_product_TextChanged(sender As Object, e As EventArgs) Handles search_product.TextChanged
-        Dim productRepo As New ProductRepo()
-        'productRepo.SearchProduct(search_product.Text)
+    Public Sub SearchProductsByAlphabet(ByVal dgv As DataGridView, ByVal firstLetter As String)
+        Try
+            ' Ensure DataGridView is not empty
+            If dg_product.Rows.Count = 0 Then
+                MessageBox.Show("No products available to search.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+
+            ' Loop through all rows
+            For Each row As DataGridViewRow In dgv.Rows
+                If row.Cells("ProductName").Value IsNot Nothing Then
+                    Dim productName As String = row.Cells("ProductName").Value.ToString()
+
+                    ' Check if the product name starts with the specified letter
+                    If productName.StartsWith(firstLetter, StringComparison.OrdinalIgnoreCase) Then
+                        row.DefaultCellStyle.BackColor = Color.LightBlue ' Highlight matching rows
+                        row.Visible = True
+                    Else
+                        row.DefaultCellStyle.BackColor = Color.White
+                        row.Visible = False ' Hide non-matching rows
+                    End If
+                End If
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
+    Private Sub search_product_Click(sender As Object, e As EventArgs) Handles search_product.Click
+
+    End Sub
+
 
     Private Sub dg_product_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_product.CellClick
         ' Ensure the user is not clicking on the header row
@@ -94,7 +125,7 @@ Public Class InventoryDashboard
 
         End If
     End Sub
-    Private Sub update_btn_Click(sender As Object, e As EventArgs) Handles update_btn.Click
+    Private Sub update_btn_Click(sender As Object, e As EventArgs)
         ' Ensure a row is selected
         If dg_product.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = dg_product.SelectedRows(0)
@@ -113,17 +144,15 @@ Public Class InventoryDashboard
             MessageBox.Show("Please select a product to update.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
-
-    Private Sub delete_btn_Click(sender As Object, e As EventArgs) Handles delete_btn.Click
-
-    End Sub
-
     Private Sub expiry_date_ValueChanged(sender As Object, e As EventArgs) Handles expiry_date.ValueChanged
         expiry_date.Format = DateTimePickerFormat.Custom
         expiry_date.CustomFormat = "MM/dd/yyyy"
     End Sub
 
-    Private Sub dg_product_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_product.CellContentClick
+    Private Sub delete_btn_Click(sender As Object, e As EventArgs) Handles delete_btn.Click
 
     End Sub
 End Class
+
+
+

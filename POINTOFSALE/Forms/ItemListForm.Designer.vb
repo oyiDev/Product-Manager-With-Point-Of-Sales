@@ -48,7 +48,7 @@ Partial Class ItemListForm
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 12)
+        Me.Label1.Location = New System.Drawing.Point(12, 6)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(103, 27)
         Me.Label1.TabIndex = 0
@@ -219,7 +219,7 @@ Partial Class ItemListForm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ItemListForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Item List"

@@ -22,6 +22,7 @@ Partial Class InventoryDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InventoryDashboard))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.barcode_lbl = New System.Windows.Forms.Label()
@@ -44,10 +45,8 @@ Partial Class InventoryDashboard
         Me.search_product = New System.Windows.Forms.TextBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.add_btn = New System.Windows.Forms.Button()
-        Me.update_btn = New System.Windows.Forms.Button()
         Me.delete_btn = New System.Windows.Forms.Button()
         Me.addBox = New System.Windows.Forms.PictureBox()
-        Me.updateBox = New System.Windows.Forms.PictureBox()
         Me.deleteBox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.expiry_date = New System.Windows.Forms.DateTimePicker()
@@ -55,7 +54,6 @@ Partial Class InventoryDashboard
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updateBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,6 +69,7 @@ Partial Class InventoryDashboard
         '
         'PictureBox1
         '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(13, 14)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(46, 46)
@@ -240,6 +239,7 @@ Partial Class InventoryDashboard
         '
         'searchBox
         '
+        Me.searchBox.Image = CType(resources.GetObject("searchBox.Image"), System.Drawing.Image)
         Me.searchBox.Location = New System.Drawing.Point(651, 21)
         Me.searchBox.Name = "searchBox"
         Me.searchBox.Size = New System.Drawing.Size(30, 29)
@@ -249,6 +249,7 @@ Partial Class InventoryDashboard
         '
         'add_btn
         '
+        Me.add_btn.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.add_btn.Location = New System.Drawing.Point(228, 572)
@@ -256,32 +257,24 @@ Partial Class InventoryDashboard
         Me.add_btn.Size = New System.Drawing.Size(114, 36)
         Me.add_btn.TabIndex = 22
         Me.add_btn.Text = "Add"
-        Me.add_btn.UseVisualStyleBackColor = True
-        '
-        'update_btn
-        '
-        Me.update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.update_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.update_btn.Location = New System.Drawing.Point(396, 572)
-        Me.update_btn.Name = "update_btn"
-        Me.update_btn.Size = New System.Drawing.Size(121, 36)
-        Me.update_btn.TabIndex = 24
-        Me.update_btn.Text = "Update"
-        Me.update_btn.UseVisualStyleBackColor = True
+        Me.add_btn.UseVisualStyleBackColor = False
         '
         'delete_btn
         '
+        Me.delete_btn.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.delete_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete_btn.Location = New System.Drawing.Point(565, 572)
+        Me.delete_btn.Location = New System.Drawing.Point(357, 572)
         Me.delete_btn.Name = "delete_btn"
         Me.delete_btn.Size = New System.Drawing.Size(116, 36)
         Me.delete_btn.TabIndex = 25
         Me.delete_btn.Text = "Delete"
-        Me.delete_btn.UseVisualStyleBackColor = True
+        Me.delete_btn.UseVisualStyleBackColor = False
         '
         'addBox
         '
+        Me.addBox.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.addBox.Image = CType(resources.GetObject("addBox.Image"), System.Drawing.Image)
         Me.addBox.Location = New System.Drawing.Point(231, 576)
         Me.addBox.Name = "addBox"
         Me.addBox.Size = New System.Drawing.Size(30, 29)
@@ -289,18 +282,11 @@ Partial Class InventoryDashboard
         Me.addBox.TabIndex = 26
         Me.addBox.TabStop = False
         '
-        'updateBox
-        '
-        Me.updateBox.Location = New System.Drawing.Point(399, 576)
-        Me.updateBox.Name = "updateBox"
-        Me.updateBox.Size = New System.Drawing.Size(30, 29)
-        Me.updateBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.updateBox.TabIndex = 28
-        Me.updateBox.TabStop = False
-        '
         'deleteBox
         '
-        Me.deleteBox.Location = New System.Drawing.Point(568, 576)
+        Me.deleteBox.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.deleteBox.Image = CType(resources.GetObject("deleteBox.Image"), System.Drawing.Image)
+        Me.deleteBox.Location = New System.Drawing.Point(360, 576)
         Me.deleteBox.Name = "deleteBox"
         Me.deleteBox.Size = New System.Drawing.Size(30, 29)
         Me.deleteBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -333,10 +319,8 @@ Partial Class InventoryDashboard
         Me.Controls.Add(Me.expiry_date)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.deleteBox)
-        Me.Controls.Add(Me.updateBox)
         Me.Controls.Add(Me.addBox)
         Me.Controls.Add(Me.delete_btn)
-        Me.Controls.Add(Me.update_btn)
         Me.Controls.Add(Me.add_btn)
         Me.Controls.Add(Me.searchBox)
         Me.Controls.Add(Me.search_product)
@@ -367,7 +351,6 @@ Partial Class InventoryDashboard
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updateBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -396,10 +379,8 @@ Partial Class InventoryDashboard
     Friend WithEvents search_product As TextBox
     Friend WithEvents searchBox As PictureBox
     Friend WithEvents add_btn As Button
-    Friend WithEvents update_btn As Button
     Friend WithEvents delete_btn As Button
     Friend WithEvents addBox As PictureBox
-    Friend WithEvents updateBox As PictureBox
     Friend WithEvents deleteBox As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents expiry_date As DateTimePicker
