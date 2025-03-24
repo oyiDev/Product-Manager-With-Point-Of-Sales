@@ -1,11 +1,35 @@
 ﻿Public Class adminDashboard
-    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
-        btnDashboard.BackColor = Color.LightSteelBlue
+    Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        btnDashboard.FlatAppearance.BorderSize = 0
+        btnManageProduct.FlatAppearance.BorderSize = 0
+        btnManageStock.FlatAppearance.BorderSize = 0
+        btnManageSupplier.FlatAppearance.BorderSize = 0
+        btnManageUser.FlatAppearance.BorderSize = 0
+        btnExit.FlatAppearance.BorderSize = 0
+
+        btnDashboard.Focus()
+        btnDashboard.BackColor = Color.DodgerBlue
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
         btnManageSupplier.BackColor = Color.White
         btnManageUser.BackColor = Color.White
 
+        adminMainPanel.Controls.Clear()
+
+        Dashboard.TopLevel = False
+        Dashboard.FormBorderStyle = FormBorderStyle.None
+        Dashboard.Dock = DockStyle.Fill
+
+        adminMainPanel.Controls.Add(Dashboard)
+        Dashboard.Show()
+    End Sub
+
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+        btnDashboard.BackColor = Color.DodgerBlue
+        btnManageProduct.BackColor = Color.White
+        btnManageStock.BackColor = Color.White
+        btnManageSupplier.BackColor = Color.White
+        btnManageUser.BackColor = Color.White
 
         adminMainPanel.Controls.Clear()
 
@@ -18,12 +42,11 @@
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
-        btnDashboard.BackColor = Color.LightSteelBlue
-        btnManageProduct.BackColor = Color.White
+        btnDashboard.BackColor = Color.White
+        btnManageProduct.BackColor = Color.DodgerBlue
         btnManageStock.BackColor = Color.White
         btnManageSupplier.BackColor = Color.White
         btnManageUser.BackColor = Color.White
-
 
         adminMainPanel.Controls.Clear()
 
@@ -36,12 +59,11 @@
     End Sub
 
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
-        btnDashboard.BackColor = Color.LightSteelBlue
+        btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
-        btnManageStock.BackColor = Color.White
+        btnManageStock.BackColor = Color.DodgerBlue
         btnManageSupplier.BackColor = Color.White
         btnManageUser.BackColor = Color.White
-
 
         adminMainPanel.Controls.Clear()
 
@@ -54,12 +76,11 @@
     End Sub
 
     Private Sub btnManageSupplier_Click(sender As Object, e As EventArgs) Handles btnManageSupplier.Click
-        btnDashboard.BackColor = Color.LightSteelBlue
+        btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
-        btnManageSupplier.BackColor = Color.White
+        btnManageSupplier.BackColor = Color.DodgerBlue
         btnManageUser.BackColor = Color.White
-
 
         adminMainPanel.Controls.Clear()
 
@@ -71,8 +92,24 @@
         ManageSupplier.Show()
     End Sub
 
-    Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles exitBtn.Click
+    Private Sub btnManageUser_Click(sender As Object, e As EventArgs) Handles btnManageUser.Click
+        btnDashboard.BackColor = Color.White
+        btnManageProduct.BackColor = Color.White
+        btnManageStock.BackColor = Color.White
+        btnManageSupplier.BackColor = Color.White
+        btnManageUser.BackColor = Color.DodgerBlue
 
+        adminMainPanel.Controls.Clear()
+
+        ManageUser.TopLevel = False
+        ManageUser.FormBorderStyle = FormBorderStyle.None
+        ManageUser.Dock = DockStyle.Fill
+
+        adminMainPanel.Controls.Add(ManageUser)
+        ManageUser.Show()
+    End Sub
+
+    Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Dim res As Integer
         res = MessageBox.Show("Quit application?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
 

@@ -17,7 +17,7 @@
         Dim userRepo As New UserRepo
         Dim usertype As String = cbUsername.Text.ToLower.Trim
         Dim password As String = txtPassword.Text.ToLower.Trim
-        Dim userInfo As UserInfo = userRepo.GetUserRole(usertype, password)
+        Dim userInfo As UserInfo = UserRepo.GetUserRole(usertype, password)
 
         If password = "" Then
             MessageBox.Show("Enter password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -34,7 +34,7 @@
             MessageBox.Show("Welcome Cashier!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)
             POSForm.Show()
             POSForm.txtBarcode.Focus()
-            userRepo.DisplayUserInfo()
+            UserRepo.DisplayUserInfo()
             Me.Hide()
 
         Else

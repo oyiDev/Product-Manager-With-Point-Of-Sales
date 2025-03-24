@@ -362,26 +362,31 @@ Public Class OrderRepo
     End Sub
 
     Public Sub get_number()
-        Dim number As Integer = 0
+        Try
+            connect_me()
+            Dim number As Integer = 0
 
-        ' Loop through DataGridView to find the highest idCol value
-        For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
-            If Not row.IsNewRow AndAlso row.Cells("idCol").Value IsNot Nothing Then
-                Dim rowId As Integer
-                If Integer.TryParse(row.Cells("idCol").Value.ToString(), rowId) Then
-                    number = Math.Max(number, rowId)
+            ' Loop through DataGridView to find the highest idCol value
+            For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
+                If Not row.IsNewRow AndAlso row.Cells("idCol").Value IsNot Nothing Then
+                    Dim rowId As Integer
+                    If Integer.TryParse(row.Cells("idCol").Value.ToString(), rowId) Then
+                        number = Math.Max(number, rowId)
+                    End If
                 End If
+            Next
+
+            ' If DataGridView is empty, fetch max ID from the database
+            If number = 0 Then
+                Dim cmdnumber As New OdbcCommand("SELECT IFNULL(MAX(transaction_id), 0) FROM transactions", con)
+                number = Convert.ToInt32(cmdnumber.ExecuteScalar())
             End If
-        Next
 
-        ' If DataGridView is empty, fetch max ID from the database
-        If number = 0 Then
-            Dim cmdnumber As New OdbcCommand("SELECT IFNULL(MAX(transaction_id), 0) FROM transactions", con)
-            number = Convert.ToInt32(cmdnumber.ExecuteScalar())
-        End If
-
-        ' Assign the next transaction number
-        POSForm.txtnumber.Text = (number + 1).ToString()
+            ' Assign the next transaction number
+            POSForm.txtnumber.Text = (number + 1).ToString()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Public Sub get_id()

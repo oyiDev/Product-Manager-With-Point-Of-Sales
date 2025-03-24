@@ -1,5 +1,4 @@
 ﻿Public Class ItemListForm
-
     Private Sub ItemListForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
         ' Set font and color for all cells

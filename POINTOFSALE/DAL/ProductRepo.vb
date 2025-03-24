@@ -1,28 +1,18 @@
 ﻿Imports System.Data.Odbc
 
 Public Class ProductRepo
-    Public Sub LoadTotalUser()
-
+    Public Sub LoadTotalCount(tableName As String, label As Label)
         Try
-            Dim query As String = "SELECT COUNT(*) FROM users"
+            connect_me()
+            Dim query As String = $"SELECT COUNT(*) FROM {tableName}"
             Using cmd As New OdbcCommand(query, con)
-                Dim userCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-                Dashboard.totalUser_lbl.Text = userCount.ToString()
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                label.Text = count.ToString()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error fetching user count: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-    Public Sub LoadTotalProduct()
-
-        Try
-            Dim query As String = "SELECT COUNT(*) FROM products"
-            Using cmd As New OdbcCommand(query, con)
-                Dim userCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-                Dashboard.totalProduct_lbl.Text = userCount.ToString()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Error fetching user count: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show($"Error fetching total count from {tableName}: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
         End Try
     End Sub
 End Class

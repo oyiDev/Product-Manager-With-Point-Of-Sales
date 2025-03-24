@@ -1,5 +1,4 @@
 ﻿Imports System.Data.Odbc
-
 Public Class LoadItemData
     Public Sub LoadItemData(searchTerm As String)
         Try
