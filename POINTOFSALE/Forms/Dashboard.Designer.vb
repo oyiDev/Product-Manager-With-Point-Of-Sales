@@ -27,7 +27,7 @@ Partial Class Dashboard
         Me.totalUser_lbl = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.totalProduct_pnl = New System.Windows.Forms.Panel()
-        Me.totalProduct_lbl = New System.Windows.Forms.Label()
+        Me.LblTotalProduct = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
@@ -88,22 +88,22 @@ Partial Class Dashboard
         '
         Me.totalProduct_pnl.BackColor = System.Drawing.Color.DodgerBlue
         Me.totalProduct_pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.totalProduct_pnl.Controls.Add(Me.totalProduct_lbl)
+        Me.totalProduct_pnl.Controls.Add(Me.LblTotalProduct)
         Me.totalProduct_pnl.Controls.Add(Me.Label1)
         Me.totalProduct_pnl.Location = New System.Drawing.Point(16, 58)
         Me.totalProduct_pnl.Name = "totalProduct_pnl"
         Me.totalProduct_pnl.Size = New System.Drawing.Size(246, 109)
         Me.totalProduct_pnl.TabIndex = 8
         '
-        'totalProduct_lbl
+        'LblTotalProduct
         '
-        Me.totalProduct_lbl.AutoSize = True
-        Me.totalProduct_lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalProduct_lbl.Location = New System.Drawing.Point(17, 54)
-        Me.totalProduct_lbl.Name = "totalProduct_lbl"
-        Me.totalProduct_lbl.Size = New System.Drawing.Size(17, 18)
-        Me.totalProduct_lbl.TabIndex = 5
-        Me.totalProduct_lbl.Text = "0"
+        Me.LblTotalProduct.AutoSize = True
+        Me.LblTotalProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTotalProduct.Location = New System.Drawing.Point(17, 54)
+        Me.LblTotalProduct.Name = "LblTotalProduct"
+        Me.LblTotalProduct.Size = New System.Drawing.Size(17, 18)
+        Me.LblTotalProduct.TabIndex = 5
+        Me.LblTotalProduct.Text = "0"
         '
         'Label1
         '
@@ -222,7 +222,7 @@ Partial Class Dashboard
     Friend WithEvents totalUser_lbl As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents totalProduct_pnl As Panel
-    Friend WithEvents totalProduct_lbl As Label
+    Friend WithEvents LblTotalProduct As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents adminMainPanel As Panel

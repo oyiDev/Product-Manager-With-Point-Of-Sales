@@ -81,7 +81,7 @@ Partial Class AddUser
         Me.AddUserPanel.Controls.Add(Me.TxtId)
         Me.AddUserPanel.Controls.Add(Me.Label1)
         Me.AddUserPanel.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddUserPanel.Location = New System.Drawing.Point(29, 29)
+        Me.AddUserPanel.Location = New System.Drawing.Point(12, 12)
         Me.AddUserPanel.Name = "AddUserPanel"
         Me.AddUserPanel.Size = New System.Drawing.Size(613, 402)
         Me.AddUserPanel.TabIndex = 1
@@ -209,7 +209,7 @@ Partial Class AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(669, 469)
+        Me.ClientSize = New System.Drawing.Size(638, 432)
         Me.ControlBox = False
         Me.Controls.Add(Me.AddUserPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

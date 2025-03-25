@@ -31,6 +31,7 @@ Public Class UserRepo
                 cmd.Parameters.AddWithValue("?", role)
 
                 cmd.ExecuteNonQuery()
+                MessageBox.Show("User Added Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)

@@ -113,10 +113,10 @@
     <Compile Include="Forms\DiscountForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InventoryDashboard.Designer.vb">
-      <DependentUpon>InventoryDashboard.vb</DependentUpon>
+    <Compile Include="Forms\ManageProduct.Designer.vb">
+      <DependentUpon>ManageProduct.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InventoryDashboard.vb">
+    <Compile Include="Forms\ManageProduct.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ItemListForm.Designer.vb">
@@ -180,6 +180,12 @@
       <DependentUpon>LoginForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modals\AddProduct.Designer.vb">
+      <DependentUpon>AddProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modals\AddProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modals\AddUser.Designer.vb">
       <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
@@ -235,8 +241,8 @@
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InventoryDashboard.resx">
-      <DependentUpon>InventoryDashboard.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\ManageProduct.resx">
+      <DependentUpon>ManageProduct.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modals\AddProduct.resx">
+      <DependentUpon>AddProduct.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>

@@ -1,6 +1,4 @@
-﻿Imports System.Data.Odbc
-
-Public Class adminDashboard
+﻿Public Class adminDashboard
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnDashboard.FlatAppearance.BorderSize = 0
         btnManageProduct.FlatAppearance.BorderSize = 0
@@ -45,8 +43,10 @@ Public Class adminDashboard
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
-
-        RefreshMe()
+        Dim repo As New ProductRepo
+        repo.getProductData()
+        repo.WrapProductData()
+        'RefreshMe()
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.DodgerBlue
         btnManageStock.BackColor = Color.White
@@ -55,26 +55,22 @@ Public Class adminDashboard
 
         adminMainPanel.Controls.Clear()
 
-        InventoryDashboard.TopLevel = False
-        InventoryDashboard.FormBorderStyle = FormBorderStyle.None
-        InventoryDashboard.Dock = DockStyle.Fill
+        ManageProduct.TopLevel = False
+        ManageProduct.FormBorderStyle = FormBorderStyle.None
+        ManageProduct.Dock = DockStyle.Fill
 
-        adminMainPanel.Controls.Add(InventoryDashboard)
-        InventoryDashboard.Show()
+        adminMainPanel.Controls.Add(ManageProduct)
+        ManageProduct.Show()
     End Sub
 
-    Private Sub RefreshMe()
-
-        connect_me()
-
-        Dim mycmd As New OdbcCommand("select * from products", con)
-        Dim da As New OdbcDataAdapter(mycmd)
-        Dim ds As New Data.DataSet
-
-        da.Fill(ds, "products")
-        btnDashboard.Refresh()
-
-    End Sub
+    'Private Sub RefreshMe()
+    '    connect_me()
+    '    Dim mycmd As New OdbcCommand("select * from products", con)
+    '    Dim da As New OdbcDataAdapter(mycmd)
+    '    Dim ds As New Data.DataSet
+    '    da.Fill(ds, "products")
+    '    btnDashboard.Refresh()
+    'End Sub
 
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
         btnDashboard.BackColor = Color.White
