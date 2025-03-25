@@ -25,7 +25,7 @@ Public Class ProductRepo
         Else
             Try
                 ' Get selected user info
-                Dim selectedRow As DataGridViewRow = InventoryDashboard.dg_product.Rows(InventoryDashboard.dg_product.CurrentCell.RowIndex)
+                Dim selectedRow As DataGridViewRow = InventoryDashboard.DgProduct.Rows(InventoryDashboard.DgProduct.CurrentCell.RowIndex)
                 Dim barcode As String = selectedRow.Cells("barcode").Value.ToString()
 
                 ' Connect to the database and delete the user
@@ -48,6 +48,7 @@ Public Class ProductRepo
         End If
 
     End Sub
+
     Public Sub LoadUser()
         Try
             Dim mycmd As New OdbcCommand("SELECT id, category AS Category, barcode AS Barcode, genericname AS Genericname, brandname AS Brandname,
@@ -74,32 +75,43 @@ formula AS Formula, description AS Description, price AS Price, qty AS Qty, crea
         InventoryDashboard.DgProduct.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
     End Sub
 
+    Public Sub getProductData()
+        connect_me()
+        Dim mycmd As New OdbcCommand("select * from products", con)
+        Dim da As New OdbcDataAdapter(mycmd)
+        Dim ds As New Data.DataSet
+
+        da.Fill(ds, "products")
+
+        InventoryDashboard.DgProduct.DataSource = ds.Tables(0)
+        InventoryDashboard.DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        InventoryDashboard.DgProduct.RowsDefaultCellStyle.BackColor = Drawing.Color.White
+        'dg_transaction.AlternatingRowsDefaultCellStyle.BackColor = Drawing.Color.Gainsboro
+        InventoryDashboard.DgProduct.Refresh()
+    End Sub
+
     Public Sub SearchProduct(searchTerm As String)
         Try
             connect_me()
-            Dim query As String = "SELECT barcode, genericname, brandname, price, qty FROM products"
+            Dim query As String = "SELECT * FROM products WHERE barcode LIKE ? OR genericname LIKE ? OR brandname LIKE ? OR id LIKE ?"
 
-            If Not String.IsNullOrEmpty(searchTerm) Then
-                query &= " WHERE barcode LIKE ? OR genericname LIKE ? OR brandname LIKE ?"
-            End If
-
-            Dim cmd As New OdbcCommand(query, con)
-            If Not String.IsNullOrEmpty(searchTerm) Then
+            Using cmd As New OdbcCommand(query, con)
                 cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
                 cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
                 cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-            End If
-            Dim adapter As New OdbcDataAdapter(cmd)
-            Dim table As New DataTable()
-            adapter.Fill(table)
+                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
 
-            InventoryDashboard.DgProduct.Rows.Clear()
+                Dim adapter As New OdbcDataAdapter(cmd)
+                Dim table As New DataTable()
+                adapter.Fill(table)
 
-            For Each row As DataRow In table.Rows
-                InventoryDashboard.DgProduct.Rows.Add(row("barcode"), row("genericname"), row("brandname"), row("price"), row("qty"))
-            Next
+                InventoryDashboard.DgProduct.DataSource = table
+                InventoryDashboard.DgProduct.Refresh()
+            End Using
         Catch ex As Exception
             MessageBox.Show("Error Loading Item: " & ex.Message)
+        Finally
+            con.Close()
         End Try
     End Sub
 End Class

@@ -50,8 +50,8 @@ Public Class InventoryDashboard
 
             End With
             MessageBox.Show("Add product success!", "Add", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            RefreshMe()
+            Dim repo As New ProductRepo
+            repo.getProductData()
             cb_category.Enabled = True
             txt_barcode.Clear()
             txt_generic.Clear()
@@ -66,25 +66,10 @@ Public Class InventoryDashboard
             MessageBox.Show("Error Adding" & ex.Message)
         End Try
     End Sub
+
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        RefreshMe()
-    End Sub
-    Private Sub RefreshMe()
-
-        connect_me()
-
-        Dim mycmd As New OdbcCommand("select * from products", con)
-        Dim da As New OdbcDataAdapter(mycmd)
-        Dim ds As New Data.DataSet
-
-        da.Fill(ds, "products")
-
-        DgProduct.DataSource = ds.Tables(0)
-        DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        DgProduct.RowsDefaultCellStyle.BackColor = Drawing.Color.White
-        'dg_transaction.AlternatingRowsDefaultCellStyle.BackColor = Drawing.Color.Gainsboro
-        DgProduct.Refresh()
-
+        Dim repo As New ProductRepo
+        repo.getProductData()
     End Sub
 
     Public Sub SearchProductsByAlphabet(ByVal dgv As DataGridView, ByVal firstLetter As String)
