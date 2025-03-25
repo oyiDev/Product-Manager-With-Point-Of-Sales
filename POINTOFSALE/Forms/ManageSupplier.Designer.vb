@@ -36,60 +36,62 @@ Partial Class ManageSupplier
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.txt_Address = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.adminMainPanel = New System.Windows.Forms.Panel()
         CType(Me.dg_Supplier, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.adminMainPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'userId
         '
         Me.userId.AutoSize = True
         Me.userId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userId.Location = New System.Drawing.Point(213, 115)
+        Me.userId.Location = New System.Drawing.Point(13, 94)
         Me.userId.Name = "userId"
-        Me.userId.Size = New System.Drawing.Size(18, 16)
+        Me.userId.Size = New System.Drawing.Size(21, 16)
         Me.userId.TabIndex = 0
-        Me.userId.Text = "Id"
+        Me.userId.Text = "Id:"
         '
         'userName
         '
         Me.userName.AutoSize = True
         Me.userName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userName.Location = New System.Drawing.Point(213, 158)
+        Me.userName.Location = New System.Drawing.Point(13, 137)
         Me.userName.Name = "userName"
-        Me.userName.Size = New System.Drawing.Size(44, 16)
+        Me.userName.Size = New System.Drawing.Size(47, 16)
         Me.userName.TabIndex = 1
-        Me.userName.Text = "Name"
+        Me.userName.Text = "Name:"
         '
         'userContact
         '
         Me.userContact.AutoSize = True
         Me.userContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userContact.Location = New System.Drawing.Point(548, 111)
+        Me.userContact.Location = New System.Drawing.Point(242, 97)
         Me.userContact.Name = "userContact"
-        Me.userContact.Size = New System.Drawing.Size(46, 16)
+        Me.userContact.Size = New System.Drawing.Size(49, 16)
         Me.userContact.TabIndex = 2
-        Me.userContact.Text = "Phone"
+        Me.userContact.Text = "Phone:"
         '
         'supplier_Id
         '
-        Me.supplier_Id.Location = New System.Drawing.Point(267, 114)
+        Me.supplier_Id.Location = New System.Drawing.Point(67, 93)
         Me.supplier_Id.Name = "supplier_Id"
-        Me.supplier_Id.Size = New System.Drawing.Size(64, 20)
+        Me.supplier_Id.Size = New System.Drawing.Size(142, 20)
         Me.supplier_Id.TabIndex = 3
         '
         'txt_supplierName
         '
-        Me.txt_supplierName.Location = New System.Drawing.Point(267, 157)
+        Me.txt_supplierName.Location = New System.Drawing.Point(67, 136)
         Me.txt_supplierName.Name = "txt_supplierName"
-        Me.txt_supplierName.Size = New System.Drawing.Size(121, 20)
+        Me.txt_supplierName.Size = New System.Drawing.Size(142, 20)
         Me.txt_supplierName.TabIndex = 4
         '
         'txt_Phone
         '
-        Me.txt_Phone.Location = New System.Drawing.Point(602, 111)
+        Me.txt_Phone.Location = New System.Drawing.Point(306, 90)
         Me.txt_Phone.Name = "txt_Phone"
-        Me.txt_Phone.Size = New System.Drawing.Size(121, 20)
+        Me.txt_Phone.Size = New System.Drawing.Size(246, 20)
         Me.txt_Phone.TabIndex = 5
         '
         'dg_Supplier
@@ -97,18 +99,18 @@ Partial Class ManageSupplier
         Me.dg_Supplier.AllowUserToAddRows = False
         Me.dg_Supplier.BackgroundColor = System.Drawing.Color.White
         Me.dg_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Supplier.Location = New System.Drawing.Point(112, 210)
+        Me.dg_Supplier.Location = New System.Drawing.Point(19, 182)
         Me.dg_Supplier.Name = "dg_Supplier"
         Me.dg_Supplier.ReadOnly = True
-        Me.dg_Supplier.Size = New System.Drawing.Size(842, 311)
+        Me.dg_Supplier.Size = New System.Drawing.Size(833, 325)
         Me.dg_Supplier.TabIndex = 6
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(30, 21)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 20)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(45, 40)
+        Me.PictureBox1.Size = New System.Drawing.Size(46, 31)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
@@ -117,7 +119,7 @@ Partial Class ManageSupplier
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(81, 32)
+        Me.Label1.Location = New System.Drawing.Point(64, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(170, 18)
         Me.Label1.TabIndex = 8
@@ -125,10 +127,10 @@ Partial Class ManageSupplier
         '
         'add_supplierBtn
         '
-        Me.add_supplierBtn.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.add_supplierBtn.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.add_supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_supplierBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.add_supplierBtn.Location = New System.Drawing.Point(773, 536)
+        Me.add_supplierBtn.Location = New System.Drawing.Point(19, 538)
         Me.add_supplierBtn.Name = "add_supplierBtn"
         Me.add_supplierBtn.Size = New System.Drawing.Size(181, 32)
         Me.add_supplierBtn.TabIndex = 9
@@ -137,18 +139,18 @@ Partial Class ManageSupplier
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(782, 536)
+        Me.PictureBox2.Location = New System.Drawing.Point(28, 538)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(35, 31)
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 31)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 10
         Me.PictureBox2.TabStop = False
         '
         'txt_Address
         '
-        Me.txt_Address.Location = New System.Drawing.Point(612, 157)
+        Me.txt_Address.Location = New System.Drawing.Point(306, 136)
         Me.txt_Address.Name = "txt_Address"
         Me.txt_Address.Size = New System.Drawing.Size(246, 20)
         Me.txt_Address.TabIndex = 12
@@ -157,38 +159,51 @@ Partial Class ManageSupplier
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(548, 157)
+        Me.Label2.Location = New System.Drawing.Point(242, 140)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 16)
+        Me.Label2.Size = New System.Drawing.Size(61, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Address"
+        Me.Label2.Text = "Address:"
+        '
+        'adminMainPanel
+        '
+        Me.adminMainPanel.BackColor = System.Drawing.Color.White
+        Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.adminMainPanel.Controls.Add(Me.dg_Supplier)
+        Me.adminMainPanel.Controls.Add(Me.PictureBox2)
+        Me.adminMainPanel.Controls.Add(Me.txt_Address)
+        Me.adminMainPanel.Controls.Add(Me.add_supplierBtn)
+        Me.adminMainPanel.Controls.Add(Me.supplier_Id)
+        Me.adminMainPanel.Controls.Add(Me.Label1)
+        Me.adminMainPanel.Controls.Add(Me.Label2)
+        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
+        Me.adminMainPanel.Controls.Add(Me.userId)
+        Me.adminMainPanel.Controls.Add(Me.userName)
+        Me.adminMainPanel.Controls.Add(Me.userContact)
+        Me.adminMainPanel.Controls.Add(Me.txt_supplierName)
+        Me.adminMainPanel.Controls.Add(Me.txt_Phone)
+        Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
+        Me.adminMainPanel.Name = "adminMainPanel"
+        Me.adminMainPanel.Size = New System.Drawing.Size(875, 598)
+        Me.adminMainPanel.TabIndex = 13
         '
         'ManageSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 580)
-        Me.Controls.Add(Me.txt_Address)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.add_supplierBtn)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.dg_Supplier)
-        Me.Controls.Add(Me.txt_Phone)
-        Me.Controls.Add(Me.txt_supplierName)
-        Me.Controls.Add(Me.supplier_Id)
-        Me.Controls.Add(Me.userContact)
-        Me.Controls.Add(Me.userName)
-        Me.Controls.Add(Me.userId)
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.ClientSize = New System.Drawing.Size(875, 598)
+        Me.Controls.Add(Me.adminMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ManageSupplier"
         Me.Text = "SupplierDashboard"
         CType(Me.dg_Supplier, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.adminMainPanel.ResumeLayout(False)
+        Me.adminMainPanel.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -205,4 +220,5 @@ Partial Class ManageSupplier
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents txt_Address As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents adminMainPanel As Panel
 End Class

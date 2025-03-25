@@ -1,5 +1,4 @@
 ﻿Imports System.Data.Odbc
-
 Public Class LoadItemData
     Public Sub LoadItemData(searchTerm As String)
         Try
@@ -29,7 +28,7 @@ Public Class LoadItemData
             MessageBox.Show("Error Loading Item: " & ex.Message)
         End Try
     End Sub
-
+    ' value column
     Public Sub SelectItem()
         If ItemListForm.DgItemList.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewRow = ItemListForm.DgItemList.SelectedRows(0)
@@ -43,7 +42,7 @@ Public Class LoadItemData
             ItemListForm.Hide()
         End If
     End Sub
-
+    ' select * transactions
     Public Sub LoadAllTransactions()
         Try
             connect_me()

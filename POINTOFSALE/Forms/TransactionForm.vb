@@ -18,4 +18,8 @@
         dgRecordTrans.DefaultCellStyle.SelectionBackColor = selectionBackColor
         loadItem.LoadItemData("")
     End Sub
+
+    Private Sub dgRecordTrans_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgRecordTrans.CellContentClick
+
+    End Sub
 End Class

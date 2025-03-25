@@ -89,10 +89,22 @@
     <Compile Include="DAL\StopScan.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
+    <Compile Include="Forms\adminDashboard.Designer.vb">
+      <DependentUpon>adminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\adminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ConTransForm.Designer.vb">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\ConTransForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard.Designer.vb">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DiscountForm.Designer.vb">
@@ -123,6 +135,12 @@
       <DependentUpon>ManageSupplier.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\ManageSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageUser.Designer.vb">
+      <DependentUpon>ManageUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PaymentForm.Designer.vb">
@@ -162,6 +180,12 @@
       <DependentUpon>LoginForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modals\AddUser.Designer.vb">
+      <DependentUpon>AddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modals\AddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -199,11 +223,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\adminDashboard.resx">
+      <DependentUpon>adminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DashboardForm.resx">
-      <DependentUpon>DashboardForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
@@ -214,8 +241,14 @@
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageStock.resx">
+      <DependentUpon>ManageStock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageSupplier.resx">
       <DependentUpon>ManageSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageUser.resx">
+      <DependentUpon>ManageUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>
@@ -231,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modals\AddUser.resx">
+      <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -1,6 +1,8 @@
 ﻿Imports System.Data.Odbc
 Imports System.Data.SqlClient
 Public Class ManageStock
+    Private expiredate As Object
+
     Private Sub manageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect_me()
         Dim mycmd As New OdbcCommand("select category, genericname, expiredate, price, qty from products", con)
@@ -13,10 +15,6 @@ Public Class ManageStock
         dg_stock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg_stock.RowsDefaultCellStyle.BackColor = Drawing.Color.White
         dg_stock.Refresh()
-    End Sub
-
-    Private Sub dg_stock_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_stock.CellContentClick
-
     End Sub
 
     Private Sub dg_stock_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dg_stock.CellFormatting
@@ -62,9 +60,32 @@ Public Class ManageStock
     End Sub
 
     Private Sub pullout_Btn_Click(sender As Object, e As EventArgs) Handles pullout_Btn.Click
+        Dim today As Date = Date.Today
 
+        If dg_stock.Columns.Count = 0 Then
+            MessageBox.Show("No columns found in DataGridView.")
+            Exit Sub
+        End If
+
+        For Each col As DataGridViewColumn In dg_stock.Columns
+            Debug.Print(col.Name)
+        Next
+        If dg_stock.Columns.Contains("expiredate") Then
+            For i As Integer = dg_stock.Rows.Count - 1 To 0 Step -1
+                If dg_stock.Rows(i).Cells("expiredate").Value IsNot Nothing Then
+                    Dim expiredate As Date
+                    If Date.TryParse(dg_stock.Rows(i).Cells("expiredate").Value.ToString(), expiredate) Then
+                        If expiredate < today Then
+                            dg_stock.Rows(i).DefaultCellStyle.BackColor = Drawing.Color.Red
+                            dg_stock.Rows.RemoveAt(i)
+                        End If
+                    Else
+                        MessageBox.Show("Invalid date format in row " & i)
+                    End If
+                End If
+            Next
+        Else
+            MessageBox.Show("No expiry date column found in DataGridView.")
+        End If
     End Sub
 End Class
-
-
-
