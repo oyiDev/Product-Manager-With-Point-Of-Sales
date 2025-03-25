@@ -45,7 +45,7 @@ Partial Class InventoryDashboard
         Me.search_product = New System.Windows.Forms.TextBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.add_btn = New System.Windows.Forms.Button()
-        Me.delete_btn = New System.Windows.Forms.Button()
+        Me.refillBtn = New System.Windows.Forms.Button()
         Me.addBox = New System.Windows.Forms.PictureBox()
         Me.deleteBox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -262,17 +262,17 @@ Partial Class InventoryDashboard
         Me.add_btn.Text = "Add"
         Me.add_btn.UseVisualStyleBackColor = False
         '
-        'delete_btn
+        'refillBtn
         '
-        Me.delete_btn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.delete_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete_btn.Location = New System.Drawing.Point(349, 482)
-        Me.delete_btn.Name = "delete_btn"
-        Me.delete_btn.Size = New System.Drawing.Size(116, 36)
-        Me.delete_btn.TabIndex = 25
-        Me.delete_btn.Text = "Delete"
-        Me.delete_btn.UseVisualStyleBackColor = False
+        Me.refillBtn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.refillBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.refillBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.refillBtn.Location = New System.Drawing.Point(349, 482)
+        Me.refillBtn.Name = "refillBtn"
+        Me.refillBtn.Size = New System.Drawing.Size(116, 36)
+        Me.refillBtn.TabIndex = 25
+        Me.refillBtn.Text = "Refill"
+        Me.refillBtn.UseVisualStyleBackColor = False
         '
         'addBox
         '
@@ -324,7 +324,7 @@ Partial Class InventoryDashboard
         Me.adminMainPanel.Controls.Add(Me.expiry_date)
         Me.adminMainPanel.Controls.Add(Me.addBox)
         Me.adminMainPanel.Controls.Add(Me.Label1)
-        Me.adminMainPanel.Controls.Add(Me.delete_btn)
+        Me.adminMainPanel.Controls.Add(Me.refillBtn)
         Me.adminMainPanel.Controls.Add(Me.add_btn)
         Me.adminMainPanel.Controls.Add(Me.Label2)
         Me.adminMainPanel.Controls.Add(Me.barcode_lbl)
@@ -403,7 +403,7 @@ Partial Class InventoryDashboard
     Friend WithEvents search_product As TextBox
     Friend WithEvents searchBox As PictureBox
     Friend WithEvents add_btn As Button
-    Friend WithEvents delete_btn As Button
+    Friend WithEvents refillBtn As Button
     Friend WithEvents addBox As PictureBox
     Friend WithEvents deleteBox As PictureBox
     Friend WithEvents Label2 As Label

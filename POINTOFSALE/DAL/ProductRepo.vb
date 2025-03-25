@@ -1,5 +1,5 @@
 ﻿Imports System.Data.Odbc
-
+Imports System.Data.SqlClient
 Public Class ProductRepo
     Public Sub LoadTotalCount(tableName As String, label As Label)
         Try
@@ -113,6 +113,10 @@ formula AS Formula, description AS Description, price AS Price, qty AS Qty, crea
         Finally
             con.Close()
         End Try
+    End Sub
+
+    Public Sub RefillProduct(productID As Integer, quantity As Integer)
+
     End Sub
 End Class
 

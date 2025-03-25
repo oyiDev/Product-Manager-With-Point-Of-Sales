@@ -31,12 +31,16 @@ Partial Class Dashboard
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.total_Supplierlbl = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.dg_dashboard, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.totalUser_pnl.SuspendLayout()
         Me.totalProduct_pnl.SuspendLayout()
         Me.adminMainPanel.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,7 +59,7 @@ Partial Class Dashboard
         Me.totalUser_pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.totalUser_pnl.Controls.Add(Me.totalUser_lbl)
         Me.totalUser_pnl.Controls.Add(Me.Label3)
-        Me.totalUser_pnl.Location = New System.Drawing.Point(285, 58)
+        Me.totalUser_pnl.Location = New System.Drawing.Point(305, 58)
         Me.totalUser_pnl.Name = "totalUser_pnl"
         Me.totalUser_pnl.Size = New System.Drawing.Size(253, 109)
         Me.totalUser_pnl.TabIndex = 9
@@ -125,6 +129,7 @@ Partial Class Dashboard
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.adminMainPanel.Controls.Add(Me.Panel2)
         Me.adminMainPanel.Controls.Add(Me.dg_dashboard)
         Me.adminMainPanel.Controls.Add(Me.Label2)
         Me.adminMainPanel.Controls.Add(Me.Panel1)
@@ -135,6 +140,37 @@ Partial Class Dashboard
         Me.adminMainPanel.Name = "adminMainPanel"
         Me.adminMainPanel.Size = New System.Drawing.Size(896, 626)
         Me.adminMainPanel.TabIndex = 12
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightBlue
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.total_Supplierlbl)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Location = New System.Drawing.Point(602, 58)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(253, 109)
+        Me.Panel2.TabIndex = 10
+        '
+        'total_Supplierlbl
+        '
+        Me.total_Supplierlbl.AutoSize = True
+        Me.total_Supplierlbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.total_Supplierlbl.Location = New System.Drawing.Point(21, 54)
+        Me.total_Supplierlbl.Name = "total_Supplierlbl"
+        Me.total_Supplierlbl.Size = New System.Drawing.Size(17, 18)
+        Me.total_Supplierlbl.TabIndex = 7
+        Me.total_Supplierlbl.Text = "0"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(21, 24)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(112, 18)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "Total Supplier"
         '
         'Panel1
         '
@@ -173,6 +209,8 @@ Partial Class Dashboard
         Me.totalProduct_pnl.PerformLayout()
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -190,4 +228,7 @@ Partial Class Dashboard
     Friend WithEvents adminMainPanel As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label6 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents total_Supplierlbl As Label
+    Friend WithEvents Label5 As Label
 End Class

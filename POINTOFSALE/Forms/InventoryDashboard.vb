@@ -147,9 +147,8 @@ Public Class InventoryDashboard
         expiry_date.CustomFormat = "MM/dd/yyyy"
     End Sub
 
-    Private Sub delete_btn_Click(sender As Object, e As EventArgs) Handles delete_btn.Click
-        Dim repo As New ProductRepo
-        repo.DeleteProduct()
+    Private Sub refillBtn_Click(sender As Object, e As EventArgs) Handles refillBtn.Click
+
     End Sub
 
     Private Sub search_product_TextChanged(sender As Object, e As EventArgs) Handles search_product.TextChanged
