@@ -1,4 +1,6 @@
-﻿Public Class adminDashboard
+﻿Imports System.Data.Odbc
+
+Public Class adminDashboard
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnDashboard.FlatAppearance.BorderSize = 0
         btnManageProduct.FlatAppearance.BorderSize = 0
@@ -25,6 +27,7 @@
     End Sub
 
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+
         btnDashboard.BackColor = Color.DodgerBlue
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
@@ -42,6 +45,8 @@
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
+
+        RefreshMe()
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.DodgerBlue
         btnManageStock.BackColor = Color.White
@@ -56,6 +61,19 @@
 
         adminMainPanel.Controls.Add(InventoryDashboard)
         InventoryDashboard.Show()
+    End Sub
+
+    Private Sub RefreshMe()
+
+        connect_me()
+
+        Dim mycmd As New OdbcCommand("select * from products", con)
+        Dim da As New OdbcDataAdapter(mycmd)
+        Dim ds As New Data.DataSet
+
+        da.Fill(ds, "products")
+        btnDashboard.Refresh()
+
     End Sub
 
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
@@ -93,6 +111,7 @@
     End Sub
 
     Private Sub btnManageUser_Click(sender As Object, e As EventArgs) Handles btnManageUser.Click
+
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
@@ -108,7 +127,6 @@
         adminMainPanel.Controls.Add(ManageUser)
         ManageUser.Show()
     End Sub
-
     Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Dim res As Integer
         res = MessageBox.Show("Quit application?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)

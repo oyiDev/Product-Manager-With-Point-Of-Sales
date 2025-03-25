@@ -150,7 +150,6 @@ Partial Class ItemListForm
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgItemList.DefaultCellStyle = DataGridViewCellStyle3
         Me.DgItemList.Location = New System.Drawing.Point(11, 43)
-        Me.DgItemList.MultiSelect = False
         Me.DgItemList.Name = "DgItemList"
         Me.DgItemList.ReadOnly = True
         Me.DgItemList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders

@@ -108,9 +108,9 @@ Partial Class ManageSupplier
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 20)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(45, 40)
+        Me.PictureBox1.Size = New System.Drawing.Size(46, 31)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
@@ -130,7 +130,7 @@ Partial Class ManageSupplier
         Me.add_supplierBtn.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.add_supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_supplierBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.add_supplierBtn.Location = New System.Drawing.Point(671, 536)
+        Me.add_supplierBtn.Location = New System.Drawing.Point(19, 538)
         Me.add_supplierBtn.Name = "add_supplierBtn"
         Me.add_supplierBtn.Size = New System.Drawing.Size(181, 32)
         Me.add_supplierBtn.TabIndex = 9
@@ -141,9 +141,9 @@ Partial Class ManageSupplier
         '
         Me.PictureBox2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(671, 536)
+        Me.PictureBox2.Location = New System.Drawing.Point(28, 538)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(35, 31)
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 31)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 10
         Me.PictureBox2.TabStop = False

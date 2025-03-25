@@ -33,7 +33,7 @@ Partial Class InventoryDashboard
         Me.description_lbl = New System.Windows.Forms.Label()
         Me.price_lbl = New System.Windows.Forms.Label()
         Me.qty_lbl = New System.Windows.Forms.Label()
-        Me.dg_product = New System.Windows.Forms.DataGridView()
+        Me.DgProduct = New System.Windows.Forms.DataGridView()
         Me.txt_barcode = New System.Windows.Forms.TextBox()
         Me.txt_generic = New System.Windows.Forms.TextBox()
         Me.cb_category = New System.Windows.Forms.ComboBox()
@@ -51,8 +51,9 @@ Partial Class InventoryDashboard
         Me.Label2 = New System.Windows.Forms.Label()
         Me.expiry_date = New System.Windows.Forms.DateTimePicker()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.LblAction = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dg_product, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,9 +73,9 @@ Partial Class InventoryDashboard
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(14, 26)
+        Me.PictureBox1.Location = New System.Drawing.Point(24, 26)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(46, 46)
+        Me.PictureBox1.Size = New System.Drawing.Size(41, 38)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -159,19 +160,19 @@ Partial Class InventoryDashboard
         Me.qty_lbl.TabIndex = 9
         Me.qty_lbl.Text = "Qty"
         '
-        'dg_product
+        'DgProduct
         '
-        Me.dg_product.AllowUserToAddRows = False
-        Me.dg_product.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dg_product.BackgroundColor = System.Drawing.Color.White
-        Me.dg_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_product.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dg_product.Location = New System.Drawing.Point(229, 135)
-        Me.dg_product.Name = "dg_product"
-        Me.dg_product.ReadOnly = True
-        Me.dg_product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_product.Size = New System.Drawing.Size(628, 317)
-        Me.dg_product.TabIndex = 10
+        Me.DgProduct.AllowUserToAddRows = False
+        Me.DgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgProduct.BackgroundColor = System.Drawing.Color.White
+        Me.DgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgProduct.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DgProduct.Location = New System.Drawing.Point(229, 135)
+        Me.DgProduct.Name = "DgProduct"
+        Me.DgProduct.ReadOnly = True
+        Me.DgProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgProduct.Size = New System.Drawing.Size(628, 317)
+        Me.DgProduct.TabIndex = 10
         '
         'txt_barcode
         '
@@ -317,6 +318,7 @@ Partial Class InventoryDashboard
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.adminMainPanel.Controls.Add(Me.LblAction)
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
         Me.adminMainPanel.Controls.Add(Me.deleteBox)
         Me.adminMainPanel.Controls.Add(Me.expiry_date)
@@ -330,7 +332,7 @@ Partial Class InventoryDashboard
         Me.adminMainPanel.Controls.Add(Me.category_lbl)
         Me.adminMainPanel.Controls.Add(Me.search_product)
         Me.adminMainPanel.Controls.Add(Me.gen_lbl)
-        Me.adminMainPanel.Controls.Add(Me.dg_product)
+        Me.adminMainPanel.Controls.Add(Me.DgProduct)
         Me.adminMainPanel.Controls.Add(Me.brand_lbl)
         Me.adminMainPanel.Controls.Add(Me.formulation_lbl)
         Me.adminMainPanel.Controls.Add(Me.description_lbl)
@@ -350,6 +352,14 @@ Partial Class InventoryDashboard
         Me.adminMainPanel.Size = New System.Drawing.Size(875, 598)
         Me.adminMainPanel.TabIndex = 32
         '
+        'LblAction
+        '
+        Me.LblAction.AutoSize = True
+        Me.LblAction.Location = New System.Drawing.Point(246, 40)
+        Me.LblAction.Name = "LblAction"
+        Me.LblAction.Size = New System.Drawing.Size(0, 13)
+        Me.LblAction.TabIndex = 32
+        '
         'InventoryDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,7 +371,7 @@ Partial Class InventoryDashboard
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InventoryDashboard"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dg_product, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -381,7 +391,7 @@ Partial Class InventoryDashboard
     Friend WithEvents description_lbl As Label
     Friend WithEvents price_lbl As Label
     Friend WithEvents qty_lbl As Label
-    Friend WithEvents dg_product As DataGridView
+    Friend WithEvents DgProduct As DataGridView
     Friend WithEvents txt_barcode As TextBox
     Friend WithEvents txt_generic As TextBox
     Friend WithEvents cb_category As ComboBox
@@ -399,4 +409,5 @@ Partial Class InventoryDashboard
     Friend WithEvents Label2 As Label
     Friend WithEvents expiry_date As DateTimePicker
     Friend WithEvents adminMainPanel As Panel
+    Friend WithEvents LblAction As Label
 End Class

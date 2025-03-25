@@ -14,6 +14,21 @@ Public Class InventoryDashboard
         Dim qt As String = txt_qty.Text.Trim
         Dim ed As Date = expiry_date.Value
 
+        If String.IsNullOrWhiteSpace(ct) OrElse
+       String.IsNullOrWhiteSpace(br) OrElse
+       String.IsNullOrWhiteSpace(gn) OrElse
+       String.IsNullOrWhiteSpace(bn) OrElse
+       String.IsNullOrWhiteSpace(fm) OrElse
+       String.IsNullOrWhiteSpace(dp) OrElse
+       String.IsNullOrWhiteSpace(pr) OrElse
+       String.IsNullOrWhiteSpace(qt) Then
+
+            ' Show error message
+            MessageBox.Show("Please fill in all fields before adding a product.",
+                        "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub ' Stop execution if validation fails
+        End If
+
         Try
             connect_me()
             Dim mycmd As New OdbcCommand
@@ -50,9 +65,7 @@ Public Class InventoryDashboard
             Console.WriteLine("Error" & ex.Message)
             MessageBox.Show("Error Adding" & ex.Message)
         End Try
-
     End Sub
-
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefreshMe()
     End Sub
@@ -66,18 +79,18 @@ Public Class InventoryDashboard
 
         da.Fill(ds, "products")
 
-        dg_product.DataSource = ds.Tables(0)
-        dg_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dg_product.RowsDefaultCellStyle.BackColor = Drawing.Color.White
+        DgProduct.DataSource = ds.Tables(0)
+        DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        DgProduct.RowsDefaultCellStyle.BackColor = Drawing.Color.White
         'dg_transaction.AlternatingRowsDefaultCellStyle.BackColor = Drawing.Color.Gainsboro
-        dg_product.Refresh()
+        DgProduct.Refresh()
 
     End Sub
 
     Public Sub SearchProductsByAlphabet(ByVal dgv As DataGridView, ByVal firstLetter As String)
         Try
             ' Ensure DataGridView is not empty
-            If dg_product.Rows.Count = 0 Then
+            If DgProduct.Rows.Count = 0 Then
                 MessageBox.Show("No products available to search.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
@@ -104,14 +117,14 @@ Public Class InventoryDashboard
     End Sub
 
     Private Sub search_product_Click(sender As Object, e As EventArgs) Handles search_product.Click
-
+        Dim loadItem As New LoadItemData
+        loadItem.LoadItemData(search_product.Text.Trim())
     End Sub
 
-
-    Private Sub dg_product_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_product.CellClick
+    Private Sub dg_product_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgProduct.CellClick
         ' Ensure the user is not clicking on the header row
         If e.RowIndex >= 0 Then
-            Dim row As DataGridViewRow = dg_product.Rows(e.RowIndex)
+            Dim row As DataGridViewRow = DgProduct.Rows(e.RowIndex)
 
             ' Populate textboxes with the selected row's data
             cb_category.Text = row.Cells("category").Value.ToString()
@@ -127,8 +140,8 @@ Public Class InventoryDashboard
     End Sub
     Private Sub update_btn_Click(sender As Object, e As EventArgs)
         ' Ensure a row is selected
-        If dg_product.SelectedRows.Count > 0 Then
-            Dim selectedRow As DataGridViewRow = dg_product.SelectedRows(0)
+        If DgProduct.SelectedRows.Count > 0 Then
+            Dim selectedRow As DataGridViewRow = DgProduct.SelectedRows(0)
 
             ' Update DataGridView with new values
             selectedRow.Cells("category").Value = cb_category.Text
@@ -150,7 +163,13 @@ Public Class InventoryDashboard
     End Sub
 
     Private Sub delete_btn_Click(sender As Object, e As EventArgs) Handles delete_btn.Click
+        Dim repo As New ProductRepo
+        repo.DeleteProduct()
+    End Sub
 
+    Private Sub search_product_TextChanged(sender As Object, e As EventArgs) Handles search_product.TextChanged
+        Dim repo As New ProductRepo
+        repo.SearchProduct(search_product.Text.Trim())
     End Sub
 End Class
 
