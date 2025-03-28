@@ -4,6 +4,7 @@ Public Class OrderRepo
 
     Dim cmd As OdbcCommand
     Dim reader As OdbcDataReader
+    Dim repo As New UserInfo
 
     Public Sub ScanProduct(barcode As String)
         Dim timeNow As DateTime = DateTime.Now ' Get current time
@@ -22,6 +23,7 @@ Public Class OrderRepo
         Dim query As String = "SELECT barcode, genericname, price, qty, (price * qty) as amount FROM products WHERE barcode = ?"
 
         Try
+            connect_me()
             cmd = New OdbcCommand(query, con)
             cmd.Parameters.AddWithValue("?", barcode)
             reader = cmd.ExecuteReader()
@@ -59,11 +61,11 @@ Public Class OrderRepo
                 MessageBox.Show("Prouct not found", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MessageBox.Show("Error Fetching Product: ", "Error", MessageBoxButtons.OK, CType(MessageBoxIcon.Error & ex.Message, MessageBoxIcon))
+            MessageBox.Show("Error Fetching Product: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub UpdateTransactionTotal()
+    Public Sub UpdateTransactionTotal()
         Dim subTotal As Decimal = 0
 
         ' Calculate the subtotal
@@ -71,18 +73,17 @@ Public Class OrderRepo
             subTotal += Convert.ToDecimal(row.Cells("amountCol").Value)
         Next
 
-        ' Calculate tax 12% VAT
-        Dim taxRate As Decimal = 0.12
-        Dim tax As Decimal = subTotal * taxRate
+        Dim netAmount As Decimal = subTotal / 1.12
+        Dim tax As Decimal = netAmount * 0.12
 
         ' Calculate total amount
-        Dim totalAmount As Decimal = subTotal + tax
+        Dim totalAmount As Decimal = subTotal + tax ' Total remains the same
 
         ' Display the calculated values
         POSForm.txtTransSubtotal.Text = "₱ " & subTotal.ToString("N2")
         PaymentForm.txtAmount.Text = "₱ " & subTotal.ToString("N2")
         PaymentForm.txtCash.Text = totalAmount.ToString("N2")
-        PaymentForm.txtChange.Text = "₱ 00.00"
+        PaymentForm.txtChange.Text = "₱ 0.00"
         PaymentForm.TxtVat.Text = "₱ " & tax.ToString("N2")
         PaymentForm.txtGtotal.Text = "₱ " & totalAmount.ToString("N2")
     End Sub
@@ -90,32 +91,35 @@ Public Class OrderRepo
     Public Sub TransactionWithDiscount()
         Dim subTotal As Decimal = 0
 
-        ' Calculate the subtotal
+        ' Calculate the subtotal from DataGridView
         For Each row As DataGridViewRow In POSForm.dgTransaction.Rows
             subTotal += Convert.ToDecimal(row.Cells("amountCol").Value)
         Next
 
-        ' Apply discount of 20%
+        ' Step 1: Remove VAT (Get VAT-exclusive price)
+        Dim basePrice As Decimal = subTotal / 1.12  ' Removes 12% VAT
+
+        ' Step 2: Apply Senior Citizen / PWD 20% Discount
         Dim discountPercentage As Decimal = 0.2
-        Dim discount As Decimal = subTotal * discountPercentage
-        Dim subtotalAfterDiscount As Decimal = subTotal - discount
+        Dim discount As Decimal = basePrice * discountPercentage
+        Dim subtotalAfterDiscount As Decimal = basePrice - discount
 
-        ' Calculate tax 12% VAT
-        Dim taxRate As Decimal = 0.12
-        Dim tax As Decimal = subtotalAfterDiscount * taxRate
-
-        ' Calculate total amount
-        Dim totalAmount As Decimal = subtotalAfterDiscount + tax
+        ' Step 3: NO VAT is added back because SC/PWD are VAT-exempt
+        Dim totalAmount As Decimal = subtotalAfterDiscount  ' This is the final price
 
         ' Display the calculated values
-        POSForm.txtTransSubtotal.Text = "₱ " & subTotal.ToString("N2")
-        PaymentForm.txtAmount.Text = "₱ " & subTotal.ToString("N2")
-        PaymentForm.txtCash.Text = totalAmount.ToString("N2")
-        PaymentForm.txtChange.Text = "₱ " & discountPercentage.ToString("N2")
-        PaymentForm.txtDiscount.Text = "₱ " & discount.ToString("N2")
-        PaymentForm.TxtVat.Text = "₱ " & tax.ToString("N2")
-        PaymentForm.txtGtotal.Text = "₱ " & totalAmount.ToString("N2")
+        POSForm.txtTransSubtotal.Text = "₱ " & subTotal.ToString("N2") ' Original price with VAT
+        PaymentForm.txtAmount.Text = "₱ " & basePrice.ToString("N2") ' VAT-exclusive price
+        PaymentForm.txtDiscount.Text = "₱ " & discount.ToString("N2") ' Discount amount
+        PaymentForm.TxtVat.Text = "₱ 0.00" ' No VAT is charged after discount
+        PaymentForm.txtGtotal.Text = "₱ " & totalAmount.ToString("N2") ' Final amount (No VAT added)
+
+        ' If handling cash payment (Optional)
+        Dim cashReceived As Decimal = Convert.ToDecimal(PaymentForm.txtCash.Text)
+        Dim change As Decimal = cashReceived - totalAmount
+        PaymentForm.txtChange.Text = "₱ " & change.ToString("N2") ' Display change amount
     End Sub
+
     Public Sub RecordCashOut()
         Try
             Dim query As String = "INSERT INTO cashout (id, name, user_type, created_at, amount, remarks) VALUES (?, ?, ?, ?, ?, ?)"
@@ -123,7 +127,7 @@ Public Class OrderRepo
                 ' Add parameters in correct order
                 cmd.Parameters.AddWithValue("?", DiscountForm.lblid.Text.Trim().ToString)
                 cmd.Parameters.AddWithValue("?", POSForm.txtFullName.Text.Trim().ToString)
-                cmd.Parameters.AddWithValue("?", LoginForm.cbUsername.Text.Trim().ToLower.ToString)
+                cmd.Parameters.AddWithValue("?", repo.Role)
                 cmd.Parameters.AddWithValue("?", DateAndTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt"))
                 cmd.Parameters.AddWithValue("?", Convert.ToDecimal(DiscountForm.TxtIdNum.Text.Trim).ToString())
                 cmd.Parameters.AddWithValue("?", DiscountForm.TxtName.Text.Trim().ToLower)
@@ -151,37 +155,6 @@ Public Class OrderRepo
         Catch ex As Exception
             MessageBox.Show("Failed to open cash drawer: " & ex.Message, "Printer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-    End Sub
-
-    Public Sub AddDiscount()
-        Dim name As String = DiscountForm.TxtName.Text.Trim.ToLower()
-        Dim id As String = DiscountForm.TxtIdNum.Text.Trim.ToLower()
-
-        If name = "" Then
-            MessageBox.Show("Enter Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        ElseIf id = "" Then
-            MessageBox.Show("Enter ID Number", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        Else
-            If DiscountForm.lbldisType.Text = "SENIOR" Then
-                MessageBox.Show("The SENIOR discount is 20%")
-                TransactionWithDiscount()
-                PaymentForm.Enabled = True
-                PaymentForm.txtCash.Focus()
-                DiscountForm.Hide()
-                DiscountForm.TxtName.Clear()
-                DiscountForm.TxtIdNum.Clear()
-            ElseIf DiscountForm.lbldisType.Text = "PWD" Then
-                MessageBox.Show("The PWD discount is 20%")
-                TransactionWithDiscount()
-                PaymentForm.Enabled = True
-                PaymentForm.txtCash.Focus()
-                DiscountForm.Hide()
-                DiscountForm.TxtName.Clear()
-                DiscountForm.TxtIdNum.Clear()
-            Else
-                RecordCashOut()
-            End If
-        End If
     End Sub
 
     Public Sub UpdateSubtotal(amount As Decimal)
@@ -276,6 +249,9 @@ Public Class OrderRepo
             Dim newQty As Integer
             Dim input As String
 
+            ' Retrieve the quantity from the ItemListForm
+            Dim itemQty As Integer = GetItemQuantityFromItemListForm(barcode)
+
             Do
                 input = InputBox("Enter new quantity:", "Edit Quantity", selectedRow.Cells("qtyCol").Value.ToString())
                 If String.IsNullOrEmpty(input) Then
@@ -285,8 +261,13 @@ Public Class OrderRepo
                     POSForm.txtBarcode.Focus()
                     Exit Sub
                 ElseIf Integer.TryParse(input, newQty) AndAlso newQty > 0 Then
-                    EditProductQuantity(barcode, newQty)
-                    Exit Do
+                    ' Compare the input quantity with the item quantity
+                    If newQty > itemQty Then
+                        MessageBox.Show("The item stock is " & itemQty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Else
+                        EditProductQuantity(barcode, newQty)
+                        Exit Do
+                    End If
                 Else
                     MessageBox.Show("Invalid quantity entered. Please enter a valid whole number greater than 0.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
@@ -295,6 +276,15 @@ Public Class OrderRepo
             MessageBox.Show("Please select a product to edit.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Function GetItemQuantityFromItemListForm(barcode As String) As Integer
+        For Each row As DataGridViewRow In ItemListForm.DgItemList.Rows
+            If row.Cells("barcodeCol").Value IsNot Nothing AndAlso row.Cells("barcodeCol").Value.ToString() = barcode Then
+                Return Convert.ToInt32(row.Cells("qtyCol").Value)
+            End If
+        Next
+        Return 0
+    End Function
 
     Public Sub EditProductQuantity(barcode As String, newQty As Integer)
         For Each row As DataGridViewRow In POSForm.dgTransaction.Rows
@@ -314,8 +304,8 @@ Public Class OrderRepo
 
     Public Sub AddTransaction()
         Try
-            Dim usertype1 As String = LoginForm.cbUsername.Text.ToLower.Trim
-            Dim password As String = LoginForm.txtPassword.Text.ToLower.Trim
+            Dim usertype1 As String = repo.Role
+            Dim password As String = LoginForm.TxtPassword.Text.ToLower.Trim
 
             Dim userRepo As New UserRepo()
             Dim userInfo As UserInfo = userRepo.GetUserRole(usertype1, password)
@@ -355,7 +345,6 @@ Public Class OrderRepo
             Next
 
             MessageBox.Show("Transactions saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -390,6 +379,7 @@ Public Class OrderRepo
     End Sub
 
     Public Sub get_id()
+        connect_me()
         Dim number As Integer = 0
 
         If number = 0 Then
@@ -435,31 +425,31 @@ Public Class OrderRepo
             End Using
 
             ' Get Denomination Breakdown
-            If Not Integer.TryParse(ReadingForm.p1000.Text.Trim, P1000) Then P1000 = 0
-            If Not Integer.TryParse(ReadingForm.p500.Text.Trim, P500) Then P500 = 0
-            If Not Integer.TryParse(ReadingForm.p200.Text.Trim, P200) Then P200 = 0
-            If Not Integer.TryParse(ReadingForm.p100.Text.Trim, P100) Then P100 = 0
-            If Not Integer.TryParse(ReadingForm.p50.Text.Trim, P50) Then P50 = 0
-            If Not Integer.TryParse(ReadingForm.c20.Text.Trim, C20) Then C20 = 0
-            If Not Integer.TryParse(ReadingForm.c10.Text.Trim, C10) Then C10 = 0
-            If Not Integer.TryParse(ReadingForm.c5.Text.Trim, C5) Then C5 = 0
-            If Not Integer.TryParse(ReadingForm.c1.Text.Trim, C1) Then C1 = 0
+            'If Not Integer.TryParse(ReadingForm.p1000.Text.Trim, P1000) Then P1000 = 0
+            'If Not Integer.TryParse(ReadingForm.p500.Text.Trim, P500) Then P500 = 0
+            'If Not Integer.TryParse(ReadingForm.p200.Text.Trim, P200) Then P200 = 0
+            'If Not Integer.TryParse(ReadingForm.p100.Text.Trim, P100) Then P100 = 0
+            'If Not Integer.TryParse(ReadingForm.p50.Text.Trim, P50) Then P50 = 0
+            'If Not Integer.TryParse(ReadingForm.c20.Text.Trim, C20) Then C20 = 0
+            'If Not Integer.TryParse(ReadingForm.c10.Text.Trim, C10) Then C10 = 0
+            'If Not Integer.TryParse(ReadingForm.c5.Text.Trim, C5) Then C5 = 0
+            'If Not Integer.TryParse(ReadingForm.c1.Text.Trim, C1) Then C1 = 0
 
-            ' Update labels with denomination values
-            ReadingForm.LblP1000.Text = Format(P1000 * 1000, "#,##0.00")
-            ReadingForm.LblP500.Text = Format(P500 * 500, "#,##0.00")
-            ReadingForm.LblP200.Text = Format(P200 * 200, "#,##0.00")
-            ReadingForm.LblP100.Text = Format(P100 * 100, "#,##0.00")
-            ReadingForm.LblP50.Text = Format(P50 * 50, "#,##0.00")
-            ReadingForm.LblC20.Text = Format(C20 * 20, "#,##0.00")
-            ReadingForm.LblC10.Text = Format(C10 * 10, "#,##0.00")
-            ReadingForm.LblC5.Text = Format(C5 * 5, "#,##0.00")
-            ReadingForm.LblC1.Text = Format(C1 * 1, "#,##0.00")
+            '' Update labels with denomination values
+            'ReadingForm.LblP1000.Text = Format(P1000 * 1000, "#,##0.00")
+            'ReadingForm.LblP500.Text = Format(P500 * 500, "#,##0.00")
+            'ReadingForm.LblP200.Text = Format(P200 * 200, "#,##0.00")
+            'ReadingForm.LblP100.Text = Format(P100 * 100, "#,##0.00")
+            'ReadingForm.LblP50.Text = Format(P50 * 50, "#,##0.00")
+            'ReadingForm.LblC20.Text = Format(C20 * 20, "#,##0.00")
+            'ReadingForm.LblC10.Text = Format(C10 * 10, "#,##0.00")
+            'ReadingForm.LblC5.Text = Format(C5 * 5, "#,##0.00")
+            'ReadingForm.LblC1.Text = Format(C1 * 1, "#,##0.00")
 
-            ' Calculate Denomination Total
-            DenominationTotal = (P1000 * 1000) + (P500 * 500) + (P200 * 200) + (P100 * 100) + (P50 * 50) + (C20 * 20) + (C10 * 10) + (C5 * 5) + (C1 * 1)
+            '' Calculate Denomination Total
+            'DenominationTotal = (P1000 * 1000) + (P500 * 500) + (P200 * 200) + (P100 * 100) + (P50 * 50) + (C20 * 20) + (C10 * 10) + (C5 * 5) + (C1 * 1)
 
-            ReadingForm.lblTCashCount.Text = Format(DenominationTotal, "#,##0.00")
+            'ReadingForm.lblTCashCount.Text = Format(DenominationTotal, "#,##0.00")
 
             ' Calculate totals
             CashSales = totalTransactionAmount
@@ -503,11 +493,11 @@ Public Class OrderRepo
             Dim totalCashOut As String = ReadingForm.TxtTCashOut.Text
             Dim totalCash As String = ReadingForm.TxtTotalCash.Text
             Dim variance As String = ReadingForm.TxtVariance.Text
-            Dim TCashCount As String = ReadingForm.lblTCashCount.Text
+            'Dim TCashCount As String = ReadingForm.lblTCashCount.Text
             Dim thiskawnt As String = ReadingForm.TxtTDiscount.Text
 
             ' Add a new row with the values
-            dt.Rows.Add(netAmount, cashSales, otherPayment, Tdiscount, totalCashOut, totalCash, variance, TCashCount, thiskawnt)
+            dt.Rows.Add(netAmount, cashSales, otherPayment, Tdiscount, totalCashOut, totalCash, variance, thiskawnt) 'TCashCount)
 
             'PrintForm.Show()
             ' Load the report
@@ -546,15 +536,15 @@ Public Class OrderRepo
         ReadingForm.TxtTCashOut.Clear()
         ReadingForm.TxtTotalCash.Clear()
         ReadingForm.TxtVariance.Clear()
-        ReadingForm.c1.Clear()
-        ReadingForm.c5.Clear()
-        ReadingForm.c10.Clear()
-        ReadingForm.c20.Clear()
-        ReadingForm.p50.Clear()
-        ReadingForm.p100.Clear()
-        ReadingForm.p200.Clear()
-        ReadingForm.p500.Clear()
-        ReadingForm.p1000.Clear()
-        ReadingForm.lblTCashCount.Text = "0.00"
+        'ReadingForm.c1.Clear()
+        'ReadingForm.c5.Clear()
+        'ReadingForm.c10.Clear()
+        'ReadingForm.c20.Clear()
+        'ReadingForm.p50.Clear()
+        'ReadingForm.p100.Clear()
+        'ReadingForm.p200.Clear()
+        'ReadingForm.p500.Clear()
+        'ReadingForm.p1000.Clear()
+        'ReadingForm.lblTCashCount.Text = "0.00"
     End Sub
 End Class

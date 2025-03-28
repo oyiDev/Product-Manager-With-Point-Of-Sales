@@ -1,4 +1,6 @@
 ﻿Public Class adminDashboard
+
+    Dim DataRefresher As New ManageDataRefresher
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnDashboard.FlatAppearance.BorderSize = 0
         btnManageProduct.FlatAppearance.BorderSize = 0
@@ -46,7 +48,7 @@
         Dim repo As New ProductRepo
         repo.getProductData()
         repo.WrapProductData()
-        'RefreshMe()
+
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.DodgerBlue
         btnManageStock.BackColor = Color.White
@@ -73,6 +75,7 @@
     'End Sub
 
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
+        DataRefresher.ManageStockLoadDataRefresh()
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.DodgerBlue

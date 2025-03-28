@@ -28,7 +28,7 @@ Partial Class DiscountForm
         Me.TxtIdNum = New System.Windows.Forms.TextBox()
         Me.BtnEnter = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
-        Me.lbldisType = New System.Windows.Forms.Label()
+        Me.LblType = New System.Windows.Forms.Label()
         Me.lblid = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -93,15 +93,15 @@ Partial Class DiscountForm
         Me.BtnClose.Text = "CANCEL"
         Me.BtnClose.UseVisualStyleBackColor = False
         '
-        'lbldisType
+        'LblType
         '
-        Me.lbldisType.AutoSize = True
-        Me.lbldisType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldisType.Location = New System.Drawing.Point(6, 9)
-        Me.lbldisType.Name = "lbldisType"
-        Me.lbldisType.Size = New System.Drawing.Size(83, 13)
-        Me.lbldisType.TabIndex = 5
-        Me.lbldisType.Text = "discount type"
+        Me.LblType.AutoSize = True
+        Me.LblType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblType.Location = New System.Drawing.Point(6, 9)
+        Me.LblType.Name = "LblType"
+        Me.LblType.Size = New System.Drawing.Size(31, 13)
+        Me.LblType.TabIndex = 5
+        Me.LblType.Text = "type"
         '
         'lblid
         '
@@ -121,7 +121,7 @@ Partial Class DiscountForm
         Me.ClientSize = New System.Drawing.Size(371, 206)
         Me.ControlBox = False
         Me.Controls.Add(Me.lblid)
-        Me.Controls.Add(Me.lbldisType)
+        Me.Controls.Add(Me.LblType)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.BtnEnter)
         Me.Controls.Add(Me.TxtIdNum)
@@ -142,6 +142,6 @@ Partial Class DiscountForm
     Friend WithEvents TxtIdNum As TextBox
     Friend WithEvents BtnEnter As Button
     Friend WithEvents BtnClose As Button
-    Friend WithEvents lbldisType As Label
+    Friend WithEvents LblType As Label
     Friend WithEvents lblid As Label
 End Class

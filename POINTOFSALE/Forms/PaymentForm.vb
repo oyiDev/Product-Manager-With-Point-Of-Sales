@@ -1,7 +1,4 @@
-﻿Imports System.Data.Common
-Imports System.Threading.Tasks
-
-Public Class PaymentForm
+﻿Public Class PaymentForm
 
     Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
         txtCash.Text = System.Text.RegularExpressions.Regex.Replace(txtCash.Text, "[^0-9.,]", "")
@@ -24,11 +21,7 @@ Public Class PaymentForm
                 BtnClose.PerformClick()
             Case Keys.S
                 If e.Control Then
-                    BtnSenior.PerformClick()
-                End If
-            Case Keys.P
-                If e.Control Then
-                    BtnPwd.PerformClick()
+                    BtnDiscount.PerformClick()
                 End If
         End Select
     End Sub
@@ -81,18 +74,9 @@ Public Class PaymentForm
         End Try
     End Sub
 
-    Private Sub BtnSenior_Click(sender As Object, e As EventArgs) Handles BtnSenior.Click
-        DiscountForm.lbldisType.Text = "SENIOR"
-        DiscountForm.LblName.Text = "NAME"
-        DiscountForm.Lblnumber.Text = "ID No"
-        DiscountForm.Show()
-        DiscountForm.TxtName.Focus()
-        Me.Enabled = False
-    End Sub
-
-    Private Sub BtnPwd_Click(sender As Object, e As EventArgs) Handles BtnPwd.Click
-        DiscountForm.lbldisType.Text = "PWD"
-        DiscountForm.LblName.Text = "NAME"
+    Private Sub BtnDiscount_Click(sender As Object, e As EventArgs) Handles BtnDiscount.Click
+        DiscountForm.LblType.Text = "DISCOUNT"
+        DiscountForm.LblName.Text = "TYPE"
         DiscountForm.Lblnumber.Text = "ID No"
         DiscountForm.Show()
         DiscountForm.TxtName.Focus()
@@ -101,13 +85,13 @@ Public Class PaymentForm
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Dim repo As New OrderRepo
-        POSForm.txtTransSubtotal.Text = "₱ 00.00"
-        txtAmount.Text = "₱ 00.00"
-        txtCash.Text = "₱ 00.00"
-        txtChange.Text = "₱ 00.00"
-        TxtVat.Text = "₱ 00.00"
-        txtDiscount.Text = "₱ 00.00"
-        txtGtotal.Text = "₱ 00.00"
+        'POSForm.txtTransSubtotal.Text = "₱ 00.00"
+        'txtAmount.Text = "₱ 00.00"
+        'txtCash.Text = "₱ 00.00"
+        'txtChange.Text = "₱ 00.00"
+        'TxtVat.Text = "₱ 00.00"
+        'txtDiscount.Text = "₱ 00.00"
+        'txtGtotal.Text = "₱ 00.00"
         POSForm.Enabled = True
         Me.Hide()
     End Sub

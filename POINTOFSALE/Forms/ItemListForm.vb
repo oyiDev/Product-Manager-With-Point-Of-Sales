@@ -20,14 +20,35 @@
         Dim loadItem As New LoadItemData
         loadItem.LoadItemData("")
     End Sub
+
+    Private Sub ItemListForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Escape
+                BtnClose.PerformClick()
+            Case Keys.Enter
+                DgItemList.Focus()
+                BtnEnter.PerformClick()
+            Case Keys.Down
+                DgItemList.Focus()
+            Case Keys.Up
+                DgItemList.Focus()
+            Case Keys.S
+                If e.Control Then
+                    TxtSearch.Focus()
+                End If
+        End Select
+    End Sub
+
     Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
         Dim loadItem As New LoadItemData
         loadItem.LoadItemData(TxtSearch.Text.Trim())
     End Sub
+
     Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
         Dim loadData As New LoadItemData
         loadData.SelectItem()
     End Sub
+
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         POSForm.Enabled = True
         POSForm.txtBarcode.Focus()

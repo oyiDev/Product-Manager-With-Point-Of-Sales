@@ -32,8 +32,28 @@
 
     Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
         Dim repo As New OrderRepo
-        repo.AddDiscount()
         repo.get_id()
+
+        Dim name As String = TxtName.Text.Trim.ToLower()
+        Dim id As String = TxtIdNum.Text.Trim.ToLower()
+
+        If name = "" Then
+            MessageBox.Show("Enter Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf id = "" Then
+            MessageBox.Show("Enter ID Number", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            If LblType.Text = "DISCOUNT" Then
+                MessageBox.Show("The Discount is 20%")
+                repo.TransactionWithDiscount()
+                PaymentForm.Enabled = True
+                PaymentForm.txtCash.Focus()
+                Me.Hide()
+                TxtName.Clear()
+                TxtIdNum.Clear()
+            ElseIf LblType.Text = "CASHOUT" Then
+                repo.RecordCashOut()
+            End If
+        End If
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click

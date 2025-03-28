@@ -82,10 +82,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\LoadItem.vb" />
+    <Compile Include="DAL\LoadItemData.vb" />
     <Compile Include="DAL\ModConnection.vb" />
     <Compile Include="DAL\OrderRepo.vb" />
     <Compile Include="DAL\ProductRepo.vb" />
+    <Compile Include="DAL\Refresh\ManageDataRefresher.vb" />
     <Compile Include="DAL\StopScan.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
@@ -255,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageUser.resx">
       <DependentUpon>ManageUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PaymentForm.resx">
+      <DependentUpon>PaymentForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>

@@ -113,7 +113,7 @@
         If res = vbOK Then
             LoginForm.Show()
             con.Close()
-            LoginForm.txtPassword.Clear()
+            LoginForm.TxtPassword.Clear()
             Me.Close()
         End If
     End Sub
@@ -125,12 +125,12 @@
         ItemListForm.DgItemList.Refresh()
     End Sub
 
-    Private Sub btnNumber_Click(sender As Object, e As EventArgs) Handles btn0.Click, btn1.Click, btn2.Click, btn3.Click, btn4.Click, btn5.Click, btn6.Click, btn7.Click, btn8.Click, bnt9.Click
-        Dim button As Button = CType(sender, Button)
-        txtBarcode.Text &= button.Text
-    End Sub
+    'Private Sub btnNumber_Click(sender As Object, e As EventArgs) Handles btn0.Click, btn1.Click, btn2.Click, btn3.Click, btn4.Click, btn5.Click, btn6.Click, btn7.Click, btn8.Click, bnt9.Click
+    '    Dim button As Button = CType(sender, Button)
+    '    txtBarcode.Text &= button.Text
+    'End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub btnClear_Click(sender As Object, e As EventArgs)
         txtBarcode.Clear()
     End Sub
 
@@ -138,13 +138,13 @@
         Dim repo As New OrderRepo
         repo.Zread()
         ReadingForm.Show()
-        ReadingForm.c1.Focus()
+        'ReadingForm.c1.Focus()
         Me.Enabled = False
     End Sub
 
     Private Sub BtnRecord_Click(sender As Object, e As EventArgs) Handles BtnRecord.Click
         DiscountForm.Show()
-        DiscountForm.lbldisType.Text = "CASH OUT"
+        DiscountForm.LblType.Text = "CASHOUT"
         DiscountForm.LblName.Text = "REMARK"
         DiscountForm.Lblnumber.Text = "AMOUNT"
         Me.Enabled = False

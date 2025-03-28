@@ -61,7 +61,7 @@ Partial Class ItemListForm
         Me.TxtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearch.Location = New System.Drawing.Point(119, 6)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(630, 30)
+        Me.TxtSearch.Size = New System.Drawing.Size(854, 30)
         Me.TxtSearch.TabIndex = 1
         '
         'BtnEnter
@@ -70,7 +70,7 @@ Partial Class ItemListForm
         Me.BtnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEnter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEnter.ForeColor = System.Drawing.Color.Black
-        Me.BtnEnter.Location = New System.Drawing.Point(657, 533)
+        Me.BtnEnter.Location = New System.Drawing.Point(883, 628)
         Me.BtnEnter.Name = "BtnEnter"
         Me.BtnEnter.Size = New System.Drawing.Size(90, 35)
         Me.BtnEnter.TabIndex = 3
@@ -83,7 +83,7 @@ Partial Class ItemListForm
         Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.Black
-        Me.BtnClose.Location = New System.Drawing.Point(516, 533)
+        Me.BtnClose.Location = New System.Drawing.Point(742, 628)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(130, 35)
         Me.BtnClose.TabIndex = 3
@@ -98,7 +98,7 @@ Partial Class ItemListForm
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(82, 518)
+        Me.Label2.Location = New System.Drawing.Point(82, 628)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 17)
         Me.Label2.TabIndex = 0
@@ -112,7 +112,7 @@ Partial Class ItemListForm
         Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(182, 518)
+        Me.Label3.Location = New System.Drawing.Point(182, 628)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 17)
         Me.Label3.TabIndex = 0
@@ -154,7 +154,7 @@ Partial Class ItemListForm
         Me.DgItemList.ReadOnly = True
         Me.DgItemList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DgItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgItemList.Size = New System.Drawing.Size(736, 472)
+        Me.DgItemList.Size = New System.Drawing.Size(962, 579)
         Me.DgItemList.TabIndex = 4
         '
         'barcodeCol
@@ -197,7 +197,7 @@ Partial Class ItemListForm
         Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(11, 518)
+        Me.Label4.Location = New System.Drawing.Point(11, 628)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 17)
         Me.Label4.TabIndex = 0
@@ -207,7 +207,7 @@ Partial Class ItemListForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(759, 580)
+        Me.ClientSize = New System.Drawing.Size(985, 682)
         Me.ControlBox = False
         Me.Controls.Add(Me.DgItemList)
         Me.Controls.Add(Me.BtnClose)

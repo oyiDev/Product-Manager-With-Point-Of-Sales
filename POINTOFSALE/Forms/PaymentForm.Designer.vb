@@ -23,7 +23,7 @@ Partial Class PaymentForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnPayEnter = New System.Windows.Forms.Button()
-        Me.BtnSenior = New System.Windows.Forms.Button()
+        Me.BtnDiscount = New System.Windows.Forms.Button()
         Me.txtGtotal = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -38,7 +38,6 @@ Partial Class PaymentForm
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnPwd = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.TxtVat = New System.Windows.Forms.TextBox()
@@ -64,17 +63,17 @@ Partial Class PaymentForm
         Me.btnPayEnter.Text = "ENTER"
         Me.btnPayEnter.UseVisualStyleBackColor = False
         '
-        'BtnSenior
+        'BtnDiscount
         '
-        Me.BtnSenior.BackColor = System.Drawing.Color.Silver
-        Me.BtnSenior.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnSenior.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSenior.Location = New System.Drawing.Point(120, 537)
-        Me.BtnSenior.Name = "BtnSenior"
-        Me.BtnSenior.Size = New System.Drawing.Size(81, 41)
-        Me.BtnSenior.TabIndex = 17
-        Me.BtnSenior.Text = "(crl + s)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SENIOR"
-        Me.BtnSenior.UseVisualStyleBackColor = False
+        Me.BtnDiscount.BackColor = System.Drawing.Color.Silver
+        Me.BtnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnDiscount.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDiscount.Location = New System.Drawing.Point(21, 537)
+        Me.BtnDiscount.Name = "BtnDiscount"
+        Me.BtnDiscount.Size = New System.Drawing.Size(144, 41)
+        Me.BtnDiscount.TabIndex = 17
+        Me.BtnDiscount.Text = "(crl + s) DISCOUNT"
+        Me.BtnDiscount.UseVisualStyleBackColor = False
         '
         'txtGtotal
         '
@@ -247,18 +246,6 @@ Partial Class PaymentForm
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "AMOUNT"
         '
-        'BtnPwd
-        '
-        Me.BtnPwd.BackColor = System.Drawing.Color.Silver
-        Me.BtnPwd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnPwd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPwd.Location = New System.Drawing.Point(21, 537)
-        Me.BtnPwd.Name = "BtnPwd"
-        Me.BtnPwd.Size = New System.Drawing.Size(81, 41)
-        Me.BtnPwd.TabIndex = 16
-        Me.BtnPwd.Text = "(crl + p)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "PWD"
-        Me.BtnPwd.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
@@ -327,13 +314,12 @@ Partial Class PaymentForm
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.btnPayEnter)
-        Me.Controls.Add(Me.BtnSenior)
+        Me.Controls.Add(Me.BtnDiscount)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.BtnPwd)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -357,7 +343,7 @@ Partial Class PaymentForm
     End Sub
 
     Friend WithEvents btnPayEnter As Button
-    Friend WithEvents BtnSenior As Button
+    Friend WithEvents BtnDiscount As Button
     Friend WithEvents txtGtotal As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel5 As Panel
@@ -372,7 +358,6 @@ Partial Class PaymentForm
     Friend WithEvents Panel2 As Panel
     Friend WithEvents txtAmount As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents BtnPwd As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel6 As Panel
     Friend WithEvents TxtVat As TextBox

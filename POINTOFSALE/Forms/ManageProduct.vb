@@ -4,7 +4,6 @@
         Dim repo As New ProductRepo
         'repo.getProductData()
         'repo.WrapProductData()
-        DgProduct.Enabled = False
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click

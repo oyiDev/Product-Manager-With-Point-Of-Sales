@@ -3,6 +3,9 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Public Class UserRepo
+
+    Dim userInfo As New UserInfo
+
     Public Function HashPassword(password As String) As String
         Using sha256 As SHA256 = SHA256.Create()
             Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
@@ -40,24 +43,25 @@ Public Class UserRepo
         End Try
     End Sub
 
-    Public Function GetUserRole(usertype As String, password As String) As UserInfo
-        Dim userInfo As New UserInfo()
+    Public Function GetUserRole(username As String, password As String) As UserInfo
+        'Dim userInfo As New UserInfo()
         Dim hashedPassword As String = HashPassword(password)
 
         Try
             connect_me()
-            Dim query As String = "SELECT user_id, user_type, firstname, lastname FROM users WHERE user_type = ? AND password_hash = ?"
+            Dim query As String = "SELECT id, usertype, firstname, lastname, username FROM users WHERE username = ? AND password = ?"
             Dim cmd As New OdbcCommand(query, con)
 
-            cmd.Parameters.AddWithValue("@usertype", usertype)
+            cmd.Parameters.AddWithValue("@username", username)
             cmd.Parameters.AddWithValue("@password", hashedPassword)
 
             Dim reader As OdbcDataReader = cmd.ExecuteReader()
             If reader.Read() Then
-                userInfo.UserId = reader("user_id").ToString()
-                userInfo.Role = reader("user_type").ToString()
+                userInfo.UserId = reader("id").ToString()
+                userInfo.Role = reader("usertype").ToString()
                 userInfo.Firstname = reader("firstname").ToString()
                 userInfo.lastname = reader("lastname").ToString()
+                userInfo.Username = reader("username").ToString()
             End If
             reader.Close()
 
@@ -73,11 +77,11 @@ Public Class UserRepo
     Public Sub DisplayUserInfo()
         POSForm.txtDate.Text = DateAndTime.Now.ToString("MM/dd/yyyy")
 
-        Dim usertype As String = LoginForm.cbUsername.Text.ToLower.Trim
-        Dim password As String = LoginForm.txtPassword.Text.ToLower.Trim
+        Dim usertype As String = userInfo.Role
+        Dim password As String = LoginForm.TxtPassword.Text.Trim()
 
         Dim userRepo As New UserRepo()
-        Dim userInfo As UserInfo = userRepo.GetUserRole(usertype, password)
+        Dim userInfo1 As UserInfo = userRepo.GetUserRole(usertype, password)
 
         If userInfo IsNot Nothing AndAlso Not String.IsNullOrEmpty(userInfo.Role) Then
             POSForm.txtFullName.Text = $"{userInfo.Firstname} {userInfo.lastname}"

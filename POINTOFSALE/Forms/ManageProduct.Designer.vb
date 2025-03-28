@@ -22,26 +22,23 @@ Partial Class ManageProduct
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageProduct))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageProduct))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.search_product = New System.Windows.Forms.TextBox()
         Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.BtnRefill = New System.Windows.Forms.Button()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.DgProduct = New System.Windows.Forms.DataGridView()
         Me.LblAction = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.deleteBox = New System.Windows.Forms.PictureBox()
         Me.addBox = New System.Windows.Forms.PictureBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
-        Me.DgProduct = New System.Windows.Forms.DataGridView()
         Me.adminMainPanel.SuspendLayout()
+        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -68,25 +65,12 @@ Partial Class ManageProduct
         Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.Location = New System.Drawing.Point(621, 535)
+        Me.BtnAdd.Location = New System.Drawing.Point(743, 537)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(114, 36)
         Me.BtnAdd.TabIndex = 22
         Me.BtnAdd.Text = "Add"
         Me.BtnAdd.UseVisualStyleBackColor = False
-        '
-        'BtnRefill
-        '
-        Me.BtnRefill.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnRefill.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnRefill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRefill.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRefill.Location = New System.Drawing.Point(741, 535)
-        Me.BtnRefill.Name = "BtnRefill"
-        Me.BtnRefill.Size = New System.Drawing.Size(116, 36)
-        Me.BtnRefill.TabIndex = 25
-        Me.BtnRefill.Text = "Refill"
-        Me.BtnRefill.UseVisualStyleBackColor = False
         '
         'adminMainPanel
         '
@@ -95,10 +79,8 @@ Partial Class ManageProduct
         Me.adminMainPanel.Controls.Add(Me.DgProduct)
         Me.adminMainPanel.Controls.Add(Me.LblAction)
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
-        Me.adminMainPanel.Controls.Add(Me.deleteBox)
         Me.adminMainPanel.Controls.Add(Me.addBox)
         Me.adminMainPanel.Controls.Add(Me.Label1)
-        Me.adminMainPanel.Controls.Add(Me.BtnRefill)
         Me.adminMainPanel.Controls.Add(Me.BtnAdd)
         Me.adminMainPanel.Controls.Add(Me.searchBox)
         Me.adminMainPanel.Controls.Add(Me.search_product)
@@ -107,56 +89,6 @@ Partial Class ManageProduct
         Me.adminMainPanel.Name = "adminMainPanel"
         Me.adminMainPanel.Size = New System.Drawing.Size(875, 598)
         Me.adminMainPanel.TabIndex = 32
-        '
-        'LblAction
-        '
-        Me.LblAction.AutoSize = True
-        Me.LblAction.Location = New System.Drawing.Point(246, 40)
-        Me.LblAction.Name = "LblAction"
-        Me.LblAction.Size = New System.Drawing.Size(0, 13)
-        Me.LblAction.TabIndex = 32
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(11, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(41, 44)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'deleteBox
-        '
-        Me.deleteBox.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.deleteBox.Image = CType(resources.GetObject("deleteBox.Image"), System.Drawing.Image)
-        Me.deleteBox.Location = New System.Drawing.Point(744, 539)
-        Me.deleteBox.Name = "deleteBox"
-        Me.deleteBox.Size = New System.Drawing.Size(30, 29)
-        Me.deleteBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.deleteBox.TabIndex = 29
-        Me.deleteBox.TabStop = False
-        '
-        'addBox
-        '
-        Me.addBox.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.addBox.Image = CType(resources.GetObject("addBox.Image"), System.Drawing.Image)
-        Me.addBox.Location = New System.Drawing.Point(624, 539)
-        Me.addBox.Name = "addBox"
-        Me.addBox.Size = New System.Drawing.Size(30, 29)
-        Me.addBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.addBox.TabIndex = 26
-        Me.addBox.TabStop = False
-        '
-        'searchBox
-        '
-        Me.searchBox.Image = CType(resources.GetObject("searchBox.Image"), System.Drawing.Image)
-        Me.searchBox.Location = New System.Drawing.Point(504, 26)
-        Me.searchBox.Name = "searchBox"
-        Me.searchBox.Size = New System.Drawing.Size(34, 29)
-        Me.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.searchBox.TabIndex = 21
-        Me.searchBox.TabStop = False
         '
         'DgProduct
         '
@@ -198,23 +130,61 @@ Partial Class ManageProduct
         Me.DgProduct.Size = New System.Drawing.Size(846, 448)
         Me.DgProduct.TabIndex = 33
         '
-        'InventoryDashboard
+        'LblAction
+        '
+        Me.LblAction.AutoSize = True
+        Me.LblAction.Location = New System.Drawing.Point(246, 40)
+        Me.LblAction.Name = "LblAction"
+        Me.LblAction.Size = New System.Drawing.Size(0, 13)
+        Me.LblAction.TabIndex = 32
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 11)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(41, 44)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'addBox
+        '
+        Me.addBox.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.addBox.Image = CType(resources.GetObject("addBox.Image"), System.Drawing.Image)
+        Me.addBox.Location = New System.Drawing.Point(746, 541)
+        Me.addBox.Name = "addBox"
+        Me.addBox.Size = New System.Drawing.Size(30, 29)
+        Me.addBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.addBox.TabIndex = 26
+        Me.addBox.TabStop = False
+        '
+        'searchBox
+        '
+        Me.searchBox.Image = CType(resources.GetObject("searchBox.Image"), System.Drawing.Image)
+        Me.searchBox.Location = New System.Drawing.Point(504, 26)
+        Me.searchBox.Name = "searchBox"
+        Me.searchBox.Size = New System.Drawing.Size(34, 29)
+        Me.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.searchBox.TabIndex = 21
+        Me.searchBox.TabStop = False
+        '
+        'ManageProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(875, 598)
         Me.Controls.Add(Me.adminMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "InventoryDashboard"
+        Me.Name = "ManageProduct"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InventoryDashboard"
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
+        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.deleteBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.searchBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DgProduct, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -224,9 +194,7 @@ Partial Class ManageProduct
     Friend WithEvents search_product As TextBox
     Friend WithEvents searchBox As PictureBox
     Friend WithEvents BtnAdd As Button
-    Friend WithEvents BtnRefill As Button
     Friend WithEvents addBox As PictureBox
-    Friend WithEvents deleteBox As PictureBox
     Friend WithEvents adminMainPanel As Panel
     Friend WithEvents LblAction As Label
     Friend WithEvents DgProduct As DataGridView
