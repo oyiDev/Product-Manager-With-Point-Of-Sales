@@ -397,22 +397,6 @@ Public Class OrderRepo
             Dim CashSales As Double
             Dim TotalCashOut As Double
             Dim TotalCash As Double
-
-            '' Calculate the total amount and discount from the transactions table for today's date
-            'Dim totalTransactionAmount As Decimal = 0
-            'Dim totalTransactionDiscount As Decimal = 0
-            'Dim query As String = "SELECT COALESCE(SUM(total_amount), 0), COALESCE(SUM(discount), 0) FROM transactions WHERE DATE(transaction_date) = CURDATE()"
-
-            'Using cmd As New OdbcCommand(query, con)
-            '    Using reader As OdbcDataReader = cmd.ExecuteReader()
-            '        If reader.Read() Then
-            '            totalTransactionAmount = Convert.ToDecimal(reader(0))
-            '            totalTransactionDiscount = Convert.ToDecimal(reader(1))
-            '        End If
-            '    End Using
-            'End Using
-
-            ' Calculate total cash sales and discount
             Dim totalTransactionAmount As Decimal = 0
             Dim totalTransactionDiscount As Decimal = 0
 
