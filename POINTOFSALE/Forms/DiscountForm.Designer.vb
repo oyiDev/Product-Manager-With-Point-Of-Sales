@@ -25,7 +25,7 @@ Partial Class DiscountForm
         Me.LblName = New System.Windows.Forms.Label()
         Me.Lblnumber = New System.Windows.Forms.Label()
         Me.TxtName = New System.Windows.Forms.TextBox()
-        Me.TxtIdNum = New System.Windows.Forms.TextBox()
+        Me.TxtNum = New System.Windows.Forms.TextBox()
         Me.BtnEnter = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.LblType = New System.Windows.Forms.Label()
@@ -62,14 +62,14 @@ Partial Class DiscountForm
         Me.TxtName.Size = New System.Drawing.Size(255, 27)
         Me.TxtName.TabIndex = 2
         '
-        'TxtIdNum
+        'TxtNum
         '
-        Me.TxtIdNum.BackColor = System.Drawing.Color.White
-        Me.TxtIdNum.Font = New System.Drawing.Font("Arial", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtIdNum.Location = New System.Drawing.Point(56, 119)
-        Me.TxtIdNum.Name = "TxtIdNum"
-        Me.TxtIdNum.Size = New System.Drawing.Size(255, 27)
-        Me.TxtIdNum.TabIndex = 3
+        Me.TxtNum.BackColor = System.Drawing.Color.White
+        Me.TxtNum.Font = New System.Drawing.Font("Arial", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNum.Location = New System.Drawing.Point(56, 119)
+        Me.TxtNum.Name = "TxtNum"
+        Me.TxtNum.Size = New System.Drawing.Size(255, 27)
+        Me.TxtNum.TabIndex = 3
         '
         'BtnEnter
         '
@@ -124,7 +124,7 @@ Partial Class DiscountForm
         Me.Controls.Add(Me.LblType)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.BtnEnter)
-        Me.Controls.Add(Me.TxtIdNum)
+        Me.Controls.Add(Me.TxtNum)
         Me.Controls.Add(Me.TxtName)
         Me.Controls.Add(Me.Lblnumber)
         Me.Controls.Add(Me.LblName)
@@ -139,7 +139,7 @@ Partial Class DiscountForm
     Friend WithEvents LblName As Label
     Friend WithEvents Lblnumber As Label
     Friend WithEvents TxtName As TextBox
-    Friend WithEvents TxtIdNum As TextBox
+    Friend WithEvents TxtNum As TextBox
     Friend WithEvents BtnEnter As Button
     Friend WithEvents BtnClose As Button
     Friend WithEvents LblType As Label

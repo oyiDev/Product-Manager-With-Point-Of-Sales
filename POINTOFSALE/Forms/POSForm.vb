@@ -5,7 +5,6 @@
         Timer1.Start()
         repo.get_number()
         txtnumber.Hide()
-        dgTransaction.Enabled = False
         dgTransaction.DefaultCellStyle.SelectionBackColor = Color.White
         dgTransaction.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
         Me.KeyPreview = True
@@ -22,26 +21,30 @@
             Case Keys.F8
                 BtnRecord.PerformClick()
             Case Keys.F9
-                btnItemList.PerformClick()
+                BtnItemList.PerformClick()
             Case Keys.F10
                 If dgTransaction.Rows.Count > 0 Then
                     BtnEditQty.PerformClick()
                 End If
             Case Keys.F11
                 If dgTransaction.Rows.Count > 0 Then
-                    btnDelete.PerformClick()
+                    BtnDelete.PerformClick()
+                End If
+            Case Keys.L
+                If e.Control Then
+                    BtnTransRecord.PerformClick()
                 End If
             Case Keys.F12
                 If dgTransaction.Rows.Count > 0 Then
-                    btnSubtotal.PerformClick()
+                    BtnSubTotal.PerformClick()
                 End If
             Case Keys.X
                 If e.Control Then
-                    btnExit.PerformClick()
+                    BtnExit.PerformClick()
                 End If
-            Case Keys.Z
+            Case Keys.S
                 If e.Control Then
-                    btnZRead.PerformClick()
+                    BtnSales.PerformClick()
                 End If
         End Select
     End Sub
@@ -59,7 +62,12 @@
         End If
     End Sub
 
-    Private Sub btnSubtotal_Click(sender As Object, e As EventArgs) Handles btnSubtotal.Click
+    Private Sub BtnSubTotal_Click(sender As Object, e As EventArgs) Handles BtnSubTotal.Click
+        If dgTransaction.Rows.Count = 0 OrElse (dgTransaction.Rows.Count = 1 AndAlso dgTransaction.Rows(0).IsNewRow) Then
+            MessageBox.Show("There is Nothing to Transact.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
         If dgTransaction.Rows.Count > 0 Then
             PaymentForm.Show()
             Me.Enabled = False
@@ -71,7 +79,12 @@
         txtTime.Text = DateTime.Now.ToString("hh:mm:ss tt")
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        If Me.dgTransaction.Rows.Count = 0 OrElse (Me.dgTransaction.Rows.Count = 1 AndAlso Me.dgTransaction.Rows(0).IsNewRow) Then
+            MessageBox.Show("There is Nothing to Delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
         If dgTransaction.Rows.Count > 0 Then
             dgTransaction.Enabled = True
             lblAction.Text = "DELETE"
@@ -82,6 +95,11 @@
     End Sub
 
     Private Sub BtnEditQty_Click(sender As Object, e As EventArgs) Handles BtnEditQty.Click
+        If Me.dgTransaction.Rows.Count = 0 OrElse (Me.dgTransaction.Rows.Count = 1 AndAlso Me.dgTransaction.Rows(0).IsNewRow) Then
+            MessageBox.Show("There is Nothing to Edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
         If dgTransaction.Rows.Count > 0 Then
             dgTransaction.Enabled = True
             lblAction.Text = "EDIT"
@@ -107,7 +125,7 @@
         End Select
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Dim res As Integer
         res = MessageBox.Show("Exit Application?", "Info", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
         If res = vbOK Then
@@ -118,35 +136,41 @@
         End If
     End Sub
 
-    Private Sub btnItemList_Click(sender As Object, e As EventArgs) Handles btnItemList.Click
-        ItemListForm.Show()
-        Me.Enabled = False
+    Private Sub BtnItemList_Click(sender As Object, e As EventArgs) Handles BtnItemList.Click
+        ItemListForm.ShowDialog()
         ItemListForm.TxtSearch.Focus()
-        ItemListForm.DgItemList.Refresh()
-    End Sub
-
-    'Private Sub btnNumber_Click(sender As Object, e As EventArgs) Handles btn0.Click, btn1.Click, btn2.Click, btn3.Click, btn4.Click, btn5.Click, btn6.Click, btn7.Click, btn8.Click, bnt9.Click
-    '    Dim button As Button = CType(sender, Button)
-    '    txtBarcode.Text &= button.Text
-    'End Sub
-
-    Private Sub btnClear_Click(sender As Object, e As EventArgs)
-        txtBarcode.Clear()
-    End Sub
-
-    Private Sub btnZRead_Click(sender As Object, e As EventArgs) Handles btnZRead.Click
-        Dim repo As New OrderRepo
-        repo.Zread()
-        ReadingForm.Show()
-        'ReadingForm.c1.Focus()
-        Me.Enabled = False
     End Sub
 
     Private Sub BtnRecord_Click(sender As Object, e As EventArgs) Handles BtnRecord.Click
+        If TransactionForm.dgRecordTrans.Rows.Count = 0 OrElse (TransactionForm.dgRecordTrans.Rows.Count = 1 AndAlso TransactionForm.dgRecordTrans.Rows(0).IsNewRow) Then
+            MessageBox.Show("There is Nothing in Drawer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
         DiscountForm.Show()
         DiscountForm.LblType.Text = "CASHOUT"
         DiscountForm.LblName.Text = "REMARK"
         DiscountForm.Lblnumber.Text = "AMOUNT"
         Me.Enabled = False
+    End Sub
+
+    Private Sub BtnSales_Click(sender As Object, e As EventArgs) Handles BtnSales.Click
+        If TransactionForm.dgRecordTrans.Rows.Count = 0 OrElse (TransactionForm.dgRecordTrans.Rows.Count = 1 AndAlso TransactionForm.dgRecordTrans.Rows(0).IsNewRow) Then
+            MessageBox.Show("There is No transactions.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        Dim repo As New OrderRepo
+        repo.SalesReport()
+        ReadingForm.ShowDialog()
+    End Sub
+
+    Private Sub BtnTransRecord_Click(sender As Object, e As EventArgs) Handles BtnTransRecord.Click
+        If TransactionForm.dgRecordTrans.Rows.Count = 0 OrElse (TransactionForm.dgRecordTrans.Rows.Count = 1 AndAlso TransactionForm.dgRecordTrans.Rows(0).IsNewRow) Then
+            MessageBox.Show("ther is No todays transactions.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        TransactionForm.ShowDialog()
     End Sub
 End Class

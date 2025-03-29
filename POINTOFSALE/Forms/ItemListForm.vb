@@ -1,24 +1,25 @@
-﻿Public Class ItemListForm
+﻿Imports System.Data.Common
+
+Public Class ItemListForm
+
+    Dim loadItem As New LoadItemData
+
     Private Sub ItemListForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
-        ' Set font and color for all cells
         Dim cellFont As New Font("Arial", 10, FontStyle.Regular)
-        Dim cellForeColor As Color = Color.Black
-        Dim cellBackColor As Color = Color.White
-
         DgItemList.DefaultCellStyle.Font = cellFont
-        DgItemList.DefaultCellStyle.ForeColor = cellForeColor
-        DgItemList.DefaultCellStyle.BackColor = cellBackColor
-
-        ' Set selection color for all cells
-        Dim selectionForeColor As Color = Color.Black
-        Dim selectionBackColor As Color = Color.SkyBlue
-
-        DgItemList.DefaultCellStyle.SelectionForeColor = selectionForeColor
-        DgItemList.DefaultCellStyle.SelectionBackColor = selectionBackColor
-
-        Dim loadItem As New LoadItemData
+        WhiteRow()
         loadItem.LoadItemData("")
+    End Sub
+
+    Private Sub WhiteRow()
+        DgItemList.DefaultCellStyle.SelectionBackColor = Color.White
+        DgItemList.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+    End Sub
+
+    Private Sub SkyBlueRow()
+        DgItemList.DefaultCellStyle.SelectionBackColor = Color.SkyBlue
+        DgItemList.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.SkyBlue
     End Sub
 
     Private Sub ItemListForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -26,32 +27,34 @@
             Case Keys.Escape
                 BtnClose.PerformClick()
             Case Keys.Enter
-                DgItemList.Focus()
                 BtnEnter.PerformClick()
             Case Keys.Down
                 DgItemList.Focus()
+                SkyBlueRow()
             Case Keys.Up
                 DgItemList.Focus()
+                SkyBlueRow()
             Case Keys.S
                 If e.Control Then
                     TxtSearch.Focus()
+                    WhiteRow()
                 End If
         End Select
     End Sub
 
     Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
-        Dim loadItem As New LoadItemData
         loadItem.LoadItemData(TxtSearch.Text.Trim())
     End Sub
 
     Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
-        Dim loadData As New LoadItemData
-        loadData.SelectItem()
+        loadItem.SelectItem()
+        WhiteRow()
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         POSForm.Enabled = True
         POSForm.txtBarcode.Focus()
+        WhiteRow()
         Me.Hide()
     End Sub
 End Class

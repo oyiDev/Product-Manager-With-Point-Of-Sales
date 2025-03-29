@@ -82,6 +82,7 @@ Partial Class LoginForm
         '
         Me.TxtUsername.BackColor = System.Drawing.Color.White
         Me.TxtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtUsername.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtUsername.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUsername.Location = New System.Drawing.Point(503, 99)
         Me.TxtUsername.Name = "TxtUsername"

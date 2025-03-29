@@ -83,6 +83,8 @@ Public Class UserRepo
         Dim userRepo As New UserRepo()
         Dim userInfo1 As UserInfo = userRepo.GetUserRole(usertype, password)
 
+        POSForm.TxtRole.Text = usertype
+
         If userInfo IsNot Nothing AndAlso Not String.IsNullOrEmpty(userInfo.Role) Then
             POSForm.txtFullName.Text = $"{userInfo.Firstname} {userInfo.lastname}"
         Else

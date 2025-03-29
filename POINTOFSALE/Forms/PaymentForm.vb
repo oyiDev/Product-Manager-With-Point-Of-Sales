@@ -1,11 +1,10 @@
 ﻿Public Class PaymentForm
 
-    Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
-        txtCash.Text = System.Text.RegularExpressions.Regex.Replace(txtCash.Text, "[^0-9.,]", "")
-        txtCash.SelectionStart = txtCash.Text.Length
+    Private Sub PaymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
     End Sub
 
-    Private Sub txtCash_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCash.KeyDown
+    Private Sub PaymentForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim price As Decimal
         If e.KeyCode = Keys.Enter Then
             If Decimal.TryParse(txtCash.Text, price) Then
@@ -23,7 +22,16 @@
                 If e.Control Then
                     BtnDiscount.PerformClick()
                 End If
+            Case Keys.D
+                If e.Control Then
+                    BtnDiscount.PerformClick()
+                End If
         End Select
+    End Sub
+
+    Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
+        txtCash.Text = System.Text.RegularExpressions.Regex.Replace(txtCash.Text, "[^0-9.,]", "")
+        txtCash.SelectionStart = txtCash.Text.Length
     End Sub
 
     Private firstClick As Boolean = True

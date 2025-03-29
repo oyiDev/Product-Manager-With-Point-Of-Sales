@@ -32,12 +32,10 @@ Partial Class ReadingForm
         Me.TxtCashSales = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.TxtTCashOut = New System.Windows.Forms.TextBox()
         Me.TxtTotalCash = New System.Windows.Forms.TextBox()
-        Me.TxtVariance = New System.Windows.Forms.TextBox()
         Me.BtnClose = New System.Windows.Forms.Button()
-        Me.BtnPost = New System.Windows.Forms.Button()
+        Me.BtnPrint = New System.Windows.Forms.Button()
         Me.TxtTDiscount = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
@@ -161,24 +159,13 @@ Partial Class ReadingForm
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "TOTAL CASH                  :"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.Label8.Location = New System.Drawing.Point(47, 306)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(181, 17)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "VARIANCE                      :"
-        '
         'TxtTCashOut
         '
         Me.TxtTCashOut.BackColor = System.Drawing.Color.Black
         Me.TxtTCashOut.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtTCashOut.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtTCashOut.ForeColor = System.Drawing.Color.Gold
-        Me.TxtTCashOut.Location = New System.Drawing.Point(253, 228)
+        Me.TxtTCashOut.Location = New System.Drawing.Point(247, 227)
         Me.TxtTCashOut.Name = "TxtTCashOut"
         Me.TxtTCashOut.ReadOnly = True
         Me.TxtTCashOut.Size = New System.Drawing.Size(200, 18)
@@ -192,27 +179,13 @@ Partial Class ReadingForm
         Me.TxtTotalCash.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtTotalCash.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtTotalCash.ForeColor = System.Drawing.Color.Lime
-        Me.TxtTotalCash.Location = New System.Drawing.Point(253, 268)
+        Me.TxtTotalCash.Location = New System.Drawing.Point(247, 266)
         Me.TxtTotalCash.Name = "TxtTotalCash"
         Me.TxtTotalCash.ReadOnly = True
         Me.TxtTotalCash.Size = New System.Drawing.Size(200, 18)
         Me.TxtTotalCash.TabIndex = 1
         Me.TxtTotalCash.Text = ".00"
         Me.TxtTotalCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TxtVariance
-        '
-        Me.TxtVariance.BackColor = System.Drawing.Color.Black
-        Me.TxtVariance.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtVariance.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtVariance.ForeColor = System.Drawing.Color.Silver
-        Me.TxtVariance.Location = New System.Drawing.Point(253, 306)
-        Me.TxtVariance.Name = "TxtVariance"
-        Me.TxtVariance.ReadOnly = True
-        Me.TxtVariance.Size = New System.Drawing.Size(200, 18)
-        Me.TxtVariance.TabIndex = 1
-        Me.TxtVariance.Text = ".00"
-        Me.TxtVariance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'BtnClose
         '
@@ -226,17 +199,17 @@ Partial Class ReadingForm
         Me.BtnClose.Text = "CLOSE"
         Me.BtnClose.UseVisualStyleBackColor = False
         '
-        'BtnPost
+        'BtnPrint
         '
-        Me.BtnPost.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnPost.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPost.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPost.Location = New System.Drawing.Point(199, 516)
-        Me.BtnPost.Name = "BtnPost"
-        Me.BtnPost.Size = New System.Drawing.Size(160, 37)
-        Me.BtnPost.TabIndex = 4
-        Me.BtnPost.Text = "PRINT REPORT"
-        Me.BtnPost.UseVisualStyleBackColor = False
+        Me.BtnPrint.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrint.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrint.Location = New System.Drawing.Point(212, 516)
+        Me.BtnPrint.Name = "BtnPrint"
+        Me.BtnPrint.Size = New System.Drawing.Size(147, 37)
+        Me.BtnPrint.TabIndex = 4
+        Me.BtnPrint.Text = "PRINT REPORT"
+        Me.BtnPrint.UseVisualStyleBackColor = False
         '
         'TxtTDiscount
         '
@@ -259,16 +232,14 @@ Partial Class ReadingForm
         Me.ClientSize = New System.Drawing.Size(501, 591)
         Me.ControlBox = False
         Me.Controls.Add(Me.TxtTDiscount)
-        Me.Controls.Add(Me.BtnPost)
+        Me.Controls.Add(Me.BtnPrint)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TxtTCashOut)
-        Me.Controls.Add(Me.TxtVariance)
         Me.Controls.Add(Me.TxtCashSales)
         Me.Controls.Add(Me.TxtOthersPayment)
         Me.Controls.Add(Me.TxtTotalCash)
         Me.Controls.Add(Me.TxtNetAmount)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
@@ -293,11 +264,9 @@ Partial Class ReadingForm
     Friend WithEvents TxtCashSales As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents TxtTCashOut As TextBox
     Friend WithEvents TxtTotalCash As TextBox
-    Friend WithEvents TxtVariance As TextBox
     Friend WithEvents BtnClose As Button
-    Friend WithEvents BtnPost As Button
+    Friend WithEvents BtnPrint As Button
     Friend WithEvents TxtTDiscount As TextBox
 End Class

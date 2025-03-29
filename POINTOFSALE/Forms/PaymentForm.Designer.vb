@@ -56,7 +56,7 @@ Partial Class PaymentForm
         Me.btnPayEnter.BackColor = System.Drawing.Color.Lime
         Me.btnPayEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPayEnter.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPayEnter.Location = New System.Drawing.Point(417, 537)
+        Me.btnPayEnter.Location = New System.Drawing.Point(487, 537)
         Me.btnPayEnter.Name = "btnPayEnter"
         Me.btnPayEnter.Size = New System.Drawing.Size(81, 41)
         Me.btnPayEnter.TabIndex = 20
@@ -72,7 +72,7 @@ Partial Class PaymentForm
         Me.BtnDiscount.Name = "BtnDiscount"
         Me.BtnDiscount.Size = New System.Drawing.Size(144, 41)
         Me.BtnDiscount.TabIndex = 17
-        Me.BtnDiscount.Text = "(crl + s) DISCOUNT"
+        Me.BtnDiscount.Text = "(crl + D) DISCOUNT"
         Me.BtnDiscount.UseVisualStyleBackColor = False
         '
         'txtGtotal
@@ -81,10 +81,10 @@ Partial Class PaymentForm
         Me.txtGtotal.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtGtotal.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGtotal.ForeColor = System.Drawing.Color.Lime
-        Me.txtGtotal.Location = New System.Drawing.Point(172, 7)
+        Me.txtGtotal.Location = New System.Drawing.Point(215, 7)
         Me.txtGtotal.Name = "txtGtotal"
         Me.txtGtotal.ReadOnly = True
-        Me.txtGtotal.Size = New System.Drawing.Size(297, 47)
+        Me.txtGtotal.Size = New System.Drawing.Size(327, 47)
         Me.txtGtotal.TabIndex = 1
         Me.txtGtotal.Text = "0.00"
         Me.txtGtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -106,9 +106,9 @@ Partial Class PaymentForm
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.txtGtotal)
         Me.Panel5.Controls.Add(Me.Label5)
-        Me.Panel5.Location = New System.Drawing.Point(21, 446)
+        Me.Panel5.Location = New System.Drawing.Point(12, 446)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(477, 70)
+        Me.Panel5.Size = New System.Drawing.Size(556, 70)
         Me.Panel5.TabIndex = 15
         '
         'txtDiscount
@@ -117,10 +117,10 @@ Partial Class PaymentForm
         Me.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtDiscount.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDiscount.ForeColor = System.Drawing.Color.Silver
-        Me.txtDiscount.Location = New System.Drawing.Point(171, 7)
+        Me.txtDiscount.Location = New System.Drawing.Point(214, 7)
         Me.txtDiscount.Name = "txtDiscount"
         Me.txtDiscount.ReadOnly = True
-        Me.txtDiscount.Size = New System.Drawing.Size(297, 47)
+        Me.txtDiscount.Size = New System.Drawing.Size(327, 47)
         Me.txtDiscount.TabIndex = 1
         Me.txtDiscount.Text = "0.00"
         Me.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -142,10 +142,10 @@ Partial Class PaymentForm
         Me.txtChange.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtChange.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtChange.ForeColor = System.Drawing.Color.Yellow
-        Me.txtChange.Location = New System.Drawing.Point(171, 7)
+        Me.txtChange.Location = New System.Drawing.Point(214, 7)
         Me.txtChange.Name = "txtChange"
         Me.txtChange.ReadOnly = True
-        Me.txtChange.Size = New System.Drawing.Size(297, 47)
+        Me.txtChange.Size = New System.Drawing.Size(327, 47)
         Me.txtChange.TabIndex = 1
         Me.txtChange.Text = "0.00"
         Me.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -156,9 +156,9 @@ Partial Class PaymentForm
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.txtDiscount)
         Me.Panel4.Controls.Add(Me.Label4)
-        Me.Panel4.Location = New System.Drawing.Point(21, 370)
+        Me.Panel4.Location = New System.Drawing.Point(12, 370)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(477, 70)
+        Me.Panel4.Size = New System.Drawing.Size(556, 70)
         Me.Panel4.TabIndex = 14
         '
         'Label3
@@ -179,9 +179,9 @@ Partial Class PaymentForm
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.txtChange)
         Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Location = New System.Drawing.Point(21, 177)
+        Me.Panel3.Location = New System.Drawing.Point(12, 177)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(477, 70)
+        Me.Panel3.Size = New System.Drawing.Size(556, 70)
         Me.Panel3.TabIndex = 13
         '
         'txtCash
@@ -190,9 +190,9 @@ Partial Class PaymentForm
         Me.txtCash.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCash.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCash.ForeColor = System.Drawing.Color.DeepSkyBlue
-        Me.txtCash.Location = New System.Drawing.Point(171, 7)
+        Me.txtCash.Location = New System.Drawing.Point(214, 7)
         Me.txtCash.Name = "txtCash"
-        Me.txtCash.Size = New System.Drawing.Size(297, 47)
+        Me.txtCash.Size = New System.Drawing.Size(327, 47)
         Me.txtCash.TabIndex = 1
         Me.txtCash.Text = "0.00"
         Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -215,9 +215,9 @@ Partial Class PaymentForm
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.txtCash)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(21, 101)
+        Me.Panel2.Location = New System.Drawing.Point(12, 101)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(477, 70)
+        Me.Panel2.Size = New System.Drawing.Size(556, 70)
         Me.Panel2.TabIndex = 12
         '
         'txtAmount
@@ -226,10 +226,10 @@ Partial Class PaymentForm
         Me.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtAmount.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAmount.ForeColor = System.Drawing.Color.White
-        Me.txtAmount.Location = New System.Drawing.Point(172, 7)
+        Me.txtAmount.Location = New System.Drawing.Point(215, 3)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.ReadOnly = True
-        Me.txtAmount.Size = New System.Drawing.Size(297, 47)
+        Me.txtAmount.Size = New System.Drawing.Size(327, 47)
         Me.txtAmount.TabIndex = 1
         Me.txtAmount.Text = "0.00"
         Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -252,9 +252,9 @@ Partial Class PaymentForm
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.txtAmount)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(21, 25)
+        Me.Panel1.Location = New System.Drawing.Point(12, 25)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(477, 70)
+        Me.Panel1.Size = New System.Drawing.Size(556, 70)
         Me.Panel1.TabIndex = 11
         '
         'Panel6
@@ -263,9 +263,9 @@ Partial Class PaymentForm
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel6.Controls.Add(Me.TxtVat)
         Me.Panel6.Controls.Add(Me.Label6)
-        Me.Panel6.Location = New System.Drawing.Point(21, 294)
+        Me.Panel6.Location = New System.Drawing.Point(12, 294)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(477, 70)
+        Me.Panel6.Size = New System.Drawing.Size(556, 70)
         Me.Panel6.TabIndex = 14
         '
         'TxtVat
@@ -274,10 +274,10 @@ Partial Class PaymentForm
         Me.TxtVat.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtVat.Font = New System.Drawing.Font("Segoe Condensed", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtVat.ForeColor = System.Drawing.Color.Silver
-        Me.TxtVat.Location = New System.Drawing.Point(171, 7)
+        Me.TxtVat.Location = New System.Drawing.Point(214, 7)
         Me.TxtVat.Name = "TxtVat"
         Me.TxtVat.ReadOnly = True
-        Me.TxtVat.Size = New System.Drawing.Size(297, 47)
+        Me.TxtVat.Size = New System.Drawing.Size(327, 47)
         Me.TxtVat.TabIndex = 1
         Me.TxtVat.Text = "0.00"
         Me.TxtVat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -298,7 +298,7 @@ Partial Class PaymentForm
         Me.BtnClose.BackColor = System.Drawing.Color.Tomato
         Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClose.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.Location = New System.Drawing.Point(318, 537)
+        Me.BtnClose.Location = New System.Drawing.Point(388, 537)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(81, 41)
         Me.BtnClose.TabIndex = 21
@@ -310,7 +310,7 @@ Partial Class PaymentForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(522, 617)
+        Me.ClientSize = New System.Drawing.Size(580, 617)
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.btnPayEnter)

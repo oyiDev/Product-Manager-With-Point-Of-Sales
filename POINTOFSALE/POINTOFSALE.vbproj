@@ -222,10 +222,10 @@
       <DependentUpon>ReceiptReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\ZreadReport.vb">
+    <Compile Include="Reports\SalesReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ZreadReport.rpt</DependentUpon>
+      <DependentUpon>SalesReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -291,9 +291,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReceiptReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ZreadReport.rpt">
+    <EmbeddedResource Include="Reports\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ZreadReport.vb</LastGenOutput>
+      <LastGenOutput>SalesReport.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

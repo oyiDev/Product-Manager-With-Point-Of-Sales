@@ -36,6 +36,7 @@ Public Class OrderRepo
                 'Check if the product quantity is lower then equal zero
                 If productQty <= 0 Then
                     MessageBox.Show("Transaction cannot proceed. product quantity is zero", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    ItemListForm.TxtSearch.Focus()
                     Return
                 End If
 
@@ -54,9 +55,13 @@ Public Class OrderRepo
 
                 If Not rowExist Then
                     POSForm.dgTransaction.Rows.Add(barcode, productName, productPrice, 1, productPrice)
+                    ItemListForm.TxtSearch.Focus()
                 End If
 
                 UpdateTransactionTotal()
+                ItemListForm.TxtSearch.Focus()
+                ItemListForm.Hide()
+                POSForm.txtBarcode.Focus()
             Else
                 MessageBox.Show("Prouct not found", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
@@ -122,20 +127,39 @@ Public Class OrderRepo
 
     Public Sub RecordCashOut()
         Try
+            ' Calculate the total amount from the totalamountCol in TransactionForm.dgRecordTrans
+            Dim totalTransactionAmount As Decimal = 0
+            For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
+                If Not row.IsNewRow Then
+                    totalTransactionAmount += Convert.ToDecimal(row.Cells("totalamountCol").Value)
+                End If
+            Next
+
+            ' Get the amount inputted in TxtNum of DiscountForm
+            Dim cashOutAmount As Decimal = Convert.ToDecimal(DiscountForm.TxtNum.Text.Trim())
+
+            ' Compare the inputted amount with the total transaction amount
+            If cashOutAmount > totalTransactionAmount Then
+                MessageBox.Show("Amount in the drawer is: ₱ " & totalTransactionAmount.ToString("N2"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                DiscountForm.TxtNum.Text = totalTransactionAmount.ToString("N2")
+                Return
+            End If
+
+            ' Proceed with the cash out process
             Dim query As String = "INSERT INTO cashout (id, name, user_type, created_at, amount, remarks) VALUES (?, ?, ?, ?, ?, ?)"
             Using cmd As New OdbcCommand(query, con)
                 ' Add parameters in correct order
                 cmd.Parameters.AddWithValue("?", DiscountForm.lblid.Text.Trim().ToString)
                 cmd.Parameters.AddWithValue("?", POSForm.txtFullName.Text.Trim().ToString)
-                cmd.Parameters.AddWithValue("?", repo.Role)
+                cmd.Parameters.AddWithValue("?", POSForm.TxtRole.Text.Trim().ToString())
                 cmd.Parameters.AddWithValue("?", DateAndTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt"))
-                cmd.Parameters.AddWithValue("?", Convert.ToDecimal(DiscountForm.TxtIdNum.Text.Trim).ToString())
+                cmd.Parameters.AddWithValue("?", cashOutAmount.ToString())
                 cmd.Parameters.AddWithValue("?", DiscountForm.TxtName.Text.Trim().ToLower)
                 cmd.ExecuteNonQuery()
 
                 MessageBox.Show("Cashout successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 OpenCashDrawer()
-                DiscountForm.TxtIdNum.Clear()
+                DiscountForm.TxtNum.Clear()
                 DiscountForm.TxtName.Clear()
                 POSForm.Enabled = True
                 DiscountForm.Hide()
@@ -186,12 +210,10 @@ Public Class OrderRepo
             Next
 
             PrintForm.Show()
-            ' Load the report
             Dim report As New ReceiptReport
-            'report.Load("C:\Users\Rip\source\repos\Manage-Product-with-Point-Of-Sale\POINTOFSALE\Reports\ReceiptReport.rpt")
-            ' Set the data source of the report
             report.SetDataSource(dt)
-            ' Print the report
+
+            'Print the report
             report.PrintToPrinter(1, False, 0, 0)
             PrintForm.CViewer.ReportSource = report
         Else
@@ -311,8 +333,8 @@ Public Class OrderRepo
             Dim userInfo As UserInfo = userRepo.GetUserRole(usertype1, password)
 
             Dim transactionID As Integer = Convert.ToInt32(POSForm.txtnumber.Text)
-            Dim name As String = POSForm.txtFullName.Text.Trim
-            Dim userType As String = userInfo.Role
+            Dim name As String = POSForm.txtFullName.Text.Trim()
+            Dim userType As String = POSForm.TxtRole.Text.Trim()
             Dim transactionDate As String = DateAndTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt")
             Dim totalAmount As Decimal = Convert.ToDecimal(PaymentForm.txtGtotal.Text.Replace("₱", "").Trim())
             Dim paymentMethod As String = "Cash"
@@ -322,31 +344,6 @@ Public Class OrderRepo
             get_number()
         Catch ex As Exception
             MessageBox.Show("Error adding transaction: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
-    Public Sub SaveTransactionsToDatabase()
-        Try
-            For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
-                If Not row.IsNewRow Then
-
-                    Dim query As String = "INSERT INTO transactions (transaction_id, name, user_type, transaction_date, total_amount, payment_method, discount) VALUES (?, ?, ?, ?, ?, ?, ?)"
-
-                    Dim mycmd As New OdbcCommand(query, con)
-                    mycmd.Parameters.AddWithValue("?", row.Cells("idCol").Value.ToString())
-                    mycmd.Parameters.AddWithValue("?", row.Cells("nameCol").Value.ToString())
-                    mycmd.Parameters.AddWithValue("?", row.Cells("usertypeCol").Value.ToString())
-                    mycmd.Parameters.AddWithValue("?", Convert.ToDateTime(row.Cells("transactiondateCol").Value).ToString("yyyy-MM-dd HH:mm:ss"))
-                    mycmd.Parameters.AddWithValue("?", Convert.ToDecimal(row.Cells("totalamountCol").Value).ToString())
-                    mycmd.Parameters.AddWithValue("?", row.Cells("paymentmethodCol").Value.ToString())
-                    mycmd.Parameters.AddWithValue("?", Convert.ToDecimal(row.Cells("discountCol").Value).ToString())
-                    mycmd.ExecuteNonQuery()
-                End If
-            Next
-
-            MessageBox.Show("Transactions saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -391,20 +388,29 @@ Public Class OrderRepo
         DiscountForm.lblid.Text = (number + 1).ToString()
     End Sub
 
-    Public Sub Zread()
+    Public Sub SalesReport()
         Try
+            connect_me()
             Dim NetAmount As Double
             Dim OthersPayment As Double = 0
             Dim DiscountAmount As Double
             Dim CashSales As Double
             Dim TotalCashOut As Double
             Dim TotalCash As Double
-            Dim Variance As Double
-            Dim DenominationTotal As Double
 
-            ' Denomination Breakdown
-            Dim P1000 As Integer, P500 As Integer, P200 As Integer, P100 As Integer, P50 As Integer
-            Dim C20 As Integer, C10 As Integer, C5 As Integer, C1 As Integer
+            '' Calculate the total amount and discount from the transactions table for today's date
+            'Dim totalTransactionAmount As Decimal = 0
+            'Dim totalTransactionDiscount As Decimal = 0
+            'Dim query As String = "SELECT COALESCE(SUM(total_amount), 0), COALESCE(SUM(discount), 0) FROM transactions WHERE DATE(transaction_date) = CURDATE()"
+
+            'Using cmd As New OdbcCommand(query, con)
+            '    Using reader As OdbcDataReader = cmd.ExecuteReader()
+            '        If reader.Read() Then
+            '            totalTransactionAmount = Convert.ToDecimal(reader(0))
+            '            totalTransactionDiscount = Convert.ToDecimal(reader(1))
+            '        End If
+            '    End Using
+            'End Using
 
             ' Calculate total cash sales and discount
             Dim totalTransactionAmount As Decimal = 0
@@ -417,46 +423,17 @@ Public Class OrderRepo
                 End If
             Next
 
-            ' Retrieve total cash out for today from database
-            Dim query As String = "SELECT COALESCE(SUM(amount), 0) FROM cashout WHERE DATE(created_at) = CURDATE()"
-            Using cmd As New OdbcCommand(query, con)
+            ' Retrieve total cash out for today from the cashout table
+            Dim cashOutQuery As String = "SELECT COALESCE(SUM(amount), 0) FROM cashout WHERE DATE(created_at) = CURDATE()"
+            Using cmd As New OdbcCommand(cashOutQuery, con)
                 Dim totalCashOutResult As Object = cmd.ExecuteScalar()
                 TotalCashOut = If(IsDBNull(totalCashOutResult), 0D, Convert.ToDecimal(totalCashOutResult))
             End Using
 
-            ' Get Denomination Breakdown
-            'If Not Integer.TryParse(ReadingForm.p1000.Text.Trim, P1000) Then P1000 = 0
-            'If Not Integer.TryParse(ReadingForm.p500.Text.Trim, P500) Then P500 = 0
-            'If Not Integer.TryParse(ReadingForm.p200.Text.Trim, P200) Then P200 = 0
-            'If Not Integer.TryParse(ReadingForm.p100.Text.Trim, P100) Then P100 = 0
-            'If Not Integer.TryParse(ReadingForm.p50.Text.Trim, P50) Then P50 = 0
-            'If Not Integer.TryParse(ReadingForm.c20.Text.Trim, C20) Then C20 = 0
-            'If Not Integer.TryParse(ReadingForm.c10.Text.Trim, C10) Then C10 = 0
-            'If Not Integer.TryParse(ReadingForm.c5.Text.Trim, C5) Then C5 = 0
-            'If Not Integer.TryParse(ReadingForm.c1.Text.Trim, C1) Then C1 = 0
-
-            '' Update labels with denomination values
-            'ReadingForm.LblP1000.Text = Format(P1000 * 1000, "#,##0.00")
-            'ReadingForm.LblP500.Text = Format(P500 * 500, "#,##0.00")
-            'ReadingForm.LblP200.Text = Format(P200 * 200, "#,##0.00")
-            'ReadingForm.LblP100.Text = Format(P100 * 100, "#,##0.00")
-            'ReadingForm.LblP50.Text = Format(P50 * 50, "#,##0.00")
-            'ReadingForm.LblC20.Text = Format(C20 * 20, "#,##0.00")
-            'ReadingForm.LblC10.Text = Format(C10 * 10, "#,##0.00")
-            'ReadingForm.LblC5.Text = Format(C5 * 5, "#,##0.00")
-            'ReadingForm.LblC1.Text = Format(C1 * 1, "#,##0.00")
-
-            '' Calculate Denomination Total
-            'DenominationTotal = (P1000 * 1000) + (P500 * 500) + (P200 * 200) + (P100 * 100) + (P50 * 50) + (C20 * 20) + (C10 * 10) + (C5 * 5) + (C1 * 1)
-
-            'ReadingForm.lblTCashCount.Text = Format(DenominationTotal, "#,##0.00")
-
-            ' Calculate totals
             CashSales = totalTransactionAmount
             DiscountAmount = totalTransactionDiscount
             NetAmount = CashSales + OthersPayment - DiscountAmount
             TotalCash = CashSales - TotalCashOut
-            Variance = DenominationTotal - TotalCash
 
             ' Display results in the form
             ReadingForm.TxtNetAmount.Text = Format(NetAmount, "#,##0.00")
@@ -465,67 +442,86 @@ Public Class OrderRepo
             ReadingForm.TxtCashSales.Text = Format(CashSales, "#,##0.00")
             ReadingForm.TxtTCashOut.Text = Format(TotalCashOut, "#,##0.00")
             ReadingForm.TxtTotalCash.Text = Format(TotalCash, "#,##0.00")
-            ReadingForm.TxtVariance.Text = Format(Variance, "#,##0.00")
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
         End Try
     End Sub
 
-    Public Sub PrintZread()
+    Public Sub PrintSalesReport()
         Try
+            connect_me()
             Dim dt As New DataTable
             dt.Columns.Add("netamount", Type.GetType("System.String"))
-            dt.Columns.Add("cashsales", Type.GetType("System.String"))
             dt.Columns.Add("otherpayment", Type.GetType("System.String"))
-            dt.Columns.Add("discoun", Type.GetType("System.String"))
-            dt.Columns.Add("cashout", Type.GetType("System.String"))
-            dt.Columns.Add("cash", Type.GetType("System.String"))
-            dt.Columns.Add("variance", Type.GetType("System.String"))
-            dt.Columns.Add("cashcount", Type.GetType("System.String"))
-            dt.Columns.Add("thiskawnt", Type.GetType("System.String"))
+            dt.Columns.Add("totaldiscount", Type.GetType("System.String"))
+            dt.Columns.Add("cashsales", Type.GetType("System.String"))
+            dt.Columns.Add("totalcashout", Type.GetType("System.String"))
+            dt.Columns.Add("totalcash", Type.GetType("System.String"))
 
             ' Ensure the form controls are accessible
-            Dim netAmount As String = ReadingForm.TxtNetAmount.Text
-            Dim cashSales As String = ReadingForm.TxtCashSales.Text
-            Dim otherPayment As String = ReadingForm.TxtOthersPayment.Text
-            Dim Tdiscount As String = ReadingForm.TxtTDiscount.Text
-            Dim totalCashOut As String = ReadingForm.TxtTCashOut.Text
-            Dim totalCash As String = ReadingForm.TxtTotalCash.Text
-            Dim variance As String = ReadingForm.TxtVariance.Text
-            'Dim TCashCount As String = ReadingForm.lblTCashCount.Text
-            Dim thiskawnt As String = ReadingForm.TxtTDiscount.Text
+            Dim netAmount As String = ReadingForm.TxtNetAmount.Text.Trim()
+            Dim otherPayment As String = ReadingForm.TxtOthersPayment.Text.Trim()
+            Dim totaldiscount As String = ReadingForm.TxtTDiscount.Text.Trim()
+            Dim cashsales As String = ReadingForm.TxtCashSales.Text.Trim()
+            Dim totalcashout As String = ReadingForm.TxtTCashOut.Text.Trim()
+            Dim totalcash As String = ReadingForm.TxtTotalCash.Text.Trim()
 
             ' Add a new row with the values
-            dt.Rows.Add(netAmount, cashSales, otherPayment, Tdiscount, totalCashOut, totalCash, variance, thiskawnt) 'TCashCount)
+            dt.Rows.Add(netAmount, otherPayment, totaldiscount, cashsales, totalcashout, totalcash)
 
-            'PrintForm.Show()
-            ' Load the report
-            Dim report As New ZreadReport()
-            'report.Load("C:\Users\Rip\source\repos\Manage-Product-with-Point-Of-Sale\POINTOFSALE\Reports\ReceiptReport.rpt")
-            ' Set the data source of the report
+            PrintForm.Show()
+            Dim report As New SalesReport()
             report.SetDataSource(dt)
             ' Print the report
             report.PrintToPrinter(1, False, 0, 0)
-            'PrintForm.CViewer.ReportSource = report
-
-            MessageBox.Show("Z-reading printed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+            PrintForm.CViewer.ReportSource = report
+            SaveTransactionsToDatabase()
+            MessageBox.Show("Sales for today printed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            MessageBox.Show("Error printing Z-read: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error printing Sales: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Public Sub SaveTransactionsToDatabase()
+        Try
+            connect_me()
+
+            For Each row As DataGridViewRow In TransactionForm.dgRecordTrans.Rows
+                If Not row.IsNewRow Then
+
+                    Dim query As String = "INSERT INTO transactions (transaction_id, name, user_type, transaction_date, total_amount, payment_method, discount) VALUES (?, ?, ?, ?, ?, ?, ?)"
+
+                    Dim mycmd As New OdbcCommand(query, con)
+                    mycmd.Parameters.AddWithValue("?", row.Cells("idCol").Value.ToString())
+                    mycmd.Parameters.AddWithValue("?", row.Cells("nameCol").Value.ToString())
+                    mycmd.Parameters.AddWithValue("?", row.Cells("usertypeCol").Value.ToString())
+                    mycmd.Parameters.AddWithValue("?", Convert.ToDateTime(row.Cells("transactiondateCol").Value).ToString("yyyy-MM-dd HH:mm:ss"))
+                    mycmd.Parameters.AddWithValue("?", Convert.ToDecimal(row.Cells("totalamountCol").Value).ToString())
+                    mycmd.Parameters.AddWithValue("?", row.Cells("paymentmethodCol").Value.ToString())
+                    mycmd.Parameters.AddWithValue("?", Convert.ToDecimal(row.Cells("discountCol").Value).ToString())
+                    mycmd.ExecuteNonQuery()
+                End If
+            Next
+
+            MessageBox.Show("Transactions saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Public Sub ClearDataGridView()
         POSForm.dgTransaction.Rows.Clear()
         POSForm.lblAction.Text = "CASH SALES"
-        POSForm.txtTransSubtotal.Text = "₱ 00.00"
-        PaymentForm.txtAmount.Text = "₱ 00.00"
-        PaymentForm.txtCash.Text = "₱ 00.00"
-        PaymentForm.txtChange.Text = "₱ 00.00"
-        PaymentForm.TxtVat.Text = "₱ 00.00"
-        PaymentForm.txtDiscount.Text = "₱ 00.00"
-        PaymentForm.txtGtotal.Text = "₱ 00.00"
+        POSForm.txtTransSubtotal.Text = "₱ 0.00"
+        PaymentForm.txtAmount.Text = "₱ 0.00"
+        PaymentForm.txtCash.Text = "₱ 0.00"
+        PaymentForm.txtChange.Text = "₱ 0.00"
+        PaymentForm.TxtVat.Text = "₱ 0.00"
+        PaymentForm.txtDiscount.Text = "₱ 0.00"
+        PaymentForm.txtGtotal.Text = "₱ 0.00"
     End Sub
 
     Public Sub ClearRedings()
@@ -535,16 +531,5 @@ Public Class OrderRepo
         ReadingForm.TxtTDiscount.Clear()
         ReadingForm.TxtTCashOut.Clear()
         ReadingForm.TxtTotalCash.Clear()
-        ReadingForm.TxtVariance.Clear()
-        'ReadingForm.c1.Clear()
-        'ReadingForm.c5.Clear()
-        'ReadingForm.c10.Clear()
-        'ReadingForm.c20.Clear()
-        'ReadingForm.p50.Clear()
-        'ReadingForm.p100.Clear()
-        'ReadingForm.p200.Clear()
-        'ReadingForm.p500.Clear()
-        'ReadingForm.p1000.Clear()
-        'ReadingForm.lblTCashCount.Text = "0.00"
     End Sub
 End Class

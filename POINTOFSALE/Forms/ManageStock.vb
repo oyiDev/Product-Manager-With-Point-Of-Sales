@@ -5,7 +5,7 @@ Public Class ManageStock
 
     Private Sub manageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim repo As New ManageDataRefresher
-        repo.ManageStockLoadDataRefresh()
+        repo.GetManageStockData()
     End Sub
 
     'Private Sub dg_stock_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dg_stock.CellFormatting

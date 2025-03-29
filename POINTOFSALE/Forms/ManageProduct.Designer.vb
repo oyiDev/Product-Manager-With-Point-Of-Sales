@@ -120,6 +120,7 @@ Partial Class ManageProduct
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgProduct.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DgProduct.Enabled = False
         Me.DgProduct.Location = New System.Drawing.Point(11, 74)
         Me.DgProduct.MultiSelect = False
         Me.DgProduct.Name = "DgProduct"

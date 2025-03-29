@@ -11,14 +11,14 @@
             If TxtName.Text = "" Then
                 MessageBox.Show("Enter Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                TxtIdNum.Focus()
+                TxtNum.Focus()
             End If
         End If
     End Sub
 
-    Private Sub TxtIdNum_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtIdNum.KeyDown
+    Private Sub TxtIdNum_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtNum.KeyDown
         If e.KeyCode = 13 Then
-            If TxtIdNum.Text = "" Then
+            If TxtNum.Text = "" Then
                 MessageBox.Show("Enter Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 BtnEnter.Focus()
@@ -26,8 +26,8 @@
         End If
     End Sub
 
-    Private Sub TxtIdNum_TextChanged(sender As Object, e As EventArgs) Handles TxtIdNum.TextChanged
-        TxtIdNum.Text = System.Text.RegularExpressions.Regex.Replace(TxtIdNum.Text, "[^0-9]", "")
+    Private Sub TxtIdNum_TextChanged(sender As Object, e As EventArgs) Handles TxtNum.TextChanged
+        TxtNum.Text = System.Text.RegularExpressions.Regex.Replace(TxtNum.Text, "[^0-9.]", "")
     End Sub
 
     Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
@@ -35,7 +35,7 @@
         repo.get_id()
 
         Dim name As String = TxtName.Text.Trim.ToLower()
-        Dim id As String = TxtIdNum.Text.Trim.ToLower()
+        Dim id As String = TxtNum.Text.Trim.ToLower()
 
         If name = "" Then
             MessageBox.Show("Enter Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -49,7 +49,7 @@
                 PaymentForm.txtCash.Focus()
                 Me.Hide()
                 TxtName.Clear()
-                TxtIdNum.Clear()
+                TxtNum.Clear()
             ElseIf LblType.Text = "CASHOUT" Then
                 repo.RecordCashOut()
             End If

@@ -1,33 +1,8 @@
 ﻿Public Class adminDashboard
 
     Dim DataRefresher As New ManageDataRefresher
-    Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnDashboard.FlatAppearance.BorderSize = 0
-        btnManageProduct.FlatAppearance.BorderSize = 0
-        btnManageStock.FlatAppearance.BorderSize = 0
-        btnManageSupplier.FlatAppearance.BorderSize = 0
-        btnManageUser.FlatAppearance.BorderSize = 0
-        btnExit.FlatAppearance.BorderSize = 0
-
-        btnDashboard.Focus()
-        btnDashboard.BackColor = Color.DodgerBlue
-        btnManageProduct.BackColor = Color.White
-        btnManageStock.BackColor = Color.White
-        btnManageSupplier.BackColor = Color.White
-        btnManageUser.BackColor = Color.White
-
-        adminMainPanel.Controls.Clear()
-
-        Dashboard.TopLevel = False
-        Dashboard.FormBorderStyle = FormBorderStyle.None
-        Dashboard.Dock = DockStyle.Fill
-
-        adminMainPanel.Controls.Add(Dashboard)
-        Dashboard.Show()
-    End Sub
 
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
-
         btnDashboard.BackColor = Color.DodgerBlue
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
@@ -45,9 +20,9 @@
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
-        Dim repo As New ProductRepo
-        repo.getProductData()
-        repo.WrapProductData()
+        Dim productRepo As New ProductRepo()
+        productRepo.WrapProductData(ManageProduct.DgProduct)
+        productRepo.getProductData()
 
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.DodgerBlue
@@ -65,17 +40,8 @@
         ManageProduct.Show()
     End Sub
 
-    'Private Sub RefreshMe()
-    '    connect_me()
-    '    Dim mycmd As New OdbcCommand("select * from products", con)
-    '    Dim da As New OdbcDataAdapter(mycmd)
-    '    Dim ds As New Data.DataSet
-    '    da.Fill(ds, "products")
-    '    btnDashboard.Refresh()
-    'End Sub
-
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
-        DataRefresher.ManageStockLoadDataRefresh()
+        DataRefresher.GetManageStockData()
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.DodgerBlue
@@ -110,7 +76,6 @@
     End Sub
 
     Private Sub btnManageUser_Click(sender As Object, e As EventArgs) Handles btnManageUser.Click
-
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
@@ -126,10 +91,10 @@
         adminMainPanel.Controls.Add(ManageUser)
         ManageUser.Show()
     End Sub
+
     Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Dim res As Integer
         res = MessageBox.Show("Quit application?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-
         If res = vbOK Then
             Me.Hide()
             LoginForm.Show()

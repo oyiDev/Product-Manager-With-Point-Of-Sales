@@ -1,5 +1,4 @@
 ﻿Imports System.Data.Odbc
-Imports System.Web.Security
 
 Public Class ProductRepo
     Public Sub getProductData()
@@ -188,13 +187,13 @@ Public Class ProductRepo
         ManageProduct.DgProduct.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
     End Sub
 
-    Public Sub WrapProductData()
-        ManageProduct.DgProduct.DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        ManageProduct.DgProduct.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        ManageProduct.DgProduct.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True
-        ManageProduct.DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        ManageProduct.DgProduct.DefaultCellStyle.SelectionBackColor = Color.White
-        ManageProduct.DgProduct.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+    Public Sub WrapProductData(dg As DataGridView)
+        dg.DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        dg.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dg.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True
+        dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dg.DefaultCellStyle.SelectionBackColor = Color.White
+        dg.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
     End Sub
 End Class
 
