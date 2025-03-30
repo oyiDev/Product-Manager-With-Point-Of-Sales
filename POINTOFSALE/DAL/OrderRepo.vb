@@ -7,17 +7,13 @@ Public Class OrderRepo
     Dim repo As New UserInfo
 
     Public Sub ScanProduct(barcode As String)
-        Dim timeNow As DateTime = DateTime.Now ' Get current time
-        Dim resumeTime As DateTime = DateTime.Today.AddHours(7) ' 7:00 AM
 
-        ' Check if scanning is paused
-        If StopScan.StopScanActive Then
-            If timeNow >= resumeTime Then
-                StopScan.StopScanActive = False ' Resume scanning after 7:00 AM
-            Else
-                MessageBox.Show("Today transaction is CLOSED until 7:00 AM.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
-            End If
+        If StopScanActive OrElse DateTime.Now.Hour < 6 Then
+            MessageBox.Show("Transaction is closed until 6 AM!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        Else
+            StopScanActive = False
+            Console.WriteLine("The value Stop Scan Active is: " & StopScanActive)
         End If
 
         Dim query As String = "SELECT barcode, genericname, price, qty, (price * qty) as amount FROM products WHERE barcode = ?"
@@ -407,7 +403,7 @@ Public Class OrderRepo
                 End If
             Next
 
-            ' Retrieve total cash out for today from the cashout table
+            ' Retrieve total cash out for today from the database cashout table
             Dim cashOutQuery As String = "SELECT COALESCE(SUM(amount), 0) FROM cashout WHERE DATE(created_at) = CURDATE()"
             Using cmd As New OdbcCommand(cashOutQuery, con)
                 Dim totalCashOutResult As Object = cmd.ExecuteScalar()
@@ -500,20 +496,29 @@ Public Class OrderRepo
         POSForm.dgTransaction.Rows.Clear()
         POSForm.lblAction.Text = "CASH SALES"
         POSForm.txtTransSubtotal.Text = "₱ 0.00"
-        PaymentForm.txtAmount.Text = "₱ 0.00"
-        PaymentForm.txtCash.Text = "₱ 0.00"
-        PaymentForm.txtChange.Text = "₱ 0.00"
-        PaymentForm.TxtVat.Text = "₱ 0.00"
-        PaymentForm.txtDiscount.Text = "₱ 0.00"
-        PaymentForm.txtGtotal.Text = "₱ 0.00"
+        Format(PaymentForm.txtAmount.Text = "₱ #,##0.00")
+        Format(PaymentForm.txtCash.Text = "₱ #,##0.00")
+        Format(PaymentForm.txtChange.Text = "₱ #,##0.00")
+        Format(PaymentForm.TxtVat.Text = "₱ #,##0.00")
+        Format(PaymentForm.txtDiscount.Text = "₱ #,##0.00")
+        Format(PaymentForm.txtGtotal.Text = "₱ #,##0.00")
     End Sub
 
-    Public Sub ClearRedings()
-        ReadingForm.TxtNetAmount.Clear()
-        ReadingForm.TxtCashSales.Clear()
-        ReadingForm.TxtOthersPayment.Clear()
-        ReadingForm.TxtTDiscount.Clear()
-        ReadingForm.TxtTCashOut.Clear()
-        ReadingForm.TxtTotalCash.Clear()
+    Public Sub ReadingFormater()
+        ReadingForm.TxtNetAmount.Text = Format(ReadingForm.TxtNetAmount.Text, "#,##0.00")
+        ReadingForm.TxtOthersPayment.Text = Format(ReadingForm.TxtOthersPayment.Text, "#,##0.00")
+        ReadingForm.TxtTDiscount.Text = Format(ReadingForm.TxtTDiscount.Text, "#,##0.00")
+        ReadingForm.TxtCashSales.Text = Format(ReadingForm.TxtCashSales.Text, "#,##0.00")
+        ReadingForm.TxtTCashOut.Text = Format(ReadingForm.TxtTCashOut.Text, "#,##0.00")
+        ReadingForm.TxtTotalCash.Text = Format(ReadingForm.TxtTotalCash.Text, "#,##0.00")
     End Sub
+
+    'Public Sub clearredings()
+    '    ReadingForm.TxtNetAmount.Clear()
+    '    ReadingForm.TxtCashSales.Clear()
+    '    ReadingForm.TxtOthersPayment.Clear()
+    '    ReadingForm.TxtTDiscount.Clear()
+    '    ReadingForm.TxtTCashOut.Clear()
+    '    ReadingForm.TxtTotalCash.Clear()
+    'End Sub
 End Class

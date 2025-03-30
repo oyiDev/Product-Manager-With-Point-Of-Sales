@@ -96,10 +96,10 @@
     <Compile Include="Forms\adminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConTransForm.Designer.vb">
+    <Compile Include="Forms\helpers\ConTransForm.Designer.vb">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConTransForm.vb">
+    <Compile Include="Forms\helpers\ConTransForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
@@ -233,7 +233,7 @@
     <EmbeddedResource Include="Forms\adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConTransForm.resx">
+    <EmbeddedResource Include="Forms\helpers\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
@@ -353,5 +353,6 @@
   <ItemGroup>
     <None Include="Resources\1000.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

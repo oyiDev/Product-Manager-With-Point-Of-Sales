@@ -36,7 +36,7 @@ Partial Class ConTransForm
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(442, 92)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "WOULD YOU LIKE TO" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ZREAD NOW ?"
+        Me.Label1.Text = "WOULD YOU LIKE TO" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SALES CONTINUE?"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BtnYes

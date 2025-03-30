@@ -13,13 +13,8 @@
         End If
 
         orderrepo.PrintSalesReport()
-        'ConTransForm.Show()
-        TxtNetAmount.Text = ".00"
-        TxtOthersPayment.Text = ".00"
-        TxtTDiscount.Text = ".00"
-        TxtCashSales.Text = ".00"
-        TxtTCashOut.Text = ".00"
-        TxtTotalCash.Text = ".00"
+        orderrepo.ReadingFormater()
+        ConTransForm.ShowDialog()
         Me.Hide()
     End Sub
 

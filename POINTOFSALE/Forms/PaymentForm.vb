@@ -93,13 +93,6 @@
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Dim repo As New OrderRepo
-        'POSForm.txtTransSubtotal.Text = "₱ 00.00"
-        'txtAmount.Text = "₱ 00.00"
-        'txtCash.Text = "₱ 00.00"
-        'txtChange.Text = "₱ 00.00"
-        'TxtVat.Text = "₱ 00.00"
-        'txtDiscount.Text = "₱ 00.00"
-        'txtGtotal.Text = "₱ 00.00"
         POSForm.Enabled = True
         Me.Hide()
     End Sub

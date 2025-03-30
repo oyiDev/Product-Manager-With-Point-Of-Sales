@@ -68,7 +68,7 @@ Partial Class PaymentForm
         Me.BtnDiscount.BackColor = System.Drawing.Color.Silver
         Me.BtnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnDiscount.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDiscount.Location = New System.Drawing.Point(21, 537)
+        Me.BtnDiscount.Location = New System.Drawing.Point(12, 537)
         Me.BtnDiscount.Name = "BtnDiscount"
         Me.BtnDiscount.Size = New System.Drawing.Size(144, 41)
         Me.BtnDiscount.TabIndex = 17

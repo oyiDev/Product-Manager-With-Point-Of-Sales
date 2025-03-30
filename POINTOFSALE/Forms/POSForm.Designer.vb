@@ -48,7 +48,7 @@ Partial Class POSForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtFullName = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnRecord = New System.Windows.Forms.Button()
+        Me.BtnCashout = New System.Windows.Forms.Button()
         Me.BtnSales = New System.Windows.Forms.Button()
         Me.BtnEditQty = New System.Windows.Forms.Button()
         Me.txtnumber = New System.Windows.Forms.TextBox()
@@ -339,19 +339,19 @@ Partial Class POSForm
         '
         Me.Timer1.Interval = 1000
         '
-        'BtnRecord
+        'BtnCashout
         '
-        Me.BtnRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnRecord.BackColor = System.Drawing.Color.RoyalBlue
-        Me.BtnRecord.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRecord.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRecord.Location = New System.Drawing.Point(10, 500)
-        Me.BtnRecord.Name = "BtnRecord"
-        Me.BtnRecord.Size = New System.Drawing.Size(125, 40)
-        Me.BtnRecord.TabIndex = 27
-        Me.BtnRecord.Text = "(F8) CASH OUT"
-        Me.BtnRecord.UseVisualStyleBackColor = False
+        Me.BtnCashout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnCashout.BackColor = System.Drawing.Color.RoyalBlue
+        Me.BtnCashout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCashout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCashout.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCashout.Location = New System.Drawing.Point(10, 500)
+        Me.BtnCashout.Name = "BtnCashout"
+        Me.BtnCashout.Size = New System.Drawing.Size(125, 40)
+        Me.BtnCashout.TabIndex = 27
+        Me.BtnCashout.Text = "(F8) CASH OUT"
+        Me.BtnCashout.UseVisualStyleBackColor = False
         '
         'BtnSales
         '
@@ -438,7 +438,7 @@ Partial Class POSForm
         Me.Controls.Add(Me.BtnSales)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.BtnEditQty)
-        Me.Controls.Add(Me.BtnRecord)
+        Me.Controls.Add(Me.BtnCashout)
         Me.Controls.Add(Me.txtFullName)
         Me.Controls.Add(Me.txtTime)
         Me.Controls.Add(Me.Label3)
@@ -488,7 +488,7 @@ Partial Class POSForm
     Friend WithEvents Label4 As Label
     Friend WithEvents txtFullName As TextBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents BtnRecord As Button
+    Friend WithEvents BtnCashout As Button
     Friend WithEvents BtnSales As Button
     Friend WithEvents BtnEditQty As Button
     Friend WithEvents txtnumber As TextBox
