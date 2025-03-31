@@ -1,8 +1,8 @@
 ﻿Public Class LoginForm
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TxtUsername.Text = "OYI12"
+        TxtPassword.Text = "1412"
         TxtUsername.Focus()
-        TxtUsername.Text = "Ally1"
-        TxtPassword.Text = "123"
         btnLogin.Focus()
     End Sub
 
@@ -47,7 +47,11 @@
             userRepo.DisplayUserInfo()
             Me.Hide()
         Else
-            MessageBox.Show("Invalid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If TxtUsername.Text = "" Or TxtPassword.Text = "" Then
+                MessageBox.Show("Input user or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            MessageBox.Show("Invalid user or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TxtUsername.Clear()
             TxtPassword.Clear()
         End If

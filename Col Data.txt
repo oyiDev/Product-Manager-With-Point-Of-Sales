@@ -1,0 +1,23 @@
+DASHBOARD
++ total product
++ total userr
++ total supplier
+
+DASHBOARD
+ZERO PRODUCT
++ qty
++ genericname
++ brandname
++ category
+
+MANAGE PRODUCT
++ barcode
++ category
++ genericname
++ brandname
++ formula
++ description
++ price
++ qty
+
+DgStock

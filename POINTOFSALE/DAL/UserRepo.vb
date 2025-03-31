@@ -15,21 +15,24 @@ Public Class UserRepo
     End Function
 
     Public Sub InsertUser()
-        Dim id As String = AddUser.TxtId.Text.Trim()
-        Dim firstname As String = AddUser.TxtFname.Text.Trim()
-        Dim lastname As String = AddUser.TxtLname.Text.Trim()
-        Dim password As String = AddUser.TxtPass.Text.Trim().ToLower
-        Dim role As String = AddUser.CbRole.Text
+        Dim userInfo As New UserInfo
+        Dim id As String = AddUser.TxtId.Text.Trim().ToUpper
+        Dim firstName As String = AddUser.TxtFname.Text.Trim().ToUpper
+        Dim lastName As String = AddUser.TxtLname.Text.Trim().ToUpper
+        Dim userName As String = AddUser.TxtUsername.Text.Trim().ToUpper
+        Dim passWord As String = AddUser.TxtPass.Text.Trim().ToUpper
+        Dim role As String = AddUser.CbRole.Text.Trim().ToUpper
 
         Dim passwordHash As String = HashPassword(password)
-        Dim query As String = "INSERT INTO users (user_id, firstname, lastname, password_hash, user_type) VALUES (?, ?, ?, ?, ?)"
+        Dim query As String = "INSERT INTO users (id, firstname, lastname, username, password, usertype) VALUES (?, ?, ?, ?, ?, ?)"
 
         Try
             connect_me()
             Using cmd As New OdbcCommand(query, con)
                 cmd.Parameters.AddWithValue("?", id)
-                cmd.Parameters.AddWithValue("?", firstname)
-                cmd.Parameters.AddWithValue("?", lastname)
+                cmd.Parameters.AddWithValue("?", firstName)
+                cmd.Parameters.AddWithValue("?", lastName)
+                cmd.Parameters.AddWithValue("?", userName)
                 cmd.Parameters.AddWithValue("?", passwordHash)
                 cmd.Parameters.AddWithValue("?", role)
 
@@ -37,7 +40,7 @@ Public Class UserRepo
                 MessageBox.Show("User Added Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Username already used" & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Finally
             con.Close()
         End Try
@@ -70,7 +73,6 @@ Public Class UserRepo
         Finally
             con.Close()
         End Try
-
         Return userInfo
     End Function
 
@@ -92,31 +94,13 @@ Public Class UserRepo
         End If
     End Sub
 
-    Public Sub LoadUser()
-        Try
-            Dim mycmd As New OdbcCommand("SELECT user_id, firstname AS Firstname, lastname AS Lastname, user_type AS Role, created_at, updated_at FROM users", con)
-            Dim da As New OdbcDataAdapter(mycmd)
-            Dim ds As New Data.DataSet
-            da.Fill(ds, "users")
-
-            ManageUser.DgManageUser.DataSource = ds.Tables(0)
-            ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.SkyBlue
-            'ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
-            ManageUser.DgManageUser.Refresh()
-        Catch ex As Exception
-            MessageBox.Show("An error occurred while loading... " & ex.Message)
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
     Public Sub Get_id()
         Try
             connect_me()
             Dim number As Integer = 0
 
             If number = 0 Then
-                Dim cmdnumber As New OdbcCommand("SELECT IFNULL(MAX(user_id), 0) FROM users", con)
+                Dim cmdnumber As New OdbcCommand("SELECT IFNULL(MAX(id), 0) FROM users", con)
                 number = Convert.ToInt32(cmdnumber.ExecuteScalar())
             End If
 
@@ -130,21 +114,20 @@ Public Class UserRepo
     End Sub
 
     Public Sub DeleteUser()
-        ' Confirm deletion
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
         If result = DialogResult.No Then
-            RowWhite()
-            AddUser.Hide()
+            ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
+            ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
         Else
             Try
+                connect_me()
                 ' Get selected user info
                 Dim selectedRow As DataGridViewRow = ManageUser.DgManageUser.Rows(ManageUser.DgManageUser.CurrentCell.RowIndex)
-                Dim id As String = selectedRow.Cells("user_id").Value.ToString()
+                Dim id As String = selectedRow.Cells("USER ID").Value.ToString()
 
                 ' Connect to the database and delete the user
-                connect_me()
-                Dim query As String = "DELETE FROM users WHERE user_id = ?"
+                Dim query As String = "DELETE FROM users WHERE id = ?"
                 Using cmd As New OdbcCommand(query, con)
                     cmd.Parameters.AddWithValue("?", id)
                     cmd.ExecuteNonQuery()
@@ -152,8 +135,10 @@ Public Class UserRepo
 
                 ' Refresh the DataGridView after deletion
                 MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                RowWhite()
-                LoadUser()
+                ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
+                ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+                Dim mdf As New ManageDataRefresher
+                mdf.GetManageUserData()
             Catch ex As Exception
                 MessageBox.Show("Error deleting user: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
@@ -163,43 +148,33 @@ Public Class UserRepo
     End Sub
 
     Public Sub EditUser()
-        Dim result As DialogResult = MessageBox.Show("Edit?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-        If result = DialogResult.No Then
-            RowWhite()
-            AddUser.Hide()
-        Else
-            Dim id As String = AddUser.TxtId.Text.Trim()
-            Dim firstname As String = AddUser.TxtFname.Text.Trim()
-            Dim lastname As String = AddUser.TxtLname.Text.Trim()
-            Dim password As String = AddUser.TxtPass.Text.Trim().ToLower()
-            Dim role As String = AddUser.CbRole.Text
+        Dim id As String = AddUser.TxtId.Text.Trim().ToUpper()
+        Dim firstname As String = AddUser.TxtFname.Text.Trim().ToUpper()
+        Dim lastname As String = AddUser.TxtLname.Text.Trim().ToUpper()
+        Dim username As String = AddUser.TxtUsername.Text.Trim().ToUpper()
+        Dim password As String = AddUser.TxtPass.Text.Trim().ToUpper()
+        Dim role As String = AddUser.CbRole.Text
 
-            Dim passwordHash As String = HashPassword(password)
-            Dim query As String = "UPDATE users SET firstname = ?, lastname = ?, password_hash = ?, user_type = ? WHERE user_id = ?"
+        Dim passwordHash As String = HashPassword(password)
+        Dim query As String = "UPDATE users SET firstname = ?, lastname = ?, username = ?, password = ?, usertype = ? WHERE id = ?"
 
-            Try
-                connect_me()
-                Using cmd As New OdbcCommand(query, con)
-                    cmd.Parameters.AddWithValue("?", firstname)
-                    cmd.Parameters.AddWithValue("?", lastname)
-                    cmd.Parameters.AddWithValue("?", passwordHash)
-                    cmd.Parameters.AddWithValue("?", role)
-                    cmd.Parameters.AddWithValue("?", id)
-                    cmd.ExecuteNonQuery()
-                End Using
-                MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
-            Finally
-                con.Close()
-            End Try
-        End If
-    End Sub
+        Try
+            connect_me()
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", firstname)
+                cmd.Parameters.AddWithValue("?", lastname)
+                cmd.Parameters.AddWithValue("?", username)
+                cmd.Parameters.AddWithValue("?", passwordHash)
+                cmd.Parameters.AddWithValue("?", role)
+                cmd.Parameters.AddWithValue("?", id)
+                cmd.ExecuteNonQuery()
+            End Using
 
-    Public Sub RowWhite()
-        ManageUser.DgManageUser.RowHeadersVisible = False
-        ManageUser.DgManageUser.Enabled = False
-        ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
-        ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+            MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class

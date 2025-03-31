@@ -25,6 +25,8 @@ Partial Class AddUser
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.AddUserPanel = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TxtUsername = New System.Windows.Forms.TextBox()
         Me.CbRole = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TxtLname = New System.Windows.Forms.TextBox()
@@ -44,7 +46,7 @@ Partial Class AddUser
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Location = New System.Drawing.Point(361, 338)
+        Me.BtnCancel.Location = New System.Drawing.Point(356, 322)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(96, 32)
         Me.BtnCancel.TabIndex = 0
@@ -55,7 +57,7 @@ Partial Class AddUser
         '
         Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAdd.Location = New System.Drawing.Point(463, 338)
+        Me.BtnAdd.Location = New System.Drawing.Point(458, 322)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(96, 32)
         Me.BtnAdd.TabIndex = 0
@@ -66,6 +68,8 @@ Partial Class AddUser
         '
         Me.AddUserPanel.BackColor = System.Drawing.Color.White
         Me.AddUserPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AddUserPanel.Controls.Add(Me.Label7)
+        Me.AddUserPanel.Controls.Add(Me.TxtUsername)
         Me.AddUserPanel.Controls.Add(Me.CbRole)
         Me.AddUserPanel.Controls.Add(Me.BtnAdd)
         Me.AddUserPanel.Controls.Add(Me.Label4)
@@ -81,10 +85,28 @@ Partial Class AddUser
         Me.AddUserPanel.Controls.Add(Me.TxtId)
         Me.AddUserPanel.Controls.Add(Me.Label1)
         Me.AddUserPanel.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddUserPanel.Location = New System.Drawing.Point(12, 12)
+        Me.AddUserPanel.Location = New System.Drawing.Point(12, 11)
         Me.AddUserPanel.Name = "AddUserPanel"
-        Me.AddUserPanel.Size = New System.Drawing.Size(613, 402)
+        Me.AddUserPanel.Size = New System.Drawing.Size(621, 430)
         Me.AddUserPanel.TabIndex = 1
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(333, 45)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(83, 15)
+        Me.Label7.TabIndex = 12
+        Me.Label7.Text = "User Name:"
+        '
+        'TxtUsername
+        '
+        Me.TxtUsername.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUsername.Location = New System.Drawing.Point(336, 64)
+        Me.TxtUsername.Name = "TxtUsername"
+        Me.TxtUsername.Size = New System.Drawing.Size(218, 23)
+        Me.TxtUsername.TabIndex = 11
         '
         'CbRole
         '
@@ -93,7 +115,7 @@ Partial Class AddUser
         Me.CbRole.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbRole.FormattingEnabled = True
         Me.CbRole.Items.AddRange(New Object() {"--SELECT--", "Admin", "Cashier"})
-        Me.CbRole.Location = New System.Drawing.Point(56, 267)
+        Me.CbRole.Location = New System.Drawing.Point(51, 258)
         Me.CbRole.Name = "CbRole"
         Me.CbRole.Size = New System.Drawing.Size(238, 25)
         Me.CbRole.TabIndex = 10
@@ -102,7 +124,7 @@ Partial Class AddUser
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(53, 249)
+        Me.Label4.Location = New System.Drawing.Point(48, 240)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(111, 15)
         Me.Label4.TabIndex = 3
@@ -112,7 +134,7 @@ Partial Class AddUser
         '
         Me.TxtLname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtLname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtLname.Location = New System.Drawing.Point(56, 197)
+        Me.TxtLname.Location = New System.Drawing.Point(51, 188)
         Me.TxtLname.Name = "TxtLname"
         Me.TxtLname.Size = New System.Drawing.Size(238, 25)
         Me.TxtLname.TabIndex = 7
@@ -121,26 +143,27 @@ Partial Class AddUser
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(53, 181)
+        Me.Label3.Location = New System.Drawing.Point(48, 172)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 15)
+        Me.Label3.Size = New System.Drawing.Size(80, 15)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Lastname"
+        Me.Label3.Text = "Last Name:"
         '
         'TxtCpass
         '
         Me.TxtCpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtCpass.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCpass.Location = New System.Drawing.Point(341, 134)
+        Me.TxtCpass.Location = New System.Drawing.Point(336, 188)
         Me.TxtCpass.Name = "TxtCpass"
         Me.TxtCpass.Size = New System.Drawing.Size(218, 25)
         Me.TxtCpass.TabIndex = 8
+        Me.TxtCpass.UseSystemPasswordChar = True
         '
         'TxtFname
         '
         Me.TxtFname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtFname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFname.Location = New System.Drawing.Point(56, 134)
+        Me.TxtFname.Location = New System.Drawing.Point(51, 125)
         Me.TxtFname.Name = "TxtFname"
         Me.TxtFname.Size = New System.Drawing.Size(238, 25)
         Me.TxtFname.TabIndex = 8
@@ -149,7 +172,7 @@ Partial Class AddUser
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(338, 116)
+        Me.Label6.Location = New System.Drawing.Point(333, 170)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(130, 15)
         Me.Label6.TabIndex = 5
@@ -159,7 +182,7 @@ Partial Class AddUser
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(53, 116)
+        Me.Label2.Location = New System.Drawing.Point(48, 107)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 15)
         Me.Label2.TabIndex = 5
@@ -169,16 +192,17 @@ Partial Class AddUser
         '
         Me.TxtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPass.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPass.Location = New System.Drawing.Point(341, 70)
+        Me.TxtPass.Location = New System.Drawing.Point(336, 124)
         Me.TxtPass.Name = "TxtPass"
         Me.TxtPass.Size = New System.Drawing.Size(218, 25)
         Me.TxtPass.TabIndex = 9
+        Me.TxtPass.UseSystemPasswordChar = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(338, 54)
+        Me.Label5.Location = New System.Drawing.Point(333, 108)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(75, 15)
         Me.Label5.TabIndex = 6
@@ -187,8 +211,9 @@ Partial Class AddUser
         'TxtId
         '
         Me.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtId.Enabled = False
         Me.TxtId.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtId.Location = New System.Drawing.Point(56, 70)
+        Me.TxtId.Location = New System.Drawing.Point(51, 61)
         Me.TxtId.Name = "TxtId"
         Me.TxtId.ReadOnly = True
         Me.TxtId.Size = New System.Drawing.Size(238, 25)
@@ -199,7 +224,7 @@ Partial Class AddUser
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(53, 54)
+        Me.Label1.Location = New System.Drawing.Point(48, 45)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 15)
         Me.Label1.TabIndex = 6
@@ -209,7 +234,8 @@ Partial Class AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(638, 432)
+        Me.BackColor = System.Drawing.Color.SteelBlue
+        Me.ClientSize = New System.Drawing.Size(645, 454)
         Me.ControlBox = False
         Me.Controls.Add(Me.AddUserPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -236,4 +262,6 @@ Partial Class AddUser
     Friend WithEvents TxtPass As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents CbRole As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TxtUsername As TextBox
 End Class
