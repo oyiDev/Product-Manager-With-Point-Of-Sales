@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ManageSupplier
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,89 +20,70 @@ Partial Class ManageSupplier
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageSupplier))
-        Me.userId = New System.Windows.Forms.Label()
-        Me.userName = New System.Windows.Forms.Label()
-        Me.userContact = New System.Windows.Forms.Label()
-        Me.supplier_Id = New System.Windows.Forms.TextBox()
-        Me.txt_supplierName = New System.Windows.Forms.TextBox()
-        Me.txt_Phone = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.addSupplierBtn = New System.Windows.Forms.Button()
         Me.dg_Supplier = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.add_supplierBtn = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.txt_Address = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.adminMainPanel.SuspendLayout()
         CType(Me.dg_Supplier, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.adminMainPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'userId
+        'Label1
         '
-        Me.userId.AutoSize = True
-        Me.userId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userId.Location = New System.Drawing.Point(13, 94)
-        Me.userId.Name = "userId"
-        Me.userId.Size = New System.Drawing.Size(21, 16)
-        Me.userId.TabIndex = 0
-        Me.userId.Text = "Id:"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(64, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(133, 18)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Manage Supplier"
         '
-        'userName
+        'adminMainPanel
         '
-        Me.userName.AutoSize = True
-        Me.userName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userName.Location = New System.Drawing.Point(13, 137)
-        Me.userName.Name = "userName"
-        Me.userName.Size = New System.Drawing.Size(47, 16)
-        Me.userName.TabIndex = 1
-        Me.userName.Text = "Name:"
+        Me.adminMainPanel.BackColor = System.Drawing.Color.White
+        Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.adminMainPanel.Controls.Add(Me.addSupplierBtn)
+        Me.adminMainPanel.Controls.Add(Me.dg_Supplier)
+        Me.adminMainPanel.Controls.Add(Me.Label1)
+        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
+        Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
+        Me.adminMainPanel.Name = "adminMainPanel"
+        Me.adminMainPanel.Size = New System.Drawing.Size(875, 598)
+        Me.adminMainPanel.TabIndex = 13
         '
-        'userContact
+        'addSupplierBtn
         '
-        Me.userContact.AutoSize = True
-        Me.userContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userContact.Location = New System.Drawing.Point(242, 97)
-        Me.userContact.Name = "userContact"
-        Me.userContact.Size = New System.Drawing.Size(49, 16)
-        Me.userContact.TabIndex = 2
-        Me.userContact.Text = "Phone:"
-        '
-        'supplier_Id
-        '
-        Me.supplier_Id.Location = New System.Drawing.Point(67, 93)
-        Me.supplier_Id.Name = "supplier_Id"
-        Me.supplier_Id.Size = New System.Drawing.Size(142, 20)
-        Me.supplier_Id.TabIndex = 3
-        '
-        'txt_supplierName
-        '
-        Me.txt_supplierName.Location = New System.Drawing.Point(67, 136)
-        Me.txt_supplierName.Name = "txt_supplierName"
-        Me.txt_supplierName.Size = New System.Drawing.Size(142, 20)
-        Me.txt_supplierName.TabIndex = 4
-        '
-        'txt_Phone
-        '
-        Me.txt_Phone.Location = New System.Drawing.Point(306, 90)
-        Me.txt_Phone.Name = "txt_Phone"
-        Me.txt_Phone.Size = New System.Drawing.Size(246, 20)
-        Me.txt_Phone.TabIndex = 5
+        Me.addSupplierBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.addSupplierBtn.BackColor = System.Drawing.Color.Transparent
+        Me.addSupplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.addSupplierBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addSupplierBtn.Location = New System.Drawing.Point(734, 39)
+        Me.addSupplierBtn.Name = "addSupplierBtn"
+        Me.addSupplierBtn.Size = New System.Drawing.Size(118, 32)
+        Me.addSupplierBtn.TabIndex = 9
+        Me.addSupplierBtn.Text = "ADD SUPPLIER"
+        Me.addSupplierBtn.UseVisualStyleBackColor = False
         '
         'dg_Supplier
         '
         Me.dg_Supplier.AllowUserToAddRows = False
+        Me.dg_Supplier.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dg_Supplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dg_Supplier.BackgroundColor = System.Drawing.Color.White
         Me.dg_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Supplier.Location = New System.Drawing.Point(19, 182)
+        Me.dg_Supplier.Location = New System.Drawing.Point(19, 85)
         Me.dg_Supplier.Name = "dg_Supplier"
         Me.dg_Supplier.ReadOnly = True
-        Me.dg_Supplier.Size = New System.Drawing.Size(833, 325)
+        Me.dg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Supplier.Size = New System.Drawing.Size(833, 486)
         Me.dg_Supplier.TabIndex = 6
         '
         'PictureBox1
@@ -115,79 +96,6 @@ Partial Class ManageSupplier
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(64, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(170, 18)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Supplier Management"
-        '
-        'add_supplierBtn
-        '
-        Me.add_supplierBtn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.add_supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.add_supplierBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.add_supplierBtn.Location = New System.Drawing.Point(19, 538)
-        Me.add_supplierBtn.Name = "add_supplierBtn"
-        Me.add_supplierBtn.Size = New System.Drawing.Size(181, 32)
-        Me.add_supplierBtn.TabIndex = 9
-        Me.add_supplierBtn.Text = "Add Supplier"
-        Me.add_supplierBtn.UseVisualStyleBackColor = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(28, 538)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(32, 31)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 10
-        Me.PictureBox2.TabStop = False
-        '
-        'txt_Address
-        '
-        Me.txt_Address.Location = New System.Drawing.Point(306, 136)
-        Me.txt_Address.Name = "txt_Address"
-        Me.txt_Address.Size = New System.Drawing.Size(246, 20)
-        Me.txt_Address.TabIndex = 12
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(242, 140)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 16)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Address:"
-        '
-        'adminMainPanel
-        '
-        Me.adminMainPanel.BackColor = System.Drawing.Color.White
-        Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.adminMainPanel.Controls.Add(Me.dg_Supplier)
-        Me.adminMainPanel.Controls.Add(Me.PictureBox2)
-        Me.adminMainPanel.Controls.Add(Me.txt_Address)
-        Me.adminMainPanel.Controls.Add(Me.add_supplierBtn)
-        Me.adminMainPanel.Controls.Add(Me.supplier_Id)
-        Me.adminMainPanel.Controls.Add(Me.Label1)
-        Me.adminMainPanel.Controls.Add(Me.Label2)
-        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
-        Me.adminMainPanel.Controls.Add(Me.userId)
-        Me.adminMainPanel.Controls.Add(Me.userName)
-        Me.adminMainPanel.Controls.Add(Me.userContact)
-        Me.adminMainPanel.Controls.Add(Me.txt_supplierName)
-        Me.adminMainPanel.Controls.Add(Me.txt_Phone)
-        Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
-        Me.adminMainPanel.Name = "adminMainPanel"
-        Me.adminMainPanel.Size = New System.Drawing.Size(875, 598)
-        Me.adminMainPanel.TabIndex = 13
-        '
         'ManageSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,27 +106,16 @@ Partial Class ManageSupplier
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ManageSupplier"
         Me.Text = "SupplierDashboard"
-        CType(Me.dg_Supplier, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
+        CType(Me.dg_Supplier, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents userId As Label
-    Friend WithEvents userName As Label
-    Friend WithEvents userContact As Label
-    Friend WithEvents supplier_Id As TextBox
-    Friend WithEvents txt_supplierName As TextBox
-    Friend WithEvents txt_Phone As TextBox
-    Friend WithEvents dg_Supplier As DataGridView
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents add_supplierBtn As Button
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents txt_Address As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents adminMainPanel As Panel
+    Friend WithEvents dg_Supplier As DataGridView
+    Friend WithEvents addSupplierBtn As Button
 End Class

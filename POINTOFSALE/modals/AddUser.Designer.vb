@@ -93,118 +93,118 @@ Partial Class AddUser
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(333, 45)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(83, 15)
+        Me.Label7.Size = New System.Drawing.Size(79, 16)
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "User Name:"
         '
         'TxtUsername
         '
-        Me.TxtUsername.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUsername.Location = New System.Drawing.Point(336, 64)
         Me.TxtUsername.Name = "TxtUsername"
-        Me.TxtUsername.Size = New System.Drawing.Size(218, 23)
+        Me.TxtUsername.Size = New System.Drawing.Size(218, 22)
         Me.TxtUsername.TabIndex = 11
         '
         'CbRole
         '
         Me.CbRole.BackColor = System.Drawing.Color.White
         Me.CbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CbRole.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbRole.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbRole.FormattingEnabled = True
         Me.CbRole.Items.AddRange(New Object() {"--SELECT--", "Admin", "Cashier"})
         Me.CbRole.Location = New System.Drawing.Point(51, 258)
         Me.CbRole.Name = "CbRole"
-        Me.CbRole.Size = New System.Drawing.Size(238, 25)
+        Me.CbRole.Size = New System.Drawing.Size(238, 26)
         Me.CbRole.TabIndex = 10
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(48, 240)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 15)
+        Me.Label4.Size = New System.Drawing.Size(110, 16)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "User Type / Role"
         '
         'TxtLname
         '
         Me.TxtLname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtLname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtLname.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtLname.Location = New System.Drawing.Point(51, 188)
         Me.TxtLname.Name = "TxtLname"
-        Me.TxtLname.Size = New System.Drawing.Size(238, 25)
+        Me.TxtLname.Size = New System.Drawing.Size(238, 24)
         Me.TxtLname.TabIndex = 7
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(48, 172)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 15)
+        Me.Label3.Size = New System.Drawing.Size(75, 16)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Last Name:"
         '
         'TxtCpass
         '
         Me.TxtCpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtCpass.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtCpass.Location = New System.Drawing.Point(336, 188)
         Me.TxtCpass.Name = "TxtCpass"
-        Me.TxtCpass.Size = New System.Drawing.Size(218, 25)
+        Me.TxtCpass.Size = New System.Drawing.Size(218, 24)
         Me.TxtCpass.TabIndex = 8
         Me.TxtCpass.UseSystemPasswordChar = True
         '
         'TxtFname
         '
         Me.TxtFname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtFname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFname.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtFname.Location = New System.Drawing.Point(51, 125)
         Me.TxtFname.Name = "TxtFname"
-        Me.TxtFname.Size = New System.Drawing.Size(238, 25)
+        Me.TxtFname.Size = New System.Drawing.Size(238, 24)
         Me.TxtFname.TabIndex = 8
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(333, 170)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(130, 15)
+        Me.Label6.Size = New System.Drawing.Size(118, 16)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Confirm Password:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(48, 107)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 15)
+        Me.Label2.Size = New System.Drawing.Size(75, 16)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "First Name:"
         '
         'TxtPass
         '
         Me.TxtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPass.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPass.Location = New System.Drawing.Point(336, 124)
         Me.TxtPass.Name = "TxtPass"
-        Me.TxtPass.Size = New System.Drawing.Size(218, 25)
+        Me.TxtPass.Size = New System.Drawing.Size(218, 24)
         Me.TxtPass.TabIndex = 9
         Me.TxtPass.UseSystemPasswordChar = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(333, 108)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 15)
+        Me.Label5.Size = New System.Drawing.Size(70, 16)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Password:"
         '
@@ -212,21 +212,21 @@ Partial Class AddUser
         '
         Me.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtId.Enabled = False
-        Me.TxtId.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtId.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtId.Location = New System.Drawing.Point(51, 61)
         Me.TxtId.Name = "TxtId"
         Me.TxtId.ReadOnly = True
-        Me.TxtId.Size = New System.Drawing.Size(238, 25)
+        Me.TxtId.Size = New System.Drawing.Size(238, 24)
         Me.TxtId.TabIndex = 9
         Me.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(48, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(23, 15)
+        Me.Label1.Size = New System.Drawing.Size(21, 16)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Id:"
         '
