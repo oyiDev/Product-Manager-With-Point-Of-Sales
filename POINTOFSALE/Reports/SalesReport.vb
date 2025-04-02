@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class ZreadReport
+Public Class SalesReport
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class ZreadReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "ZreadReport.rpt"
+            Return "SalesReport.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class ZreadReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "POINTOFSALE.ZreadReport.rpt"
+            Return "POINTOFSALE.SalesReport.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class ZreadReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedZreadReport
+Public Class CachedSalesReport
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedZreadReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As ZreadReport = New ZreadReport()
+        Dim rpt As SalesReport = New SalesReport()
         rpt.Site = Me.Site
         Return rpt
     End Function

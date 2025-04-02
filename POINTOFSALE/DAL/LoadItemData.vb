@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
+
 Public Class LoadItemData
+
     Public Sub LoadItemData(searchTerm As String)
         Try
             connect_me()
@@ -11,9 +13,9 @@ Public Class LoadItemData
 
             Dim cmd As New OdbcCommand(query, con)
             If Not String.IsNullOrEmpty(searchTerm) Then
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
+                cmd.Parameters.AddWithValue("?", searchTerm & "%")
+                cmd.Parameters.AddWithValue("?", searchTerm & "%")
+                cmd.Parameters.AddWithValue("?", searchTerm & "%")
             End If
             Dim adapter As New OdbcDataAdapter(cmd)
             Dim table As New DataTable()
@@ -28,21 +30,16 @@ Public Class LoadItemData
             MessageBox.Show("Error Loading Item: " & ex.Message)
         End Try
     End Sub
-    ' value column
+
     Public Sub SelectItem()
         If ItemListForm.DgItemList.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewRow = ItemListForm.DgItemList.SelectedRows(0)
             Dim barcode As String = selectedRows.Cells("barcodeCol").Value.ToString
-
             Dim OrderRepo As New OrderRepo()
             OrderRepo.ScanProduct(barcode)
-
-            POSForm.Enabled = True
-            ItemListForm.TxtSearch.Clear()
-            ItemListForm.Hide()
         End If
     End Sub
-    ' select * transactions
+
     Public Sub LoadAllTransactions()
         Try
             connect_me()

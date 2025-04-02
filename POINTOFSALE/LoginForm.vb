@@ -1,11 +1,24 @@
 ﻿Public Class LoginForm
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbUsername.Text = "Admin"
-        txtPassword.Focus()
+        TxtUsername.Focus()
+        TxtUsername.Text = "Ally1"
+        TxtPassword.Text = "123"
+        btnLogin.Focus()
     End Sub
-    Private Sub txtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyDown
+
+    Private Sub TxtUsername_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtUsername.KeyDown
         If e.KeyCode = 13 Then
-            If txtPassword.Text = "" Then
+            If TxtUsername.Text = "" Then
+                MessageBox.Show("Enter Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                TxtPassword.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtPassword.KeyDown
+        If e.KeyCode = 13 Then
+            If TxtPassword.Text = "" Then
                 MessageBox.Show("Enter Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 btnLogin.Focus()
@@ -15,32 +28,28 @@
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim userRepo As New UserRepo
-        Dim usertype As String = cbUsername.Text.ToLower.Trim
-        Dim password As String = txtPassword.Text.ToLower.Trim
-        Dim userInfo As UserInfo = UserRepo.GetUserRole(usertype, password)
+        Dim username As String = TxtUsername.Text.Trim()
+        Dim password As String = TxtPassword.Text.Trim()
+        Dim userInfo As UserInfo = userRepo.GetUserRole(username, password)
 
-        If password = "" Then
-            MessageBox.Show("Enter password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtPassword.Clear()
-
-        ElseIf userInfo IsNot Nothing AndAlso userInfo.Role = "admin" Then
+        If userInfo IsNot Nothing AndAlso userInfo.Role = "ADMIN" Then
             MessageBox.Show("Welcome Admin!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'Admin Dash Board
-            txtPassword.Clear()
+            TxtPassword.Clear()
+            TxtUsername.Clear()
             adminDashboard.Show()
             Me.Hide()
-
-        ElseIf userInfo IsNot Nothing AndAlso userInfo.Role = "cashier" Then
+        ElseIf userInfo IsNot Nothing AndAlso userInfo.Role = "CASHIER" Then
             MessageBox.Show("Welcome Cashier!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            TxtPassword.Clear()
+            TxtUsername.Clear()
             POSForm.Show()
             POSForm.txtBarcode.Focus()
-            UserRepo.DisplayUserInfo()
+            userRepo.DisplayUserInfo()
             Me.Hide()
-
         Else
-            MessageBox.Show("Invalid password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtPassword.Clear()
-            txtPassword.Focus()
+            MessageBox.Show("Invalid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TxtUsername.Clear()
+            TxtPassword.Clear()
         End If
     End Sub
 End Class

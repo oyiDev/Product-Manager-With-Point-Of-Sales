@@ -46,9 +46,10 @@ Partial Class TransactionForm
         Me.dgRecordTrans.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgRecordTrans.Location = New System.Drawing.Point(0, 0)
         Me.dgRecordTrans.Name = "dgRecordTrans"
+        Me.dgRecordTrans.ReadOnly = True
         Me.dgRecordTrans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dgRecordTrans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgRecordTrans.Size = New System.Drawing.Size(800, 451)
+        Me.dgRecordTrans.Size = New System.Drawing.Size(962, 548)
         Me.dgRecordTrans.TabIndex = 0
         '
         'idCol
@@ -97,14 +98,14 @@ Partial Class TransactionForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 451)
+        Me.ClientSize = New System.Drawing.Size(962, 548)
         Me.Controls.Add(Me.dgRecordTrans)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "TransactionForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Transaction Record"
+        Me.Text = "Transaction Record For Today"
         CType(Me.dgRecordTrans, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

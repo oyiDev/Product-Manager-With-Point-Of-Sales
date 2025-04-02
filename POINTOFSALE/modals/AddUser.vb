@@ -31,7 +31,6 @@
                 Me.Hide()
             Else
                 repo.InsertUser()
-                MessageBox.Show("User added successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 TxtFname.Clear()
                 TxtLname.Clear()
                 TxtPass.Clear()

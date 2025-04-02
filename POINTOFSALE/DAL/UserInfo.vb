@@ -3,4 +3,5 @@
     Public Property Role As String
     Public Property Firstname As String
     Public Property lastname As String
+    Public Property Username As String
 End Class

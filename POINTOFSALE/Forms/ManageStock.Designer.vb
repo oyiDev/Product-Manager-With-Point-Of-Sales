@@ -43,7 +43,7 @@ Partial Class ManageStock
         Me.pullout_Btn.Name = "pullout_Btn"
         Me.pullout_Btn.Size = New System.Drawing.Size(162, 39)
         Me.pullout_Btn.TabIndex = 1
-        Me.pullout_Btn.Text = "Pull Out"
+        Me.pullout_Btn.Text = "Refill"
         Me.pullout_Btn.UseVisualStyleBackColor = True
         '
         'dg_stock

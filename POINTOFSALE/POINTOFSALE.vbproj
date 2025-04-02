@@ -82,10 +82,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\LoadItem.vb" />
+    <Compile Include="DAL\LoadItemData.vb" />
     <Compile Include="DAL\ModConnection.vb" />
     <Compile Include="DAL\OrderRepo.vb" />
     <Compile Include="DAL\ProductRepo.vb" />
+    <Compile Include="DAL\Refresh\ManageDataRefresher.vb" />
     <Compile Include="DAL\StopScan.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
@@ -95,10 +96,10 @@
     <Compile Include="Forms\adminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConTransForm.Designer.vb">
+    <Compile Include="Forms\helpers\ConTransForm.Designer.vb">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConTransForm.vb">
+    <Compile Include="Forms\helpers\ConTransForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
@@ -113,10 +114,10 @@
     <Compile Include="Forms\DiscountForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InventoryDashboard.Designer.vb">
-      <DependentUpon>InventoryDashboard.vb</DependentUpon>
+    <Compile Include="Forms\ManageProduct.Designer.vb">
+      <DependentUpon>ManageProduct.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InventoryDashboard.vb">
+    <Compile Include="Forms\ManageProduct.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ItemListForm.Designer.vb">
@@ -180,6 +181,12 @@
       <DependentUpon>LoginForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modals\AddProduct.Designer.vb">
+      <DependentUpon>AddProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modals\AddProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modals\AddUser.Designer.vb">
       <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
@@ -215,10 +222,10 @@
       <DependentUpon>ReceiptReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\ZreadReport.vb">
+    <Compile Include="Reports\SalesReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ZreadReport.rpt</DependentUpon>
+      <DependentUpon>SalesReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -226,7 +233,7 @@
     <EmbeddedResource Include="Forms\adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConTransForm.resx">
+    <EmbeddedResource Include="Forms\helpers\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
@@ -235,8 +242,8 @@
     <EmbeddedResource Include="Forms\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InventoryDashboard.resx">
-      <DependentUpon>InventoryDashboard.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\ManageProduct.resx">
+      <DependentUpon>ManageProduct.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
@@ -249,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageUser.resx">
       <DependentUpon>ManageUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PaymentForm.resx">
+      <DependentUpon>PaymentForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>
@@ -265,6 +275,9 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="modals\AddProduct.resx">
+      <DependentUpon>AddProduct.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
@@ -278,9 +291,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReceiptReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ZreadReport.rpt">
+    <EmbeddedResource Include="Reports\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ZreadReport.vb</LastGenOutput>
+      <LastGenOutput>SalesReport.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -340,5 +353,6 @@
   <ItemGroup>
     <None Include="Resources\1000.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

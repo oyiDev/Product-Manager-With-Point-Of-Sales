@@ -27,7 +27,7 @@ Partial Public Class ReceiptDataSet
     
     Private tableReceiptDataTable As ReceiptDataTableDataTable
     
-    Private tableZreadDataTable As ZreadDataTableDataTable
+    Private tableSalesReportTable As SalesReportTableDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -61,8 +61,8 @@ Partial Public Class ReceiptDataSet
             If (Not (ds.Tables("ReceiptDataTable")) Is Nothing) Then
                 MyBase.Tables.Add(New ReceiptDataTableDataTable(ds.Tables("ReceiptDataTable")))
             End If
-            If (Not (ds.Tables("ZreadDataTable")) Is Nothing) Then
-                MyBase.Tables.Add(New ZreadDataTableDataTable(ds.Tables("ZreadDataTable")))
+            If (Not (ds.Tables("SalesReportTable")) Is Nothing) Then
+                MyBase.Tables.Add(New SalesReportTableDataTable(ds.Tables("SalesReportTable")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -95,9 +95,9 @@ Partial Public Class ReceiptDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property ZreadDataTable() As ZreadDataTableDataTable
+    Public ReadOnly Property SalesReportTable() As SalesReportTableDataTable
         Get
-            Return Me.tableZreadDataTable
+            Return Me.tableSalesReportTable
         End Get
     End Property
     
@@ -171,8 +171,8 @@ Partial Public Class ReceiptDataSet
             If (Not (ds.Tables("ReceiptDataTable")) Is Nothing) Then
                 MyBase.Tables.Add(New ReceiptDataTableDataTable(ds.Tables("ReceiptDataTable")))
             End If
-            If (Not (ds.Tables("ZreadDataTable")) Is Nothing) Then
-                MyBase.Tables.Add(New ZreadDataTableDataTable(ds.Tables("ZreadDataTable")))
+            If (Not (ds.Tables("SalesReportTable")) Is Nothing) Then
+                MyBase.Tables.Add(New SalesReportTableDataTable(ds.Tables("SalesReportTable")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -212,10 +212,10 @@ Partial Public Class ReceiptDataSet
                 Me.tableReceiptDataTable.InitVars
             End If
         End If
-        Me.tableZreadDataTable = CType(MyBase.Tables("ZreadDataTable"),ZreadDataTableDataTable)
+        Me.tableSalesReportTable = CType(MyBase.Tables("SalesReportTable"),SalesReportTableDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableZreadDataTable) Is Nothing) Then
-                Me.tableZreadDataTable.InitVars
+            If (Not (Me.tableSalesReportTable) Is Nothing) Then
+                Me.tableSalesReportTable.InitVars
             End If
         End If
     End Sub
@@ -230,8 +230,8 @@ Partial Public Class ReceiptDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableReceiptDataTable = New ReceiptDataTableDataTable()
         MyBase.Tables.Add(Me.tableReceiptDataTable)
-        Me.tableZreadDataTable = New ZreadDataTableDataTable()
-        MyBase.Tables.Add(Me.tableZreadDataTable)
+        Me.tableSalesReportTable = New SalesReportTableDataTable()
+        MyBase.Tables.Add(Me.tableSalesReportTable)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -242,7 +242,7 @@ Partial Public Class ReceiptDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializeZreadDataTable() As Boolean
+    Private Function ShouldSerializeSalesReportTable() As Boolean
         Return false
     End Function
     
@@ -308,7 +308,7 @@ Partial Public Class ReceiptDataSet
     Public Delegate Sub ReceiptDataTableRowChangeEventHandler(ByVal sender As Object, ByVal e As ReceiptDataTableRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub ZreadDataTableRowChangeEventHandler(ByVal sender As Object, ByVal e As ZreadDataTableRowChangeEvent)
+    Public Delegate Sub SalesReportTableRowChangeEventHandler(ByVal sender As Object, ByVal e As SalesReportTableRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -645,32 +645,26 @@ Partial Public Class ReceiptDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class ZreadDataTableDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ZreadDataTableRow)
+    Partial Public Class SalesReportTableDataTable
+        Inherits Global.System.Data.TypedTableBase(Of SalesReportTableRow)
         
         Private columnnetamount As Global.System.Data.DataColumn
         
-        Private columncashsales As Global.System.Data.DataColumn
-        
         Private columnotherpayment As Global.System.Data.DataColumn
         
-        Private columndiscount As Global.System.Data.DataColumn
+        Private columntotaldiscount As Global.System.Data.DataColumn
         
-        Private columncashout As Global.System.Data.DataColumn
+        Private columncashsales As Global.System.Data.DataColumn
         
-        Private columncash As Global.System.Data.DataColumn
+        Private columntotalcashout As Global.System.Data.DataColumn
         
-        Private columnvariance As Global.System.Data.DataColumn
-        
-        Private columncashcount As Global.System.Data.DataColumn
-        
-        Private columnthiskawnt As Global.System.Data.DataColumn
+        Private columntotalcash As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "ZreadDataTable"
+            Me.TableName = "SalesReportTable"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -711,14 +705,6 @@ Partial Public Class ReceiptDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property cashsalesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncashsales
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property otherpaymentColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnotherpayment
@@ -727,49 +713,33 @@ Partial Public Class ReceiptDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property discountColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property totaldiscountColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndiscount
+                Return Me.columntotaldiscount
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property cashoutColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cashsalesColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncashout
+                Return Me.columncashsales
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property cashColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property totalcashoutColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncash
+                Return Me.columntotalcashout
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property varianceColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property totalcashColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvariance
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property cashcountColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncashcount
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property thiskawntColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnthiskawnt
+                Return Me.columntotalcash
             End Get
         End Property
         
@@ -784,44 +754,44 @@ Partial Public Class ReceiptDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As ZreadDataTableRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As SalesReportTableRow
             Get
-                Return CType(Me.Rows(index),ZreadDataTableRow)
+                Return CType(Me.Rows(index),SalesReportTableRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ZreadDataTableRowChanging As ZreadDataTableRowChangeEventHandler
+        Public Event SalesReportTableRowChanging As SalesReportTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ZreadDataTableRowChanged As ZreadDataTableRowChangeEventHandler
+        Public Event SalesReportTableRowChanged As SalesReportTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ZreadDataTableRowDeleting As ZreadDataTableRowChangeEventHandler
+        Public Event SalesReportTableRowDeleting As SalesReportTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event ZreadDataTableRowDeleted As ZreadDataTableRowChangeEventHandler
+        Public Event SalesReportTableRowDeleted As SalesReportTableRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AddZreadDataTableRow(ByVal row As ZreadDataTableRow)
+        Public Overloads Sub AddSalesReportTableRow(ByVal row As SalesReportTableRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddZreadDataTableRow(ByVal netamount As String, ByVal cashsales As String, ByVal otherpayment As String, ByVal discount As String, ByVal cashout As String, ByVal cash As String, ByVal variance As String, ByVal cashcount As String, ByVal thiskawnt As String) As ZreadDataTableRow
-            Dim rowZreadDataTableRow As ZreadDataTableRow = CType(Me.NewRow,ZreadDataTableRow)
-            Dim columnValuesArray() As Object = New Object() {netamount, cashsales, otherpayment, discount, cashout, cash, variance, cashcount, thiskawnt}
-            rowZreadDataTableRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowZreadDataTableRow)
-            Return rowZreadDataTableRow
+        Public Overloads Function AddSalesReportTableRow(ByVal netamount As String, ByVal otherpayment As String, ByVal totaldiscount As String, ByVal cashsales As String, ByVal totalcashout As String, ByVal totalcash As String) As SalesReportTableRow
+            Dim rowSalesReportTableRow As SalesReportTableRow = CType(Me.NewRow,SalesReportTableRow)
+            Dim columnValuesArray() As Object = New Object() {netamount, otherpayment, totaldiscount, cashsales, totalcashout, totalcash}
+            rowSalesReportTableRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowSalesReportTableRow)
+            Return rowSalesReportTableRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ZreadDataTableDataTable = CType(MyBase.Clone,ZreadDataTableDataTable)
+            Dim cln As SalesReportTableDataTable = CType(MyBase.Clone,SalesReportTableDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -829,21 +799,18 @@ Partial Public Class ReceiptDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ZreadDataTableDataTable()
+            Return New SalesReportTableDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnnetamount = MyBase.Columns("netamount")
-            Me.columncashsales = MyBase.Columns("cashsales")
             Me.columnotherpayment = MyBase.Columns("otherpayment")
-            Me.columndiscount = MyBase.Columns("discount")
-            Me.columncashout = MyBase.Columns("cashout")
-            Me.columncash = MyBase.Columns("cash")
-            Me.columnvariance = MyBase.Columns("variance")
-            Me.columncashcount = MyBase.Columns("cashcount")
-            Me.columnthiskawnt = MyBase.Columns("thiskawnt")
+            Me.columntotaldiscount = MyBase.Columns("totaldiscount")
+            Me.columncashsales = MyBase.Columns("cashsales")
+            Me.columntotalcashout = MyBase.Columns("totalcashout")
+            Me.columntotalcash = MyBase.Columns("totalcash")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -851,48 +818,42 @@ Partial Public Class ReceiptDataSet
         Private Sub InitClass()
             Me.columnnetamount = New Global.System.Data.DataColumn("netamount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnetamount)
-            Me.columncashsales = New Global.System.Data.DataColumn("cashsales", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncashsales)
             Me.columnotherpayment = New Global.System.Data.DataColumn("otherpayment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnotherpayment)
-            Me.columndiscount = New Global.System.Data.DataColumn("discount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndiscount)
-            Me.columncashout = New Global.System.Data.DataColumn("cashout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncashout)
-            Me.columncash = New Global.System.Data.DataColumn("cash", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncash)
-            Me.columnvariance = New Global.System.Data.DataColumn("variance", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvariance)
-            Me.columncashcount = New Global.System.Data.DataColumn("cashcount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncashcount)
-            Me.columnthiskawnt = New Global.System.Data.DataColumn("thiskawnt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnthiskawnt)
+            Me.columntotaldiscount = New Global.System.Data.DataColumn("totaldiscount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotaldiscount)
+            Me.columncashsales = New Global.System.Data.DataColumn("cashsales", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncashsales)
+            Me.columntotalcashout = New Global.System.Data.DataColumn("totalcashout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotalcashout)
+            Me.columntotalcash = New Global.System.Data.DataColumn("totalcash", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotalcash)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewZreadDataTableRow() As ZreadDataTableRow
-            Return CType(Me.NewRow,ZreadDataTableRow)
+        Public Function NewSalesReportTableRow() As SalesReportTableRow
+            Return CType(Me.NewRow,SalesReportTableRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ZreadDataTableRow(builder)
+            Return New SalesReportTableRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ZreadDataTableRow)
+            Return GetType(SalesReportTableRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.ZreadDataTableRowChangedEvent) Is Nothing) Then
-                RaiseEvent ZreadDataTableRowChanged(Me, New ZreadDataTableRowChangeEvent(CType(e.Row,ZreadDataTableRow), e.Action))
+            If (Not (Me.SalesReportTableRowChangedEvent) Is Nothing) Then
+                RaiseEvent SalesReportTableRowChanged(Me, New SalesReportTableRowChangeEvent(CType(e.Row,SalesReportTableRow), e.Action))
             End If
         End Sub
         
@@ -900,8 +861,8 @@ Partial Public Class ReceiptDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.ZreadDataTableRowChangingEvent) Is Nothing) Then
-                RaiseEvent ZreadDataTableRowChanging(Me, New ZreadDataTableRowChangeEvent(CType(e.Row,ZreadDataTableRow), e.Action))
+            If (Not (Me.SalesReportTableRowChangingEvent) Is Nothing) Then
+                RaiseEvent SalesReportTableRowChanging(Me, New SalesReportTableRowChangeEvent(CType(e.Row,SalesReportTableRow), e.Action))
             End If
         End Sub
         
@@ -909,8 +870,8 @@ Partial Public Class ReceiptDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.ZreadDataTableRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ZreadDataTableRowDeleted(Me, New ZreadDataTableRowChangeEvent(CType(e.Row,ZreadDataTableRow), e.Action))
+            If (Not (Me.SalesReportTableRowDeletedEvent) Is Nothing) Then
+                RaiseEvent SalesReportTableRowDeleted(Me, New SalesReportTableRowChangeEvent(CType(e.Row,SalesReportTableRow), e.Action))
             End If
         End Sub
         
@@ -918,14 +879,14 @@ Partial Public Class ReceiptDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.ZreadDataTableRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ZreadDataTableRowDeleting(Me, New ZreadDataTableRowChangeEvent(CType(e.Row,ZreadDataTableRow), e.Action))
+            If (Not (Me.SalesReportTableRowDeletingEvent) Is Nothing) Then
+                RaiseEvent SalesReportTableRowDeleting(Me, New SalesReportTableRowChangeEvent(CType(e.Row,SalesReportTableRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemoveZreadDataTableRow(ByVal row As ZreadDataTableRow)
+        Public Sub RemoveSalesReportTableRow(ByVal row As SalesReportTableRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -952,7 +913,7 @@ Partial Public Class ReceiptDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ZreadDataTableDataTable"
+            attribute2.FixedValue = "SalesReportTableDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1204,16 +1165,16 @@ Partial Public Class ReceiptDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class ZreadDataTableRow
+    Partial Public Class SalesReportTableRow
         Inherits Global.System.Data.DataRow
         
-        Private tableZreadDataTable As ZreadDataTableDataTable
+        Private tableSalesReportTable As SalesReportTableDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableZreadDataTable = CType(Me.Table,ZreadDataTableDataTable)
+            Me.tableSalesReportTable = CType(Me.Table,SalesReportTableDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1221,28 +1182,13 @@ Partial Public Class ReceiptDataSet
         Public Property netamount() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.netamountColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.netamountColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'netamount' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'netamount' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.netamountColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property cashsales() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableZreadDataTable.cashsalesColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashsales' in table 'ZreadDataTable' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableZreadDataTable.cashsalesColumn) = value
+                Me(Me.tableSalesReportTable.netamountColumn) = value
             End Set
         End Property
         
@@ -1251,212 +1197,146 @@ Partial Public Class ReceiptDataSet
         Public Property otherpayment() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.otherpaymentColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.otherpaymentColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'otherpayment' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'otherpayment' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.otherpaymentColumn) = value
+                Me(Me.tableSalesReportTable.otherpaymentColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property discount() As String
+        Public Property totaldiscount() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.discountColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.totaldiscountColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'discount' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'totaldiscount' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.discountColumn) = value
+                Me(Me.tableSalesReportTable.totaldiscountColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property cashout() As String
+        Public Property cashsales() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.cashoutColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.cashsalesColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashout' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashsales' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.cashoutColumn) = value
+                Me(Me.tableSalesReportTable.cashsalesColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property cash() As String
+        Public Property totalcashout() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.cashColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.totalcashoutColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cash' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'totalcashout' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.cashColumn) = value
+                Me(Me.tableSalesReportTable.totalcashoutColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property variance() As String
+        Public Property totalcash() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableZreadDataTable.varianceColumn),String)
+                    Return CType(Me(Me.tableSalesReportTable.totalcashColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'variance' in table 'ZreadDataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'totalcash' in table 'SalesReportTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableZreadDataTable.varianceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property cashcount() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableZreadDataTable.cashcountColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashcount' in table 'ZreadDataTable' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableZreadDataTable.cashcountColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property thiskawnt() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableZreadDataTable.thiskawntColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'thiskawnt' in table 'ZreadDataTable' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableZreadDataTable.thiskawntColumn) = value
+                Me(Me.tableSalesReportTable.totalcashColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsnetamountNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.netamountColumn)
+            Return Me.IsNull(Me.tableSalesReportTable.netamountColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetnetamountNull()
-            Me(Me.tableZreadDataTable.netamountColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IscashsalesNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.cashsalesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetcashsalesNull()
-            Me(Me.tableZreadDataTable.cashsalesColumn) = Global.System.Convert.DBNull
+            Me(Me.tableSalesReportTable.netamountColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsotherpaymentNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.otherpaymentColumn)
+            Return Me.IsNull(Me.tableSalesReportTable.otherpaymentColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetotherpaymentNull()
-            Me(Me.tableZreadDataTable.otherpaymentColumn) = Global.System.Convert.DBNull
+            Me(Me.tableSalesReportTable.otherpaymentColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsdiscountNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.discountColumn)
+        Public Function IstotaldiscountNull() As Boolean
+            Return Me.IsNull(Me.tableSalesReportTable.totaldiscountColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetdiscountNull()
-            Me(Me.tableZreadDataTable.discountColumn) = Global.System.Convert.DBNull
+        Public Sub SettotaldiscountNull()
+            Me(Me.tableSalesReportTable.totaldiscountColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IscashoutNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.cashoutColumn)
+        Public Function IscashsalesNull() As Boolean
+            Return Me.IsNull(Me.tableSalesReportTable.cashsalesColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetcashoutNull()
-            Me(Me.tableZreadDataTable.cashoutColumn) = Global.System.Convert.DBNull
+        Public Sub SetcashsalesNull()
+            Me(Me.tableSalesReportTable.cashsalesColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IscashNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.cashColumn)
+        Public Function IstotalcashoutNull() As Boolean
+            Return Me.IsNull(Me.tableSalesReportTable.totalcashoutColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetcashNull()
-            Me(Me.tableZreadDataTable.cashColumn) = Global.System.Convert.DBNull
+        Public Sub SettotalcashoutNull()
+            Me(Me.tableSalesReportTable.totalcashoutColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsvarianceNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.varianceColumn)
+        Public Function IstotalcashNull() As Boolean
+            Return Me.IsNull(Me.tableSalesReportTable.totalcashColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetvarianceNull()
-            Me(Me.tableZreadDataTable.varianceColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IscashcountNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.cashcountColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetcashcountNull()
-            Me(Me.tableZreadDataTable.cashcountColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsthiskawntNull() As Boolean
-            Return Me.IsNull(Me.tableZreadDataTable.thiskawntColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetthiskawntNull()
-            Me(Me.tableZreadDataTable.thiskawntColumn) = Global.System.Convert.DBNull
+        Public Sub SettotalcashNull()
+            Me(Me.tableSalesReportTable.totalcashColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1500,16 +1380,16 @@ Partial Public Class ReceiptDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class ZreadDataTableRowChangeEvent
+    Public Class SalesReportTableRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As ZreadDataTableRow
+        Private eventRow As SalesReportTableRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As ZreadDataTableRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As SalesReportTableRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1517,7 +1397,7 @@ Partial Public Class ReceiptDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As ZreadDataTableRow
+        Public ReadOnly Property Row() As SalesReportTableRow
             Get
                 Return Me.eventRow
             End Get
