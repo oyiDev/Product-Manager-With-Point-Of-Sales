@@ -86,92 +86,93 @@
     <Compile Include="DAL\ModConnection.vb" />
     <Compile Include="DAL\OrderRepo.vb" />
     <Compile Include="DAL\ProductRepo.vb" />
-    <Compile Include="DAL\Refresh\ManageDataRefresher.vb" />
+    <Compile Include="DAL\DataaRefresher\ManageDataRefresher.vb" />
     <Compile Include="DAL\StopScan.vb" />
+    <Compile Include="DAL\SupplierRepo.vb" />
     <Compile Include="DAL\UserInfo.vb" />
     <Compile Include="DAL\UserRepo.vb" />
-    <Compile Include="Forms\adminDashboard.Designer.vb">
+    <Compile Include="Forms\Admin\adminDashboard.Designer.vb">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\adminDashboard.vb">
+    <Compile Include="Forms\Admin\adminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\helpers\ConTransForm.Designer.vb">
+    <Compile Include="Forms\POS\ConTransForm.Designer.vb">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\helpers\ConTransForm.vb">
+    <Compile Include="Forms\POS\ConTransForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dashboard.Designer.vb">
+    <Compile Include="Forms\Admin\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dashboard.vb">
+    <Compile Include="Forms\Admin\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DiscountForm.Designer.vb">
+    <Compile Include="Forms\POS\DiscountForm.Designer.vb">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DiscountForm.vb">
+    <Compile Include="Forms\POS\DiscountForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManageProduct.Designer.vb">
+    <Compile Include="Forms\Admin\ManageProduct.Designer.vb">
       <DependentUpon>ManageProduct.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManageProduct.vb">
+    <Compile Include="Forms\Admin\ManageProduct.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ItemListForm.Designer.vb">
+    <Compile Include="Forms\POS\ItemListForm.Designer.vb">
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ItemListForm.vb">
+    <Compile Include="Forms\POS\ItemListForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManageStock.Designer.vb">
+    <Compile Include="Forms\Admin\ManageStock.Designer.vb">
       <DependentUpon>ManageStock.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManageStock.vb">
+    <Compile Include="Forms\Admin\ManageStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManageSupplier.Designer.vb">
+    <Compile Include="Forms\Admin\ManageSupplier.Designer.vb">
       <DependentUpon>ManageSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManageSupplier.vb">
+    <Compile Include="Forms\Admin\ManageSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManageUser.Designer.vb">
+    <Compile Include="Forms\Admin\ManageUser.Designer.vb">
       <DependentUpon>ManageUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManageUser.vb">
+    <Compile Include="Forms\Admin\ManageUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PaymentForm.Designer.vb">
+    <Compile Include="Forms\POS\PaymentForm.Designer.vb">
       <DependentUpon>PaymentForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PaymentForm.vb">
+    <Compile Include="Forms\POS\PaymentForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\POSForm.Designer.vb">
+    <Compile Include="Forms\POS\POSForm.Designer.vb">
       <DependentUpon>POSForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\POSForm.vb">
+    <Compile Include="Forms\POS\POSForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PrintForm.Designer.vb">
+    <Compile Include="Forms\POS\PrintForm.Designer.vb">
       <DependentUpon>PrintForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PrintForm.vb">
+    <Compile Include="Forms\POS\PrintForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReadingForm.Designer.vb">
+    <Compile Include="Forms\POS\ReadingForm.Designer.vb">
       <DependentUpon>ReadingForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReadingForm.vb">
+    <Compile Include="Forms\POS\ReadingForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TransactionForm.Designer.vb">
+    <Compile Include="Forms\POS\TransactionForm.Designer.vb">
       <DependentUpon>TransactionForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TransactionForm.vb">
+    <Compile Include="Forms\POS\TransactionForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.vb">
@@ -185,6 +186,12 @@
       <DependentUpon>AddProduct.vb</DependentUpon>
     </Compile>
     <Compile Include="modals\AddProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modals\AddSupplier.Designer.vb">
+      <DependentUpon>AddSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modals\AddSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modals\AddUser.Designer.vb">
@@ -230,46 +237,46 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\adminDashboard.resx">
+    <EmbeddedResource Include="Forms\Admin\adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\helpers\ConTransForm.resx">
+    <EmbeddedResource Include="Forms\POS\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
+    <EmbeddedResource Include="Forms\Admin\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DiscountForm.resx">
+    <EmbeddedResource Include="Forms\POS\DiscountForm.resx">
       <DependentUpon>DiscountForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManageProduct.resx">
+    <EmbeddedResource Include="Forms\Admin\ManageProduct.resx">
       <DependentUpon>ManageProduct.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ItemListForm.resx">
+    <EmbeddedResource Include="Forms\POS\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManageStock.resx">
+    <EmbeddedResource Include="Forms\Admin\ManageStock.resx">
       <DependentUpon>ManageStock.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManageSupplier.resx">
+    <EmbeddedResource Include="Forms\Admin\ManageSupplier.resx">
       <DependentUpon>ManageSupplier.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManageUser.resx">
+    <EmbeddedResource Include="Forms\Admin\ManageUser.resx">
       <DependentUpon>ManageUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PaymentForm.resx">
+    <EmbeddedResource Include="Forms\POS\PaymentForm.resx">
       <DependentUpon>PaymentForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\POSForm.resx">
+    <EmbeddedResource Include="Forms\POS\POSForm.resx">
       <DependentUpon>POSForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PrintForm.resx">
+    <EmbeddedResource Include="Forms\POS\PrintForm.resx">
       <DependentUpon>PrintForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReadingForm.resx">
+    <EmbeddedResource Include="Forms\POS\ReadingForm.resx">
       <DependentUpon>ReadingForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TransactionForm.resx">
+    <EmbeddedResource Include="Forms\POS\TransactionForm.resx">
       <DependentUpon>TransactionForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -277,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modals\AddProduct.resx">
       <DependentUpon>AddProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modals\AddSupplier.resx">
+      <DependentUpon>AddSupplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
@@ -353,6 +363,11 @@
   <ItemGroup>
     <None Include="Resources\1000.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\dashboard-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-product-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

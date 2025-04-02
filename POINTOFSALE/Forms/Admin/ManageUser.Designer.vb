@@ -22,27 +22,27 @@ Partial Class ManageUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageUser))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageUser))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnAdduser = New System.Windows.Forms.Button()
         Me.BtnDelete = New System.Windows.Forms.Button()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DgManageUser = New System.Windows.Forms.DataGridView()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LblAction = New System.Windows.Forms.Label()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.adminMainPanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgManageUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(67, 27)
+        Me.Label1.Location = New System.Drawing.Point(67, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 18)
         Me.Label1.TabIndex = 9
@@ -50,9 +50,10 @@ Partial Class ManageUser
         '
         'btnAdduser
         '
+        Me.btnAdduser.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdduser.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdduser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdduser.Location = New System.Drawing.Point(721, 47)
+        Me.btnAdduser.Location = New System.Drawing.Point(721, 20)
         Me.btnAdduser.Name = "btnAdduser"
         Me.btnAdduser.Size = New System.Drawing.Size(125, 33)
         Me.btnAdduser.TabIndex = 10
@@ -61,6 +62,7 @@ Partial Class ManageUser
         '
         'BtnDelete
         '
+        Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnDelete.Location = New System.Drawing.Point(721, 544)
@@ -74,8 +76,8 @@ Partial Class ManageUser
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
         Me.adminMainPanel.Controls.Add(Me.DgManageUser)
+        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
         Me.adminMainPanel.Controls.Add(Me.LblAction)
         Me.adminMainPanel.Controls.Add(Me.Label1)
         Me.adminMainPanel.Controls.Add(Me.BtnEdit)
@@ -87,67 +89,70 @@ Partial Class ManageUser
         Me.adminMainPanel.Size = New System.Drawing.Size(873, 596)
         Me.adminMainPanel.TabIndex = 11
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(25, 21)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(36, 32)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
-        '
         'DgManageUser
         '
         Me.DgManageUser.AllowUserToAddRows = False
         Me.DgManageUser.AllowUserToDeleteRows = False
         Me.DgManageUser.AllowUserToResizeColumns = False
         Me.DgManageUser.AllowUserToResizeRows = False
+        Me.DgManageUser.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DgManageUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DgManageUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DgManageUser.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DgManageUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(3)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgManageUser.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DgManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgManageUser.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DgManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(2)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgManageUser.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgManageUser.Location = New System.Drawing.Point(27, 86)
+        Me.DgManageUser.Location = New System.Drawing.Point(25, 60)
         Me.DgManageUser.MultiSelect = False
         Me.DgManageUser.Name = "DgManageUser"
         Me.DgManageUser.ReadOnly = True
         Me.DgManageUser.RowHeadersVisible = False
-        Me.DgManageUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.DgManageUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DgManageUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgManageUser.Size = New System.Drawing.Size(819, 448)
-        Me.DgManageUser.TabIndex = 11
+        Me.DgManageUser.Size = New System.Drawing.Size(821, 478)
+        Me.DgManageUser.TabIndex = 13
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(25, 11)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(36, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.TabStop = False
         '
         'LblAction
         '
         Me.LblAction.AutoSize = True
         Me.LblAction.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblAction.Location = New System.Drawing.Point(141, 21)
+        Me.LblAction.Location = New System.Drawing.Point(193, 20)
         Me.LblAction.Name = "LblAction"
-        Me.LblAction.Size = New System.Drawing.Size(0, 18)
+        Me.LblAction.Size = New System.Drawing.Size(69, 18)
         Me.LblAction.TabIndex = 9
+        Me.LblAction.Text = "ACTION"
         '
         'BtnEdit
         '
+        Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnEdit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEdit.Location = New System.Drawing.Point(590, 544)
@@ -169,8 +174,8 @@ Partial Class ManageUser
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgManageUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -178,8 +183,8 @@ Partial Class ManageUser
     Friend WithEvents btnAdduser As Button
     Friend WithEvents BtnDelete As Button
     Friend WithEvents adminMainPanel As Panel
-    Friend WithEvents DgManageUser As DataGridView
     Friend WithEvents BtnEdit As Button
     Friend WithEvents LblAction As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents DgManageUser As DataGridView
 End Class

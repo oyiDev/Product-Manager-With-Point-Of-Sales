@@ -1,29 +1,23 @@
-﻿Imports System.Data.Common
+﻿Public Class ManageUser
 
-Public Class ManageUser
+    Dim userRepo As New UserRepo
+    Dim mdf As New ManageDataRefresher
+
     Private Sub ManageUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim repo As New UserRepo()
-        Try
-            repo.LoadUser()
-        Catch ex As Exception
-            MessageBox.Show("An error occurred while loading... " & ex.Message)
-        End Try
-
-        repo.RowWhite()
-        DgManageUser.Enabled = False
+        mdf.GetManageUserData()
         Me.KeyPreview = True
+        LblAction.Hide()
     End Sub
 
     Private Sub btnAdduser_Click(sender As Object, e As EventArgs) Handles btnAdduser.Click
-        AddUser.TxtFname.Focus()
-        AddUser.TxtId.Enabled = False
+        Dim repo As New UserRepo
+        repo.Get_id()
         AddUser.ShowDialog()
+        AddUser.TxtFname.Focus()
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         LblAction.Text = "/ DELETE"
-        DgManageUser.Enabled = True
-        DgManageUser.RowHeadersVisible = True
         DgManageUser.DefaultCellStyle.SelectionBackColor = Color.Tomato
         DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Tomato
         DgManageUser.Focus()
@@ -31,29 +25,29 @@ Public Class ManageUser
 
     Private Sub BtnEdit_Click(sender As Object, e As EventArgs) Handles BtnEdit.Click
         LblAction.Text = "/ EDIT"
-        DgManageUser.Enabled = True
-        DgManageUser.RowHeadersVisible = True
         DgManageUser.DefaultCellStyle.SelectionBackColor = Color.Gold
         DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Gold
         DgManageUser.Focus()
     End Sub
 
     Private Sub ManageUser_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Dim repo As New UserRepo
         Select Case e.KeyCode
             Case Keys.Enter
                 If LblAction.Text = "/ DELETE" Then
-                    repo.DeleteUser()
+                    userRepo.DeleteUser()
                     LblAction.Text = ""
                 ElseIf LblAction.Text = "/ EDIT" Then
                     If DgManageUser.SelectedRows.Count > 0 Then
                         Dim selectedRow As DataGridViewRow = DgManageUser.SelectedRows(0)
-                        AddUser.TxtId.Text = selectedRow.Cells("user_id").Value.ToString()
-                        AddUser.TxtFname.Text = selectedRow.Cells("firstname").Value.ToString()
-                        AddUser.TxtLname.Text = selectedRow.Cells("lastname").Value.ToString()
+                        AddUser.TxtId.Text = selectedRow.Cells("USER ID").Value.ToString()
+                        AddUser.TxtFname.Text = selectedRow.Cells("FIRSTNAME").Value.ToString()
+                        AddUser.TxtLname.Text = selectedRow.Cells("LASTNAME").Value.ToString()
+                        AddUser.TxtUsername.Text = selectedRow.Cells("USERNAME").Value.ToString()
                         AddUser.TxtPass.Text = "" ' Password should not be displayed for security reasons
-                        AddUser.CbRole.Text = selectedRow.Cells("Role").Value.ToString()
-                        AddUser.Show()
+                        AddUser.CbRole.Text = selectedRow.Cells("ROLE").Value.ToString()
+                        DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
+                        DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+                        AddUser.ShowDialog()
                     Else
                         MessageBox.Show("Please select a user to edit.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
