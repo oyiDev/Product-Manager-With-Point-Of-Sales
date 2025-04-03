@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
+
 Public Class ProductRepo
+
     Public Sub HighlightAvailableProduct(ByVal dgv As DataGridView, ByVal columnName As String)
         For Each row As DataGridViewRow In dgv.Rows
             If Not row.IsNewRow Then ' Ensure we don't process the new row placeholder
@@ -74,45 +76,63 @@ Public Class ProductRepo
 
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Product Added Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim mdf As New ManageDataRefresher
+                AddProduct.AddProductTxtClear()
+                Get_id()
+                mdf.GetManageProductData("")
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Error Inseting Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             AddProduct.TxtBarcode.Focus()
         Finally
             con.Close()
         End Try
     End Sub
 
-    Public Sub SearchProduct(searchTerm As String)
+    Public Sub DeleteProduct(ByVal id As String)
+        Dim query As String = "DELETE FROM products WHERE id = ?"
         Try
             connect_me()
-            Dim query As String = "SELECT * FROM products WHERE barcode LIKE ? OR genericname LIKE ? OR brandname LIKE ? OR id LIKE ?"
-
             Using cmd As New OdbcCommand(query, con)
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-
-                Dim adapter As New OdbcDataAdapter(cmd)
-                Dim table As New DataTable()
-                adapter.Fill(table)
-
-                ManageProduct.DgManageProduct.DataSource = table
-                ManageProduct.DgManageProduct.Refresh()
+                cmd.Parameters.AddWithValue("?", id)
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Product Deleted Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error Loading Item: " & ex.Message)
+            MessageBox.Show("Error Deleting Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             con.Close()
         End Try
     End Sub
 
-    Public Sub RowWhite(dg As DataGridView)
-        dg.DefaultCellStyle.SelectionBackColor = Color.White
-        dg.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+    Public Sub UpdateProduct()
+        Dim query As String = "UPDATE products SET category = ?, barcode = ?, genericname = ?, brandname = ?, formula = ?, description = ?, price = ?, qty = ?, expiredate = ? WHERE id = ?"
+        Try
+            connect_me()
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", AddProduct.CbCategory.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtBarcode.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtGenericname.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtBrandname.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtFormula.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtDescription.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtPrice.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.Nqty.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtExpireDate.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtId.Text.Trim().ToUpper())
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Product Updated Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim mdf As New ManageDataRefresher
+                AddProduct.AddProductTxtClear()
+                mdf.GetManageProductData("")
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error Updating Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            AddProduct.TxtBarcode.Focus()
+        Finally
+            con.Close()
+        End Try
     End Sub
-
 End Class
 
 

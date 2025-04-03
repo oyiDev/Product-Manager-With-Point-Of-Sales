@@ -4,4 +4,6 @@
     Public Property Firstname As String
     Public Property lastname As String
     Public Property Username As String
+
+    Public Property Password As String
 End Class

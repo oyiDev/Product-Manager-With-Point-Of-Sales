@@ -1,15 +1,23 @@
 ﻿Public Class AddUser
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CbRole.Text = "--SELECT--"
+
     End Sub
 
-    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
-        Me.Hide()
-        TxtFname.Clear()
-        TxtLname.Clear()
-        TxtUsername.Clear()
-        TxtPass.Clear()
-        TxtCpass.Clear()
+    Private Sub BtnAdd_MouseEnter(sender As Object, e As EventArgs) Handles BtnSave.MouseEnter
+        BtnSave.BackColor = Color.SteelBlue
+    End Sub
+
+    Private Sub BtnAdd_MouseLeave(sender As Object, e As EventArgs) Handles BtnSave.MouseLeave
+        BtnSave.BackColor = Color.WhiteSmoke
+
+    End Sub
+
+    Private Sub BtnCancel_MouseEnter(sender As Object, e As EventArgs) Handles BtnClose.MouseEnter
+        BtnClose.BackColor = Color.Tomato
+    End Sub
+
+    Private Sub BtnCancel_MouseLeave(sender As Object, e As EventArgs) Handles BtnClose.MouseLeave
+        BtnClose.BackColor = Color.WhiteSmoke
     End Sub
 
     Private Sub TxtFname_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtFname.KeyDown
@@ -26,6 +34,16 @@
         If e.KeyCode = 13 Then
             If TxtLname.Text = "" Then
                 MessageBox.Show("Enter Last Name", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                TxtUsername.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub CbRole_KeyDown(sender As Object, e As KeyEventArgs) Handles CbRole.KeyDown
+        If e.KeyCode = 13 Then
+            If CbRole.Text = "" Then
+                MessageBox.Show("Select User Type", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 TxtUsername.Focus()
             End If
@@ -57,32 +75,46 @@
             If TxtCpass.Text = "" Then
                 MessageBox.Show("Confirm Password", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                BtnAdd.Focus()
+                BtnSave.Focus()
             End If
         End If
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+    Private Sub BtnChangepass_Click(sender As Object, e As EventArgs) Handles BtnChangepass.Click
+        ChangePasswordForm.TxtOldPass.Focus()
+        ChangePasswordForm.ShowDialog()
+    End Sub
+
+    Private Sub BtnChangepass_MouseEnter(sender As Object, e As EventArgs) Handles BtnChangepass.MouseEnter
+        BtnChangepass.BackColor = Color.SteelBlue
+    End Sub
+
+    Private Sub BtnChangepass_MouseLeave(sender As Object, e As EventArgs) Handles BtnChangepass.MouseLeave
+        BtnChangepass.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Dim userRepo As New UserRepo
         Dim mdf As New ManageDataRefresher
         Try
-            If TxtFname.Text = "" Or TxtLname.Text = "" Or CbRole.Text = "" Or TxtPass.Text = "" Or TxtCpass.Text = "" Then
-                MessageBox.Show("All Fields Must Be Completed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If TxtFname.Text = "" Or TxtLname.Text = "" Or CbRole.Text = "" Or TxtUsername.Text = "" Then
+                MessageBox.Show("All Fields Must Be Completed.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ElseIf CbRole.Text = "--SELECT--" Then
-                MessageBox.Show("SELECT ROLE / USERTYPE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ElseIf Not TxtCpass.Text.Trim().ToLower = TxtPass.Text.Trim().ToLower Then
-                MessageBox.Show("Incorrect Password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ElseIf ManageUser.LblAction.Text = "/ EDIT" Then
+                MessageBox.Show("SELECT ROLE / USERTYPE.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ElseIf BtnSave.Text = "Update" Then
                 userRepo.EditUser()
                 TxtFname.Clear()
                 TxtLname.Clear()
                 TxtUsername.Clear()
                 TxtPass.Clear()
                 TxtCpass.Clear()
-                mdf.GetManageUserData()
-                ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
-                ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
-                Me.Hide()
+                Me.Close()
+            ElseIf TxtFname.Text = "" Or TxtLname.Text = "" Or CbRole.Text = "" Or TxtUsername.Text = "" Or TxtPass.Text = "" Or TxtCpass.Text = "" Then
+                MessageBox.Show("All Fields Must Be Completed.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ElseIf CbRole.Text = "--SELECT--" Then
+                MessageBox.Show("SELECT ROLE / USERTYPE.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ElseIf Not TxtCpass.Text.Trim().ToLower = TxtPass.Text.Trim().ToLower Then
+                MessageBox.Show("Incorrect Password.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 userRepo.InsertUser()
                 TxtFname.Clear()
@@ -90,14 +122,19 @@
                 TxtUsername.Clear()
                 TxtPass.Clear()
                 TxtCpass.Clear()
-                mdf.GetManageUserData()
-                ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
-                ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
-                ManageUser.DgManageUser.Enabled = False
-                Me.Hide()
+                Me.Close()
             End If
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Error: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
+    End Sub
+
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+        TxtFname.Clear()
+        TxtLname.Clear()
+        TxtUsername.Clear()
+        TxtPass.Clear()
+        TxtCpass.Clear()
     End Sub
 End Class

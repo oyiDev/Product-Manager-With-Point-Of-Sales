@@ -2,12 +2,13 @@
 
     Dim productRepo As New ProductRepo
     Dim Mdf As New ManageDataRefresher
+
     Private Sub BtnBoreder(btn As Button)
         btn.FlatAppearance.BorderSize = 0
     End Sub
+
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Mdf.GetDashboardData()
-        Mdf.GetZeroProduct()
+        Mdf.GetDashboardDatas()
 
         BtnBoreder(btnDashboard)
         BtnBoreder(btnManageProduct)
@@ -33,7 +34,7 @@
     End Sub
 
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
-        Mdf.GetDashboardData()
+        Mdf.GetDashboardDatas()
 
         btnDashboard.BackColor = Color.SteelBlue
         btnManageProduct.BackColor = Color.White
@@ -52,9 +53,9 @@
     End Sub
 
     Private Sub btnManageProduct_Click(sender As Object, e As EventArgs) Handles btnManageProduct.Click
-        Mdf.GetManageProductData()
-        productRepo.HighlightZeroQtyCells(ManageProduct.DgManageProduct, "qty")
-        productRepo.HighlightAvailableProduct(ManageProduct.DgManageProduct, "qty")
+        Mdf.GetManageProductData("")
+        ManageProduct.CbFilter.Text = "CATEGORY"
+        ManageProduct.TxtSearchProduct.Clear()
 
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.SteelBlue
@@ -112,8 +113,8 @@
     End Sub
 
     Private Sub btnManageUser_Click(sender As Object, e As EventArgs) Handles btnManageUser.Click
-        Mdf.GetManageUserData()
-        ManageUser.DgManageUser.Focus()
+        Mdf.GetManageUserData("")
+        ManageUser.TxtUserSearch.Clear()
 
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
@@ -138,13 +139,5 @@
             Me.Hide()
             LoginForm.Show()
         End If
-    End Sub
-
-    Private Sub btnExit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles btnExit.KeyPress
-        btnExit.BackColor = Color.Tomato
-    End Sub
-
-    Private Sub btnExit_KeyDown(sender As Object, e As KeyEventArgs) Handles btnExit.KeyDown
-        btnExit.BackColor = Color.Tomato
     End Sub
 End Class
