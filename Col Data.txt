@@ -1,9 +1,4 @@
 DASHBOARD
-+ total product
-+ total userr
-+ total supplier
-
-DASHBOARD
 ZERO PRODUCT
 + qty
 + genericname
@@ -20,4 +15,11 @@ MANAGE PRODUCT
 + price
 + qty
 
-DgStock
+MANAGE USER
++ id
++ firstname
++ lastname
++ username
++ usertype
++ created_at
++ updated_ at

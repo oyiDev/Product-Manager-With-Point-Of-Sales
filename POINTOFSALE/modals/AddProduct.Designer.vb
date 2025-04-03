@@ -28,8 +28,8 @@ Partial Class AddProduct
         Me.TxtPrice = New System.Windows.Forms.TextBox()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LblDateFormat = New System.Windows.Forms.Label()
+        Me.LblExd = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.barcode_lbl = New System.Windows.Forms.Label()
         Me.category_lbl = New System.Windows.Forms.Label()
@@ -38,7 +38,7 @@ Partial Class AddProduct
         Me.formulation_lbl = New System.Windows.Forms.Label()
         Me.description_lbl = New System.Windows.Forms.Label()
         Me.price_lbl = New System.Windows.Forms.Label()
-        Me.qty_lbl = New System.Windows.Forms.Label()
+        Me.LblQty = New System.Windows.Forms.Label()
         Me.TxtId = New System.Windows.Forms.TextBox()
         Me.TxtBarcode = New System.Windows.Forms.TextBox()
         Me.TxtDescription = New System.Windows.Forms.TextBox()
@@ -59,8 +59,8 @@ Partial Class AddProduct
         Me.Panel1.Controls.Add(Me.TxtPrice)
         Me.Panel1.Controls.Add(Me.BtnClose)
         Me.Panel1.Controls.Add(Me.BtnSave)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.LblDateFormat)
+        Me.Panel1.Controls.Add(Me.LblExd)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.barcode_lbl)
         Me.Panel1.Controls.Add(Me.category_lbl)
@@ -69,7 +69,7 @@ Partial Class AddProduct
         Me.Panel1.Controls.Add(Me.formulation_lbl)
         Me.Panel1.Controls.Add(Me.description_lbl)
         Me.Panel1.Controls.Add(Me.price_lbl)
-        Me.Panel1.Controls.Add(Me.qty_lbl)
+        Me.Panel1.Controls.Add(Me.LblQty)
         Me.Panel1.Controls.Add(Me.TxtId)
         Me.Panel1.Controls.Add(Me.TxtBarcode)
         Me.Panel1.Controls.Add(Me.TxtDescription)
@@ -117,7 +117,7 @@ Partial Class AddProduct
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(111, 31)
         Me.BtnClose.TabIndex = 50
-        Me.BtnClose.Text = "Close"
+        Me.BtnClose.Text = "CANCEL"
         Me.BtnClose.UseVisualStyleBackColor = False
         '
         'BtnSave
@@ -130,28 +130,28 @@ Partial Class AddProduct
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(123, 31)
         Me.BtnSave.TabIndex = 50
-        Me.BtnSave.Text = "Save"
+        Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = False
         '
-        'Label3
+        'LblDateFormat
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(161, 462)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 15)
-        Me.Label3.TabIndex = 48
-        Me.Label3.Text = "(YYYY-MM-DD)"
+        Me.LblDateFormat.AutoSize = True
+        Me.LblDateFormat.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDateFormat.Location = New System.Drawing.Point(161, 462)
+        Me.LblDateFormat.Name = "LblDateFormat"
+        Me.LblDateFormat.Size = New System.Drawing.Size(71, 15)
+        Me.LblDateFormat.TabIndex = 48
+        Me.LblDateFormat.Text = "(YYYY-MM-DD)"
         '
-        'Label2
+        'LblExd
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(42, 442)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 17)
-        Me.Label2.TabIndex = 48
-        Me.Label2.Text = "Expire date:"
+        Me.LblExd.AutoSize = True
+        Me.LblExd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblExd.Location = New System.Drawing.Point(42, 442)
+        Me.LblExd.Name = "LblExd"
+        Me.LblExd.Size = New System.Drawing.Size(96, 17)
+        Me.LblExd.TabIndex = 48
+        Me.LblExd.Text = "Expire date:"
         '
         'Label1
         '
@@ -233,15 +233,15 @@ Partial Class AddProduct
         Me.price_lbl.TabIndex = 38
         Me.price_lbl.Text = "Price:"
         '
-        'qty_lbl
+        'LblQty
         '
-        Me.qty_lbl.AutoSize = True
-        Me.qty_lbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.qty_lbl.Location = New System.Drawing.Point(42, 404)
-        Me.qty_lbl.Name = "qty_lbl"
-        Me.qty_lbl.Size = New System.Drawing.Size(38, 17)
-        Me.qty_lbl.TabIndex = 39
-        Me.qty_lbl.Text = "Qty:"
+        Me.LblQty.AutoSize = True
+        Me.LblQty.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblQty.Location = New System.Drawing.Point(42, 404)
+        Me.LblQty.Name = "LblQty"
+        Me.LblQty.Size = New System.Drawing.Size(38, 17)
+        Me.LblQty.TabIndex = 39
+        Me.LblQty.Text = "Qty:"
         '
         'TxtId
         '
@@ -324,7 +324,7 @@ Partial Class AddProduct
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LblExd As Label
     Friend WithEvents barcode_lbl As Label
     Friend WithEvents category_lbl As Label
     Friend WithEvents gen_lbl As Label
@@ -332,7 +332,7 @@ Partial Class AddProduct
     Friend WithEvents formulation_lbl As Label
     Friend WithEvents description_lbl As Label
     Friend WithEvents price_lbl As Label
-    Friend WithEvents qty_lbl As Label
+    Friend WithEvents LblQty As Label
     Friend WithEvents TxtDescription As TextBox
     Friend WithEvents TxtGenericname As TextBox
     Friend WithEvents TxtFormula As TextBox
@@ -346,5 +346,5 @@ Partial Class AddProduct
     Friend WithEvents Nqty As NumericUpDown
     Friend WithEvents TxtBarcode As TextBox
     Friend WithEvents TxtExpireDate As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LblDateFormat As Label
 End Class
