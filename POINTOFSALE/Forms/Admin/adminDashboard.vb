@@ -96,6 +96,8 @@
     End Sub
 
     Private Sub btnManageSupplier_Click(sender As Object, e As EventArgs) Handles btnManageSupplier.Click
+        Mdf.GetSupplierData()
+
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
         btnManageStock.BackColor = Color.White
