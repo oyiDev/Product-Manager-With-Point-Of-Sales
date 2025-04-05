@@ -8,13 +8,13 @@ Public Class OrderRepo
 
     Public Sub ScanProduct(barcode As String)
 
-        If StopScanActive OrElse DateTime.Now.Hour < 6 Then
-            MessageBox.Show("Transaction is closed until 6 AM!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        Else
-            StopScanActive = False
-            Console.WriteLine("The value Stop Scan Active is: " & StopScanActive)
-        End If
+        'If StopScanActive OrElse DateTime.Now.Hour < 6 Then
+        '    MessageBox.Show("Transaction is closed until 6 AM!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return
+        'Else
+        '    StopScanActive = False
+        '    Console.WriteLine("The value Stop Scan Active is: " & StopScanActive)
+        'End If
 
         Dim query As String = "SELECT barcode, genericname, price, qty, (price * qty) as amount FROM products WHERE barcode = ?"
 

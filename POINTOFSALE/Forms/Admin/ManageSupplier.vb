@@ -2,11 +2,10 @@
 
 Public Class ManageSupplier
     Private Sub addSupplierBtn_Click(sender As Object, e As EventArgs) Handles addSupplierBtn.Click
-
-        Dim supplierRepo As New SupplierRepo
-        supplierRepo.getSupplier_Id()
-        AddSupplier.ShowDialog()
-        AddSupplier.txtName.Focus()
+        'Dim supplierRepo As New SupplierRepo
+        'supplierRepo.getSupplier_Id()
+        'AddSupplier.ShowDialog()
+        'AddSupplier.txtName.Focus()
     End Sub
 
     Private Sub deleteBtn_Click(sender As Object, e As EventArgs)

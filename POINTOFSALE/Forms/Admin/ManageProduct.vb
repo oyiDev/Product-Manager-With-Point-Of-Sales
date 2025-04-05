@@ -19,22 +19,6 @@ Public Class ManageProduct
 
     Private Sub TxtSearchProduct_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchProduct.TextChanged
         mdf.GetManageProductData(TxtSearchProduct.Text)
-    End Sub
-
-    Private Sub CbFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbFilter.SelectedIndexChanged
-        mdf.GetManageProductData("")
-    End Sub
-
-    Private Sub BtnAdd_MouseEnter(sender As Object, e As EventArgs) Handles BtnAdd.MouseEnter
-        BtnAdd.BackColor = Color.LightSeaGreen
-    End Sub
-
-    Private Sub BtnAdd_MouseLeave(sender As Object, e As EventArgs) Handles BtnAdd.MouseLeave
-        BtnAdd.BackColor = Color.WhiteSmoke
-    End Sub
-
-    Private Sub TxtSearchProduct_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchProduct.TextChanged
-        mdf.GetManageProductData(TxtSearchProduct.Text)
         CbFilter.Text = "CATEGORY"
     End Sub
 
