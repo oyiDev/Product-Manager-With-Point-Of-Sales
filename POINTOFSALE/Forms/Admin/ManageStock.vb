@@ -4,11 +4,17 @@
     Dim productRepo As New ProductRepo
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Private Sub manageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mdf.GetManageStockData()
         productRepo.HighlightAvailableProduct(DgStock, "qty")
         productRepo.HighlightZeroQtyCells(DgStock, "qty")
         productRepo.HighlightExpiredProduct(DgStock, "expiredate")
+=======
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+        mdf.GetManageStockData()
+>>>>>>> Stashed changes
 =======
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint

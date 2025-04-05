@@ -15,6 +15,9 @@
         productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
         productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

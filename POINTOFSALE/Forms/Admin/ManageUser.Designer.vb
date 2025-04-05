@@ -44,6 +44,9 @@ Partial Class ManageUser
         Me.TxtUserSearch = New System.Windows.Forms.TextBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -61,7 +64,11 @@ Partial Class ManageUser
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Me.Label1.Location = New System.Drawing.Point(67, 20)
+=======
+        Me.Label1.Location = New System.Drawing.Point(39, 13)
+>>>>>>> Stashed changes
 =======
         Me.Label1.Location = New System.Drawing.Point(39, 13)
 >>>>>>> Stashed changes
@@ -164,6 +171,9 @@ Partial Class ManageUser
         Me.DgManageUser.DefaultCellStyle = DataGridViewCellStyle4
         Me.DgManageUser.Location = New System.Drawing.Point(26, 77)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -272,6 +282,9 @@ Partial Class ManageUser
         Me.searchBox.TabIndex = 22
         Me.searchBox.TabStop = False
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

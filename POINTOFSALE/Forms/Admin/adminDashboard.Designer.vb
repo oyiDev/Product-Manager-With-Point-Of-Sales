@@ -28,6 +28,9 @@ Partial Class adminDashboard
 =======
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -91,6 +94,9 @@ Partial Class adminDashboard
         Me.PictureBox1.TabStop = False
         '
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
