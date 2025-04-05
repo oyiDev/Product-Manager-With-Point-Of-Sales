@@ -25,7 +25,7 @@ Public Class ManageDataRefresher
             con.Close()
         End Try
     End Sub
-  
+
     Public Sub GetZeroProduct()
         Try
             connect_me()

@@ -193,30 +193,23 @@
     <Compile Include="modals\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="modals\ChangePasswordForm.Designer.vb">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </Compile>
-    
     <Compile Include="modals\ChangePasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="modals\ExpiredProductsForm.Designer.vb">
       <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
     </Compile>
-    
     <Compile Include="modals\ExpiredProductsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="My Project\AssemblyInfo.vb" />
-    
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,9 +256,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Admin\adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ManageStock.resx">
       <DependentUpon>ManageStock.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
@@ -312,15 +307,12 @@
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="modals\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="modals\ExpiredProductsForm.resx">
       <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -407,7 +399,6 @@
   <ItemGroup>
     <None Include="Resources\add-product-removebg-preview.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
@@ -417,7 +408,6 @@
   <ItemGroup>
     <None Include="Resources\filter %281%29.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\dashboard-removebg-preview1.png" />
   </ItemGroup>
@@ -427,7 +417,6 @@
   <ItemGroup>
     <None Include="Resources\stock-removebg-preview.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\group-removebg-preview.png" />
   </ItemGroup>
@@ -440,11 +429,8 @@
   <ItemGroup>
     <None Include="Resources\stock.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\out.png" />
   </ItemGroup>
-
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -100,10 +100,8 @@ Partial Class DashboardPanelForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Tomato
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DashboardDgZeroProduct.DefaultCellStyle = DataGridViewCellStyle3
-
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 219)
         Me.DashboardDgZeroProduct.MultiSelect = False
-
         Me.DashboardDgZeroProduct.Name = "DashboardDgZeroProduct"
         Me.DashboardDgZeroProduct.ReadOnly = True
         Me.DashboardDgZeroProduct.RowHeadersVisible = False
@@ -193,6 +191,9 @@ Partial Class DashboardPanelForm
         '
         'DashBoardPanel
         '
+        Me.DashBoardPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DashBoardPanel.BackColor = System.Drawing.Color.White
         Me.DashBoardPanel.Controls.Add(Me.Panel3)
         Me.DashBoardPanel.Controls.Add(Me.totalProduct_pnl)
@@ -202,7 +203,6 @@ Partial Class DashboardPanelForm
         Me.DashBoardPanel.Controls.Add(Me.totalUser_pnl)
         Me.DashBoardPanel.Controls.Add(Me.Label2)
         Me.DashBoardPanel.Controls.Add(Me.Panel1)
-        Me.DashBoardPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashBoardPanel.Location = New System.Drawing.Point(0, 0)
         Me.DashBoardPanel.Name = "DashBoardPanel"
         Me.DashBoardPanel.Size = New System.Drawing.Size(845, 607)

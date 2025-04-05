@@ -8,22 +8,8 @@
     End Sub
 
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-<<<<<<< Updated upstream
-        Mdf.GetDashboardData()
+        Mdf.GetDashboardDatas()
         Mdf.GetZeroProduct()
-=======
-        Mdf.GetDashboardDatas()
-        productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
-        productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
-        productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
->>>>>>> Stashed changes
-
-        Mdf.GetDashboardDatas()
-        productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
-        productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
-        productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
-
-        Mdf.GetDashboardDatas()
         productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
         productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
         productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")

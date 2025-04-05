@@ -4,15 +4,15 @@ Public Class ManageStock
     Dim productRepo As New ProductRepo
 
     Private Sub manageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        productRepo.HighlightAvailableProduct(DgStock, "qty")
-        productRepo.HighlightZeroQtyCells(DgStock, "qty")
-        productRepo.HighlightExpiredProduct(DgStock, "expiredate")
-
+        productRepo.HighlightAvailableProduct(DgManageStock, "qty")
+        productRepo.HighlightZeroQtyCells(DgManageStock, "qty")
+        productRepo.HighlightExpiredProduct(DgManageStock, "EXPIRY DATE")
+    End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
         mdf.GetManageStockData()
     End Sub
-    
+
     Private Sub btnPullout_MouseEnter(sender As Object, e As EventArgs) Handles btnPullout.MouseEnter
         btnPullout.BackColor = Color.SteelBlue
     End Sub
