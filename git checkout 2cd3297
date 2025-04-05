@@ -1,0 +1,34 @@
+[33m9a85b3b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{21 minutes ago}: checkout: moving from Feature/admin-stock to master
+[33m6f46d53[m[33m ([m[1;31morigin/feature/admin-stock[m[33m, [m[1;32mfeature/admin-stock[m[33m)[m HEAD@{27 minutes ago}: commit: fix shit
+[33m5e5540a[m[33m ([m[1;32mfeature/Admin[m[33m)[m HEAD@{27 minutes ago}: checkout: moving from feature/Admin to Feature/admin-stock
+[33m5e5540a[m[33m ([m[1;32mfeature/Admin[m[33m)[m HEAD@{31 minutes ago}: commit: fs
+[33m2cd3297[m HEAD@{32 minutes ago}: commit: fix stock
+[33ma489031[m HEAD@{34 minutes ago}: commit: cstage
+[33m5194792[m HEAD@{36 minutes ago}: commit: fix stock
+[33m06555e5[m HEAD@{38 minutes ago}: commit: Cstage
+[33m2121e33[m HEAD@{55 minutes ago}: checkout: moving from master to feature/Admin
+[33m9a85b3b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{55 minutes ago}: reset: moving to HEAD
+[33m9a85b3b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{2 days ago}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m25751e6[m HEAD@{2 days ago}: checkout: moving from feature/user to master
+[33m4b6aa79[m[33m ([m[1;31morigin/feature/user[m[33m, [m[1;32mfeature/user[m[33m)[m HEAD@{2 days ago}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m9c8a128[m HEAD@{2 days ago}: checkout: moving from feature/Admin to feature/user
+[33m2121e33[m HEAD@{2 days ago}: checkout: moving from Feature/user to feature/Admin
+[33m9c8a128[m HEAD@{2 days ago}: commit: fix managproduct, manageuser
+[33m2121e33[m HEAD@{2 days ago}: checkout: moving from feature/Admin to Feature/user
+[33m2121e33[m HEAD@{5 days ago}: checkout: moving from Feature/Admin to feature/Admin
+[33m2121e33[m HEAD@{5 days ago}: commit: fix dashboard, manageproduct, manageuser
+[33m499521b[m[33m ([m[1;31morigin/feature/POS-fix[m[33m, [m[1;32mfeature/POS-fix[m[33m)[m HEAD@{5 days ago}: checkout: moving from feature/POS-fix to Feature/Admin
+[33m499521b[m[33m ([m[1;31morigin/feature/POS-fix[m[33m, [m[1;32mfeature/POS-fix[m[33m)[m HEAD@{6 days ago}: commit: terminal
+[33m324fa51[m HEAD@{7 days ago}: commit: POS FIX
+[33m6c88ed4[m HEAD@{7 days ago}: commit: POS FIX
+[33m669101b[m HEAD@{7 days ago}: commit: exit
+[33m3a7b130[m HEAD@{8 days ago}: checkout: moving from feature/refill to feature/POS-fix
+[33m36ab91d[m[33m ([m[1;31morigin/feature/refill[m[33m, [m[1;32mfeature/refill[m[33m)[m HEAD@{8 days ago}: checkout: moving from feature/POS-fix to feature/refill
+[33m3a7b130[m HEAD@{8 days ago}: checkout: moving from feature/refill to feature/POS-fix
+[33m36ab91d[m[33m ([m[1;31morigin/feature/refill[m[33m, [m[1;32mfeature/refill[m[33m)[m HEAD@{8 days ago}: checkout: moving from feature/POS-fix to feature/refill
+[33m3a7b130[m HEAD@{8 days ago}: checkout: moving from feature/refill to feature/POS-fix
+[33m36ab91d[m[33m ([m[1;31morigin/feature/refill[m[33m, [m[1;32mfeature/refill[m[33m)[m HEAD@{8 days ago}: checkout: moving from Feature/POS-fix to feature/refill
+[33m3a7b130[m HEAD@{8 days ago}: commit: pos fix
+[33m36ab91d[m[33m ([m[1;31morigin/feature/refill[m[33m, [m[1;32mfeature/refill[m[33m)[m HEAD@{8 days ago}: checkout: moving from feature/refill to Feature/POS-fix
+[33m36ab91d[m[33m ([m[1;31morigin/feature/refill[m[33m, [m[1;32mfeature/refill[m[33m)[m HEAD@{9 days ago}: checkout: moving from master to feature/refill
+[33m25751e6[m HEAD@{9 days ago}: clone: from https://github.com/oyiDev/Product-Manager-With-Point-Of-Sales.git
