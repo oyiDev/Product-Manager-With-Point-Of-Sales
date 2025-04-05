@@ -121,19 +121,51 @@ Public Class ManageDataRefresher
     Public Sub GetManageStockData()
         Try
             connect_me()
-            Dim query As String = "SELECT category AS CATEGORY, genericname AS `GENERIC NAME`, price AS PRICE, qty AS QTY, expiredate AS EXPIREDATE FROM products ORDER BY created_at DESC"
+            Dim query As String = "SELECT id AS ID, category AS CATEGORY, genericname AS `GENERIC NAME`, expiredate AS `EXPIRY DATE`, qty AS QTY FROM products
+                               ORDER BY CASE WHEN qty BETWEEN 0 AND 10 THEN qty ELSE 11 END, CASE WHEN qty BETWEEN 0 AND 10 THEN 0 ELSE 1 END, expiredate DESC"
             Dim cmd As New OdbcCommand(query, con)
             Dim da As New OdbcDataAdapter(cmd)
             Dim ds As New Data.DataSet
 
             da.Fill(ds, "products")
 
-            ManageStock.DgStock.DataSource = ds.Tables(0)
-            productRepo.HighlightAvailableProduct(ManageStock.DgStock, "qty")
-            productRepo.HighlightZeroQtyCells(ManageStock.DgStock, "qty")
-            productRepo.HighlightExpiredProduct(ManageStock.DgStock, "expiredate")
-            ManageStock.DgStock.ClearSelection()
-            ManageStock.DgStock.CurrentCell = Nothing
+            ' Set data source
+            ManageStock.DgManageStock.DataSource = ds.Tables(0)
+
+            ' Highlight logic
+            productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "qty")
+            productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "qty")
+            productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
+
+            ' Add Refill button column if not already present
+            If Not ManageStock.DgManageStock.Columns.Contains("REFILL") Then
+                Dim refillButton As New DataGridViewButtonColumn()
+                refillButton.Name = "REFILL"
+                refillButton.HeaderText = "REFILL"
+                refillButton.Text = "Refill"
+                refillButton.UseColumnTextForButtonValue = True
+                ManageStock.DgManageStock.Columns.Add(refillButton)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading stock: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Public Sub GetSupplierData()
+        Try
+            connect_me()
+            Dim query As String = "SELECT id AS ID, name AS NAME, phone AS PHONE, address AS ADDRESS FROM supplier"
+            Dim cmd As New OdbcCommand(query, con)
+            Dim da As New OdbcDataAdapter(cmd)
+            Dim ds As New Data.DataSet
+
+            da.Fill(ds, "supplier")
+
+            ManageSupplier.dg_Supplier.DataSource = ds.Tables(0)
+            ManageSupplier.dg_Supplier.Refresh()
         Catch ex As Exception
             MessageBox.Show("Error Loading Stock : " & ex.Message)
         Finally

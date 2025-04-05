@@ -22,20 +22,24 @@ Partial Class ManageProduct
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageProduct))
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtSearchProduct = New System.Windows.Forms.TextBox()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.productReportBtn = New System.Windows.Forms.Button()
         Me.CbFilter = New System.Windows.Forms.ComboBox()
         Me.DgManageProduct = New System.Windows.Forms.DataGridView()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnAdd = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.idCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.barcodeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.categoryCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,10 +52,6 @@ Partial Class ManageProduct
         Me.expireCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.editCol = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.deleteCol = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.adminMainPanel.SuspendLayout()
         CType(Me.DgManageProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,7 +83,7 @@ Partial Class ManageProduct
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.adminMainPanel.Controls.Add(Me.Button1)
+        Me.adminMainPanel.Controls.Add(Me.productReportBtn)
         Me.adminMainPanel.Controls.Add(Me.CbFilter)
         Me.adminMainPanel.Controls.Add(Me.DgManageProduct)
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
@@ -98,19 +98,21 @@ Partial Class ManageProduct
         Me.adminMainPanel.Size = New System.Drawing.Size(875, 620)
         Me.adminMainPanel.TabIndex = 32
         '
-        'Button1
+        'productReportBtn
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(775, 44)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(72, 28)
-        Me.Button1.TabIndex = 25
-        Me.Button1.Text = "VIEW LOG"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.productReportBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.productReportBtn.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.productReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.productReportBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.productReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.productReportBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.productReportBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.productReportBtn.Location = New System.Drawing.Point(559, 557)
+        Me.productReportBtn.Name = "productReportBtn"
+        Me.productReportBtn.Size = New System.Drawing.Size(149, 43)
+        Me.productReportBtn.TabIndex = 26
+        Me.productReportBtn.Text = "PRODUCT REPORT"
+        Me.productReportBtn.UseVisualStyleBackColor = False
         '
         'CbFilter
         '
@@ -138,151 +140,46 @@ Partial Class ManageProduct
         Me.DgManageProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DgManageProduct.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DgManageProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(1)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgManageProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgManageProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DgManageProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgManageProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idCol, Me.barcodeCol, Me.categoryCol, Me.genericnameCol, Me.brandnameCol, Me.formulaCol, Me.descriptionCol, Me.priceCol, Me.qtyCol, Me.expireCol, Me.editCol, Me.deleteCol})
         Me.DgManageProduct.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.NullValue = Nothing
-        DataGridViewCellStyle6.Padding = New System.Windows.Forms.Padding(1)
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgManageProduct.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.NullValue = Nothing
+        DataGridViewCellStyle13.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgManageProduct.DefaultCellStyle = DataGridViewCellStyle13
         Me.DgManageProduct.Location = New System.Drawing.Point(26, 80)
         Me.DgManageProduct.Name = "DgManageProduct"
         Me.DgManageProduct.ReadOnly = True
         Me.DgManageProduct.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgManageProduct.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgManageProduct.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DgManageProduct.RowHeadersVisible = False
         Me.DgManageProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgManageProduct.ShowEditingIcon = False
         Me.DgManageProduct.ShowRowErrors = False
         Me.DgManageProduct.Size = New System.Drawing.Size(821, 467)
         Me.DgManageProduct.TabIndex = 23
-        '
-        'idCol
-        '
-        Me.idCol.FillWeight = 40.0!
-        Me.idCol.HeaderText = "ID"
-        Me.idCol.Name = "idCol"
-        Me.idCol.ReadOnly = True
-        Me.idCol.Visible = False
-        '
-        'barcodeCol
-        '
-        Me.barcodeCol.HeaderText = "BARCODE"
-        Me.barcodeCol.Name = "barcodeCol"
-        Me.barcodeCol.ReadOnly = True
-        '
-        'categoryCol
-        '
-        Me.categoryCol.HeaderText = "CATEGORY"
-        Me.categoryCol.Name = "categoryCol"
-        Me.categoryCol.ReadOnly = True
-        '
-        'genericnameCol
-        '
-        Me.genericnameCol.HeaderText = "GENERICNAME"
-        Me.genericnameCol.Name = "genericnameCol"
-        Me.genericnameCol.ReadOnly = True
-        '
-        'brandnameCol
-        '
-        Me.brandnameCol.HeaderText = "BRANDNAME"
-        Me.brandnameCol.Name = "brandnameCol"
-        Me.brandnameCol.ReadOnly = True
-        '
-        'formulaCol
-        '
-        Me.formulaCol.HeaderText = "FORMULA"
-        Me.formulaCol.Name = "formulaCol"
-        Me.formulaCol.ReadOnly = True
-        '
-        'descriptionCol
-        '
-        Me.descriptionCol.HeaderText = "DESCRIPTION"
-        Me.descriptionCol.Name = "descriptionCol"
-        Me.descriptionCol.ReadOnly = True
-        '
-        'priceCol
-        '
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.priceCol.DefaultCellStyle = DataGridViewCellStyle2
-        Me.priceCol.FillWeight = 55.0!
-        Me.priceCol.HeaderText = "PRICE"
-        Me.priceCol.Name = "priceCol"
-        Me.priceCol.ReadOnly = True
-        '
-        'qtyCol
-        '
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.qtyCol.DefaultCellStyle = DataGridViewCellStyle3
-        Me.qtyCol.FillWeight = 55.0!
-        Me.qtyCol.HeaderText = "QTY"
-        Me.qtyCol.Name = "qtyCol"
-        Me.qtyCol.ReadOnly = True
-        Me.qtyCol.Visible = False
-        '
-        'expireCol
-        '
-        Me.expireCol.FillWeight = 45.0!
-        Me.expireCol.HeaderText = "EXP"
-        Me.expireCol.Name = "expireCol"
-        Me.expireCol.ReadOnly = True
-        Me.expireCol.Visible = False
-        '
-        'editCol
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(2)
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gold
-        Me.editCol.DefaultCellStyle = DataGridViewCellStyle4
-        Me.editCol.FillWeight = 45.0!
-        Me.editCol.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.editCol.HeaderText = "EDIT"
-        Me.editCol.Name = "editCol"
-        Me.editCol.ReadOnly = True
-        '
-        'deleteCol
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Tomato
-        DataGridViewCellStyle5.Padding = New System.Windows.Forms.Padding(2)
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red
-        Me.deleteCol.DefaultCellStyle = DataGridViewCellStyle5
-        Me.deleteCol.FillWeight = 45.0!
-        Me.deleteCol.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.deleteCol.HeaderText = "DELETE"
-        Me.deleteCol.Name = "deleteCol"
-        Me.deleteCol.ReadOnly = True
-        Me.deleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.deleteCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'PictureBox1
         '
@@ -335,6 +232,117 @@ Partial Class ManageProduct
         Me.searchBox.TabIndex = 21
         Me.searchBox.TabStop = False
         '
+        'idCol
+        '
+        Me.idCol.FillWeight = 40.0!
+        Me.idCol.HeaderText = "ID"
+        Me.idCol.Name = "idCol"
+        Me.idCol.ReadOnly = True
+        Me.idCol.Visible = False
+        '
+        'barcodeCol
+        '
+        Me.barcodeCol.FillWeight = 108.8168!
+        Me.barcodeCol.HeaderText = "BARCODE"
+        Me.barcodeCol.Name = "barcodeCol"
+        Me.barcodeCol.ReadOnly = True
+        '
+        'categoryCol
+        '
+        Me.categoryCol.FillWeight = 108.8168!
+        Me.categoryCol.HeaderText = "CATEGORY"
+        Me.categoryCol.Name = "categoryCol"
+        Me.categoryCol.ReadOnly = True
+        '
+        'genericnameCol
+        '
+        Me.genericnameCol.FillWeight = 108.8168!
+        Me.genericnameCol.HeaderText = "GENERICNAME"
+        Me.genericnameCol.Name = "genericnameCol"
+        Me.genericnameCol.ReadOnly = True
+        '
+        'brandnameCol
+        '
+        Me.brandnameCol.FillWeight = 108.8168!
+        Me.brandnameCol.HeaderText = "BRANDNAME"
+        Me.brandnameCol.Name = "brandnameCol"
+        Me.brandnameCol.ReadOnly = True
+        '
+        'formulaCol
+        '
+        Me.formulaCol.FillWeight = 108.8168!
+        Me.formulaCol.HeaderText = "FORMULA"
+        Me.formulaCol.Name = "formulaCol"
+        Me.formulaCol.ReadOnly = True
+        '
+        'descriptionCol
+        '
+        Me.descriptionCol.FillWeight = 108.8168!
+        Me.descriptionCol.HeaderText = "DESCRIPTION"
+        Me.descriptionCol.Name = "descriptionCol"
+        Me.descriptionCol.ReadOnly = True
+        '
+        'priceCol
+        '
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.priceCol.DefaultCellStyle = DataGridViewCellStyle9
+        Me.priceCol.FillWeight = 59.84925!
+        Me.priceCol.HeaderText = "PRICE"
+        Me.priceCol.Name = "priceCol"
+        Me.priceCol.ReadOnly = True
+        '
+        'qtyCol
+        '
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.qtyCol.DefaultCellStyle = DataGridViewCellStyle10
+        Me.qtyCol.FillWeight = 55.0!
+        Me.qtyCol.HeaderText = "QTY"
+        Me.qtyCol.Name = "qtyCol"
+        Me.qtyCol.ReadOnly = True
+        Me.qtyCol.Visible = False
+        '
+        'expireCol
+        '
+        Me.expireCol.FillWeight = 45.0!
+        Me.expireCol.HeaderText = "EXP"
+        Me.expireCol.Name = "expireCol"
+        Me.expireCol.ReadOnly = True
+        Me.expireCol.Visible = False
+        '
+        'editCol
+        '
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle11.Padding = New System.Windows.Forms.Padding(2)
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Gold
+        Me.editCol.DefaultCellStyle = DataGridViewCellStyle11
+        Me.editCol.FillWeight = 48.96758!
+        Me.editCol.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.editCol.HeaderText = "EDIT"
+        Me.editCol.Name = "editCol"
+        Me.editCol.ReadOnly = True
+        '
+        'deleteCol
+        '
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Tomato
+        DataGridViewCellStyle12.Padding = New System.Windows.Forms.Padding(2)
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Red
+        Me.deleteCol.DefaultCellStyle = DataGridViewCellStyle12
+        Me.deleteCol.FillWeight = 48.96758!
+        Me.deleteCol.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.deleteCol.HeaderText = "DELETE"
+        Me.deleteCol.Name = "deleteCol"
+        Me.deleteCol.ReadOnly = True
+        Me.deleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.deleteCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
         'ManageProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -364,7 +372,7 @@ Partial Class ManageProduct
     Friend WithEvents DgManageProduct As DataGridView
     Friend WithEvents CbFilter As ComboBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents productReportBtn As Button
     Friend WithEvents idCol As DataGridViewTextBoxColumn
     Friend WithEvents barcodeCol As DataGridViewTextBoxColumn
     Friend WithEvents categoryCol As DataGridViewTextBoxColumn
