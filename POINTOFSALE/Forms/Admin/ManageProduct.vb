@@ -1,11 +1,10 @@
-﻿Public Class ManageProduct
+﻿Imports System.Data.Odbc
+Imports System.Data.SqlClient
+
+Public Class ManageProduct
 
     Dim productRepo As New ProductRepo
     Dim mdf As New ManageDataRefresher
-
-    Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub CbFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbFilter.SelectedIndexChanged
         mdf.GetManageProductData("")
@@ -67,6 +66,22 @@
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub productReportBtn_Click(sender As Object, e As EventArgs) Handles productReportBtn.Click
+        If Me.DgManageProduct.Rows.Count = 0 OrElse (Me.DgManageProduct.Rows.Count = 1 AndAlso Me.DgManageProduct.Rows(0).IsNewRow) Then
+            MessageBox.Show("No Report to print.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        'Dim report As New ProductReport
+        Dim mdf As New ManageDataRefresher
+        mdf.GetManageStockData()
+        productRepo.ProductReport()
+    End Sub
+
+    Private Sub viewLogBtn_Click(sender As Object, e As EventArgs)
+        DgManageProduct.Rows.Add()
     End Sub
 End Class
 

@@ -22,42 +22,19 @@ Partial Class ManageStock
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageStock))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.pullout_Btn = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageStock))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
+        Me.stockReportBtn = New System.Windows.Forms.Button()
         Me.DgStock = New System.Windows.Forms.DataGridView()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.adminMainPanel.SuspendLayout()
         CType(Me.DgStock, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pullout_Btn
-        '
-        Me.pullout_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.pullout_Btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pullout_Btn.Location = New System.Drawing.Point(691, 615)
-        Me.pullout_Btn.Name = "pullout_Btn"
-        Me.pullout_Btn.Size = New System.Drawing.Size(162, 39)
-        Me.pullout_Btn.TabIndex = 1
-        Me.pullout_Btn.Text = "Refill"
-        Me.pullout_Btn.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(20, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(42, 34)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
@@ -69,30 +46,37 @@ Partial Class ManageStock
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Manage Stock"
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(694, 616)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(37, 35)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 6
-        Me.PictureBox2.TabStop = False
-        '
         'adminMainPanel
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
+        Me.adminMainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.adminMainPanel.Controls.Add(Me.stockReportBtn)
         Me.adminMainPanel.Controls.Add(Me.DgStock)
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
-        Me.adminMainPanel.Controls.Add(Me.PictureBox2)
-        Me.adminMainPanel.Controls.Add(Me.pullout_Btn)
         Me.adminMainPanel.Controls.Add(Me.Label1)
+        Me.adminMainPanel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.adminMainPanel.Name = "adminMainPanel"
         Me.adminMainPanel.Size = New System.Drawing.Size(875, 620)
         Me.adminMainPanel.TabIndex = 7
+        '
+        'stockReportBtn
+        '
+        Me.stockReportBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.stockReportBtn.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.stockReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.stockReportBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.stockReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.stockReportBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.stockReportBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.stockReportBtn.Location = New System.Drawing.Point(684, 550)
+        Me.stockReportBtn.Name = "stockReportBtn"
+        Me.stockReportBtn.Size = New System.Drawing.Size(163, 41)
+        Me.stockReportBtn.TabIndex = 25
+        Me.stockReportBtn.Text = "STOCK REPORT"
+        Me.stockReportBtn.UseVisualStyleBackColor = False
         '
         'DgStock
         '
@@ -128,7 +112,7 @@ Partial Class ManageStock
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgStock.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgStock.Location = New System.Drawing.Point(26, 76)
+        Me.DgStock.Location = New System.Drawing.Point(26, 67)
         Me.DgStock.Name = "DgStock"
         Me.DgStock.ReadOnly = True
         Me.DgStock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -147,6 +131,16 @@ Partial Class ManageStock
         Me.DgStock.Size = New System.Drawing.Size(821, 467)
         Me.DgStock.TabIndex = 24
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(20, 22)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(42, 34)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
+        '
         'ManageStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -157,18 +151,16 @@ Partial Class ManageStock
         Me.Name = "ManageStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ManageStock"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
         CType(Me.DgStock, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents pullout_Btn As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents adminMainPanel As Panel
     Friend WithEvents DgStock As DataGridView
+    Friend WithEvents stockReportBtn As Button
 End Class

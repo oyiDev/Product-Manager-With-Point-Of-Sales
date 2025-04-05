@@ -1,5 +1,5 @@
 ﻿Imports System.Data.Odbc
-
+Imports System.Data.SqlClient
 Public Class ProductRepo
 
     Public Sub HighlightAvailableProduct(ByVal dgv As DataGridView, ByVal columnName As String)
@@ -132,6 +132,73 @@ Public Class ProductRepo
         Finally
             con.Close()
         End Try
+    End Sub
+
+    Public Sub ProductReport()
+        Dim res As Integer = MessageBox.Show("Print report?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If res = vbYes Then
+            Dim dt As New DataTable
+            dt.Columns.Add("barcode", Type.GetType("System.String"))
+            dt.Columns.Add("category", Type.GetType("System.String"))
+            dt.Columns.Add("genericname", Type.GetType("System.String"))
+            dt.Columns.Add("brandname", Type.GetType("System.String"))
+            dt.Columns.Add("formula", Type.GetType("System.String"))
+            dt.Columns.Add("description", Type.GetType("System.String"))
+            dt.Columns.Add("price", Type.GetType("System.String"))
+
+            ' Loop through the DataGridView rows and add them to the DataTable
+            For Each row As DataGridViewRow In ManageProduct.DgManageProduct.Rows
+                If Not row.IsNewRow Then
+                    dt.Rows.Add(row.Cells("barcodeCol").Value.ToString(), row.Cells("categoryCol").Value.ToString(), row.Cells("genericnameCol").Value.ToString(),
+                    row.Cells("brandnameCol").Value.ToString(), row.Cells("formulaCol").Value.ToString(), row.Cells("descriptionCol").Value.ToString(), row.Cells("priceCol").Value.ToString())
+                End If
+            Next
+
+            PrintForm.Show()
+            PrintForm.WindowState = FormWindowState.Maximized
+            Dim report As New ProductReport
+            report.SetDataSource(dt)
+
+            'Print the report
+            report.PrintToPrinter(1, False, 0, 0)
+            PrintForm.CViewer.ReportSource = report
+        Else
+            MessageBox.Show("Without receipt", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Public Sub StockReport()
+        Dim res As Integer = MessageBox.Show("Print report?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If res = vbYes Then
+            Dim dt As New DataTable
+            dt.Columns.Add("qty", Type.GetType("System.String"))
+            dt.Columns.Add("category", Type.GetType("System.String"))
+            dt.Columns.Add("genericname", Type.GetType("System.String"))
+            dt.Columns.Add("price", Type.GetType("System.String"))
+            dt.Columns.Add("expiredate", Type.GetType("System.String"))
+
+
+            ' Loop through the DataGridView rows and add them to the DataTable
+            For Each row As DataGridViewRow In ManageStock.DgStock.Rows
+                If Not row.IsNewRow Then
+                    dt.Rows.Add(row.Cells("QTY").Value.ToString(), row.Cells("CATEGORY").Value.ToString(), row.Cells("GENERIC NAME").Value.ToString(),
+                    row.Cells("PRICE").Value.ToString(), row.Cells("EXPIREDATE").Value.ToString())
+                End If
+            Next
+
+            PrintForm.Show()
+            PrintForm.WindowState = FormWindowState.Maximized
+
+            Dim report As New StockReport
+            report.SetDataSource(dt)
+
+            'Print the report
+            report.PrintToPrinter(1, False, 0, 0)
+            PrintForm.CViewer.ReportSource = report
+
+        Else
+            MessageBox.Show("Without receipt", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Class
 

@@ -9,4 +9,17 @@ Public Class ManageStock
         productRepo.HighlightZeroQtyCells(DgStock, "qty")
         productRepo.HighlightExpiredProduct(DgStock, "expiredate")
     End Sub
+
+    Private Sub stockReportBtn_Click(sender As Object, e As EventArgs) Handles stockReportBtn.Click
+        If Me.DgStock.Rows.Count = 0 OrElse (Me.DgStock.Rows.Count = 1 AndAlso Me.DgStock.Rows(0).IsNewRow) Then
+            MessageBox.Show("No Report to print.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        'Dim report As New ProductReport
+        productRepo.StockReport()
+        Dim mdf As New ManageDataRefresher
+        mdf.GetManageStockData()
+
+    End Sub
 End Class
