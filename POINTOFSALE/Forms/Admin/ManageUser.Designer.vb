@@ -45,10 +45,13 @@ Partial Class ManageUser
         Me.searchBox = New System.Windows.Forms.PictureBox()
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LblAction = New System.Windows.Forms.Label()
@@ -65,15 +68,21 @@ Partial Class ManageUser
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         Me.Label1.Location = New System.Drawing.Point(67, 20)
 =======
         Me.Label1.Location = New System.Drawing.Point(39, 13)
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
         Me.Label1.Location = New System.Drawing.Point(39, 13)
 >>>>>>> Stashed changes
 =======
         Me.Label1.Location = New System.Drawing.Point(39, 13)
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 18)
@@ -172,10 +181,13 @@ Partial Class ManageUser
         Me.DgManageUser.Location = New System.Drawing.Point(26, 77)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         Me.DgManageUser.Name = "DgManageUser"
         Me.DgManageUser.ReadOnly = True
@@ -283,10 +295,13 @@ Partial Class ManageUser
         Me.searchBox.TabStop = False
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'PictureBox1

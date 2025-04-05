@@ -98,10 +98,15 @@ Partial Class DashboardPanelForm
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 216)
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+        Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 216)
 =======
 >>>>>>> Stashed changes
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 219)

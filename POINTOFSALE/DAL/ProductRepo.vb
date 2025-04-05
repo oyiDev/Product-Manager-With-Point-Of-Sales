@@ -1,5 +1,8 @@
 ﻿Imports System.Data.Odbc
+<<<<<<< Updated upstream
 Imports System.Data.SqlClient
+=======
+>>>>>>> Stashed changes
 
 Public Class ProductRepo
     Public Sub HighlightAvailableProduct(ByVal dgv As DataGridView, ByVal columnName As String)
@@ -114,6 +117,7 @@ Public Class ProductRepo
         dg.DefaultCellStyle.SelectionBackColor = Color.White
         dg.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
     End Sub
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 =======
@@ -462,6 +466,8 @@ Public Class ProductRepo
         End Try
     End Sub
 <<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

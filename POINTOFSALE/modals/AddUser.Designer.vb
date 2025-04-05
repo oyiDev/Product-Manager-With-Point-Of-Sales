@@ -76,9 +76,13 @@ Partial Class AddUser
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 =======
 >>>>>>> Stashed changes
         Me.AddUserPanel.Controls.Add(Me.Label10)
@@ -144,10 +148,13 @@ Partial Class AddUser
         Me.TxtUsername.TabIndex = 15
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'CbRole
@@ -167,6 +174,9 @@ Partial Class AddUser
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(48, 240)
@@ -175,6 +185,9 @@ Partial Class AddUser
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "User Type / Role"
 =======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -186,10 +199,13 @@ Partial Class AddUser
         Me.Label4.TabIndex = 16
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'TxtLname
@@ -208,10 +224,13 @@ Partial Class AddUser
         Me.TxtLname.TabIndex = 17
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'Label3
@@ -231,10 +250,13 @@ Partial Class AddUser
         Me.Label3.TabIndex = 18
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'TxtCpass
@@ -252,10 +274,13 @@ Partial Class AddUser
         Me.TxtCpass.TabIndex = 19
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'TxtFname
@@ -274,10 +299,13 @@ Partial Class AddUser
         Me.TxtFname.TabIndex = 20
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'Label6
@@ -307,10 +335,13 @@ Partial Class AddUser
         Me.Label2.TabIndex = 21
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'TxtPass
@@ -328,10 +359,13 @@ Partial Class AddUser
         Me.TxtPass.TabIndex = 22
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'Label5
@@ -362,10 +396,13 @@ Partial Class AddUser
         Me.TxtId.TabIndex = 23
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         Me.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -436,10 +473,13 @@ Partial Class AddUser
         Me.Label10.Text = "Usertype:"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'AddUser
@@ -486,9 +526,12 @@ Partial Class AddUser
     Friend WithEvents Label5 As Label
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 End Class

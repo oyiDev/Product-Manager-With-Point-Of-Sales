@@ -73,17 +73,23 @@ Partial Class ManageStock
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         Me.adminMainPanel.Size = New System.Drawing.Size(875, 667)
         Me.adminMainPanel.TabIndex = 7
 =======
         Me.adminMainPanel.Size = New System.Drawing.Size(871, 616)
         Me.adminMainPanel.TabIndex = 28
+<<<<<<< Updated upstream
 =======
         Me.adminMainPanel.Size = New System.Drawing.Size(871, 616)
         Me.adminMainPanel.TabIndex = 28
 =======
         Me.adminMainPanel.Size = New System.Drawing.Size(871, 616)
         Me.adminMainPanel.TabIndex = 28
+=======
+>>>>>>> Stashed changes
         '
         'DgManageStock
         '
@@ -185,6 +191,7 @@ Partial Class ManageStock
         Me.Button1.Text = "Pull out"
         Me.Button1.UseVisualStyleBackColor = False
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
         '
         'DgManageStock
         '
@@ -388,6 +395,8 @@ Partial Class ManageStock
         Me.Button1.TabIndex = 27
         Me.Button1.Text = "Pull out"
         Me.Button1.UseVisualStyleBackColor = False
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'DgStock
@@ -419,6 +428,9 @@ Partial Class ManageStock
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -447,6 +459,9 @@ Partial Class ManageStock
         Me.DgStock.Size = New System.Drawing.Size(821, 511)
         Me.DgStock.TabIndex = 28
 =======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -502,10 +517,13 @@ Partial Class ManageStock
         Me.Label1.Text = "Manage Stock"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         '
         'ManageStock
@@ -515,10 +533,16 @@ Partial Class ManageStock
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         Me.ClientSize = New System.Drawing.Size(875, 667)
         Me.Controls.Add(Me.adminMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 =======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -529,10 +553,13 @@ Partial Class ManageStock
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         Me.Name = "ManageStock"
         Me.Panel1.ResumeLayout(False)

@@ -29,10 +29,13 @@ Partial Class adminDashboard
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnManageUser = New System.Windows.Forms.Button()
@@ -95,10 +98,13 @@ Partial Class adminDashboard
         '
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
         'btnExit
         '

@@ -5,6 +5,9 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
     Private Sub manageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mdf.GetManageStockData()
         productRepo.HighlightAvailableProduct(DgStock, "qty")
@@ -15,6 +18,7 @@
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
         mdf.GetManageStockData()
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 =======
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
@@ -24,6 +28,8 @@
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
         mdf.GetManageStockData()
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     End Sub
     Private Sub btnPullout_MouseEnter(sender As Object, e As EventArgs) Handles btnPullout.MouseEnter
