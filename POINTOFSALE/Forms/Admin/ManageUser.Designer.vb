@@ -41,11 +41,16 @@ Partial Class ManageUser
         Me.updatedatCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.editCol = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.deleteCol = New System.Windows.Forms.DataGridViewButtonColumn()
+<<<<<<< Updated upstream
 
         Me.TxtUserSearch = New System.Windows.Forms.TextBox()
         Me.searchBox = New System.Windows.Forms.PictureBox()
 
 
+=======
+        Me.TxtUserSearch = New System.Windows.Forms.TextBox()
+        Me.searchBox = New System.Windows.Forms.PictureBox()
+>>>>>>> Stashed changes
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.adminMainPanel.SuspendLayout()
         CType(Me.DgManageUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,7 +62,11 @@ Partial Class ManageUser
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+<<<<<<< Updated upstream
         Me.Label1.Location = New System.Drawing.Point(67, 20)
+=======
+        Me.Label1.Location = New System.Drawing.Point(39, 13)
+>>>>>>> Stashed changes
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 18)
         Me.Label1.TabIndex = 9
@@ -115,6 +124,7 @@ Partial Class ManageUser
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgManageUser.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+<<<<<<< Updated upstream
         Me.DgManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -127,6 +137,22 @@ Partial Class ManageUser
         Me.DgManageUser.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgManageUser.Location = New System.Drawing.Point(25, 60)
         Me.DgManageUser.MultiSelect = False
+=======
+        Me.DgManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgManageUser.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idCol, Me.firstnameCol, Me.lastnameCol, Me.usernameCol, Me.usertypeCol, Me.createdatCol, Me.updatedatCol, Me.editCol, Me.deleteCol})
+        Me.DgManageUser.Cursor = System.Windows.Forms.Cursors.Hand
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.NullValue = Nothing
+        DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgManageUser.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DgManageUser.Location = New System.Drawing.Point(26, 77)
+>>>>>>> Stashed changes
         Me.DgManageUser.Name = "DgManageUser"
         Me.DgManageUser.ReadOnly = True
         Me.DgManageUser.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -216,7 +242,10 @@ Partial Class ManageUser
         Me.deleteCol.Name = "deleteCol"
         Me.deleteCol.ReadOnly = True
         '
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         'TxtUserSearch
         '
         Me.TxtUserSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -232,24 +261,16 @@ Partial Class ManageUser
         Me.searchBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.searchBox.Image = CType(resources.GetObject("searchBox.Image"), System.Drawing.Image)
         Me.searchBox.Location = New System.Drawing.Point(26, 45)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         Me.searchBox.Name = "searchBox"
         Me.searchBox.Size = New System.Drawing.Size(34, 26)
         Me.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.searchBox.TabIndex = 22
         Me.searchBox.TabStop = False
 
-        '
-        'TxtUserSearch
-        '
-        Me.TxtUserSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtUserSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtUserSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtUserSearch.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUserSearch.Location = New System.Drawing.Point(437, 37)
-        Me.TxtUserSearch.Name = "TxtUserSearch"
-        Me.TxtUserSearch.Size = New System.Drawing.Size(410, 26)
-        Me.TxtUserSearch.TabIndex = 14
         '
         'PictureBox1
         '

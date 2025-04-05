@@ -205,21 +205,27 @@
     <Compile Include="modals\ChangePasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 
 >>>>>>> 6e6676d2944819eb4fdbeb245b951814cd972996
+=======
+>>>>>>> Stashed changes
     <Compile Include="modals\ExpiredProductsForm.Designer.vb">
       <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
     </Compile>
     <Compile Include="modals\ExpiredProductsForm.vb">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 
 >>>>>>> 6e6676d2944819eb4fdbeb245b951814cd972996
+=======
+>>>>>>> Stashed changes
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -332,6 +338,7 @@
     <EmbeddedResource Include="modals\ExpiredProductsForm.resx">
       <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
     </EmbeddedResource>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
@@ -341,6 +348,8 @@
     </EmbeddedResource>
 
 >>>>>>> 6e6676d2944819eb4fdbeb245b951814cd972996
+=======
+>>>>>>> Stashed changes
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>

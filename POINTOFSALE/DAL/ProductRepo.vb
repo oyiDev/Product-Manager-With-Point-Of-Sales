@@ -1,4 +1,5 @@
 ﻿Imports System.Data.Odbc
+Imports System.Data.SqlClient
 
 Public Class ProductRepo
 
@@ -134,6 +135,7 @@ Public Class ProductRepo
         End Try
     End Sub
 
+<<<<<<< Updated upstream
     Public Sub ProductReport()
         Dim res As Integer = MessageBox.Show("Print report?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If res = vbYes Then
@@ -167,6 +169,8 @@ Public Class ProductRepo
         End If
     End Sub
 
+=======
+>>>>>>> Stashed changes
     Public Sub PullProductExpired()
         Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
         Try
@@ -312,6 +316,7 @@ Public Class ProductRepo
             con.Close()
         End Try
     End Sub
+<<<<<<< Updated upstream
 
     Public Sub PullProductExpired()
         Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
@@ -543,3 +548,7 @@ End Class
     End Sub
 End Class
 
+=======
+End Class
+
+>>>>>>> Stashed changes

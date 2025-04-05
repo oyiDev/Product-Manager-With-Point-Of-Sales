@@ -17,6 +17,9 @@
         productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
 
         Mdf.GetDashboardDatas()
+        productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
 
         BtnBoreder(btnDashboard)
         BtnBoreder(btnManageProduct)
