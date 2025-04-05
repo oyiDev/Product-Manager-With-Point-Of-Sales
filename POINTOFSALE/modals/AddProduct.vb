@@ -4,10 +4,7 @@
     Dim productRepo As New ProductRepo
 
     Private Sub AddProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        productRepo.Get_id()
-        CbCategory.Text = "--SELECT--"
-        FormatPriceTextBox(TxtPrice)
-        TxtBarcode.Focus()
+
     End Sub
 
     Private Sub TxtBarcode_TextChanged(sender As Object, e As EventArgs) Handles TxtBarcode.TextChanged
@@ -16,7 +13,7 @@
     End Sub
 
     '----------------------------------- TEXT BOX PRICE -------------------------------------------------
-    Private Sub FormatPriceTextBox(ByVal txt As TextBox)
+    Public Sub FormatPriceTextBox(ByVal txt As TextBox)
         If Not String.IsNullOrWhiteSpace(txt.Text) AndAlso IsNumeric(txt.Text) Then
             txt.Text = Format(CDbl(txt.Text), "0.00") ' Format to two decimal places
         Else
@@ -55,7 +52,6 @@
 
     Private Sub expiry_date_TextChanged(sender As Object, e As EventArgs) Handles TxtExpireDate.TextChanged
         TxtExpireDate.Text = System.Text.RegularExpressions.Regex.Replace(TxtExpireDate.Text, "[^0-9 -]", "")
-        TxtExpireDate.SelectionStart = TxtExpireDate.Text.Length
     End Sub
 
     Private Sub TxtExpireDate_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles TxtExpireDate.Leave
@@ -168,26 +164,33 @@
        String.IsNullOrWhiteSpace(Nqty.Text) OrElse
        String.IsNullOrWhiteSpace(TxtPrice.Text) OrElse
        CbCategory.Text = "--SELECT--" Then
-            MessageBox.Show("All Fields Must Be Completed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("All Fields Must be Completed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+
+        If Val(TxtPrice.Text) = 0 AndAlso Nqty.Value = 0 Then
+            MessageBox.Show("Price and Quantity must be greater than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If BtnSave.Text = "UPDATE" Then
+            productRepo.UpdateProduct()
+            Mdf.LoadTotalCount("products", DashboardPanelForm.LblTotalProduct)
+            Me.Close()
+            AddProductTxtClear()
+            Return
+        End If
+
         productRepo.InnsertProduct()
-        TxtBarcode.Clear()
-        TxtGenericname.Clear()
-        TxtBrandname.Clear()
-        TxtFormula.Clear()
-        TxtDescription.Clear()
-        TxtPrice.Text = "0.00"
-        Nqty.Value = 0
-        TxtBarcode.Clear()
-        TxtExpireDate.Clear()
-        productRepo.Get_id()
-        Mdf.GetManageProductData()
         Mdf.LoadTotalCount("products", DashboardPanelForm.LblTotalProduct)
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Hide()
+        Me.Close()
+        AddProductTxtClear()
+    End Sub
+
+    Public Sub AddProductTxtClear()
         TxtBarcode.Clear()
         TxtGenericname.Clear()
         TxtBrandname.Clear()
@@ -197,5 +200,13 @@
         Nqty.Value = 0
         TxtBarcode.Clear()
         TxtExpireDate.Clear()
+    End Sub
+
+    Public Sub TxtShow()
+        LblQty.Show()
+        Nqty.Show()
+        LblExd.Show()
+        TxtExpireDate.Show()
+        LblDateFormat.Show()
     End Sub
 End Class

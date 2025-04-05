@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -193,17 +193,30 @@
     <Compile Include="modals\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="modals\ChangePasswordForm.Designer.vb">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </Compile>
+    
     <Compile Include="modals\ChangePasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
+
+    <Compile Include="modals\ExpiredProductsForm.Designer.vb">
+      <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
+    </Compile>
+    
+    <Compile Include="modals\ExpiredProductsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
     <Compile Include="My Project\AssemblyInfo.vb" />
+    
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +245,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\StockReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -287,9 +312,15 @@
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="modals\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </EmbeddedResource>
+    
+    <EmbeddedResource Include="modals\ExpiredProductsForm.resx">
+      <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -303,6 +334,14 @@
     <EmbeddedResource Include="Reports\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SalesReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockReport.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -368,5 +407,44 @@
   <ItemGroup>
     <None Include="Resources\add-product-removebg-preview.png" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter %281%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\dashboard-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-removebg-preview.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\group-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\out-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\out.png" />
+  </ItemGroup>
+
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

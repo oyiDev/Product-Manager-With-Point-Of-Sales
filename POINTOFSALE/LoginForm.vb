@@ -32,11 +32,15 @@
         Dim password As String = TxtPassword.Text.Trim()
         Dim userInfo As UserInfo = userRepo.GetUserRole(username, password)
 
+        Console.WriteLine($"User ID: {userInfo.UserId}, Role: {userInfo.Role}, Firstname: {userInfo.Firstname}, Lastname: {userInfo.lastname}, Username: {userInfo.Username}, Password: {userInfo.Password}")
+
         If userInfo IsNot Nothing AndAlso userInfo.Role = "ADMIN" Then
             MessageBox.Show("Welcome Admin!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)
             TxtPassword.Clear()
             TxtUsername.Clear()
             adminDashboard.Show()
+            Dim mdf As New ManageDataRefresher
+            mdf.GetDashboardDatas()
             Me.Hide()
         ElseIf userInfo IsNot Nothing AndAlso userInfo.Role = "CASHIER" Then
             MessageBox.Show("Welcome Cashier!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information)

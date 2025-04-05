@@ -1,14 +1,25 @@
-﻿Public Class ManageProduct
+Imports System.Data.Odbc
+
+Public Class ManageProduct
 
     Dim productRepo As New ProductRepo
     Dim mdf As New ManageDataRefresher
-    Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mdf.GetManageProductData()
-        productRepo.HighlightZeroQtyCells(DgManageProduct, "qty")
-        productRepo.HighlightAvailableProduct(DgManageProduct, "qty")
+
+    Private Sub CbFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbFilter.SelectedIndexChanged
+        mdf.GetManageProductData("")
     End Sub
-<<<<<<< Updated upstream
-=======
+
+    Private Sub BtnAdd_MouseEnter(sender As Object, e As EventArgs) Handles BtnAdd.MouseEnter
+        BtnAdd.BackColor = Color.LightSeaGreen
+    End Sub
+
+    Private Sub BtnAdd_MouseLeave(sender As Object, e As EventArgs) Handles BtnAdd.MouseLeave
+        BtnAdd.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub TxtSearchProduct_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchProduct.TextChanged
+        mdf.GetManageProductData(TxtSearchProduct.Text)
+    End Sub
 
     Private Sub CbFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbFilter.SelectedIndexChanged
         mdf.GetManageProductData("")
@@ -27,18 +38,15 @@
         CbFilter.Text = "CATEGORY"
     End Sub
 
->>>>>>> Stashed changes
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        AddProduct.ShowDialog()
         productRepo.Get_id()
+        AddProduct.CbCategory.Text = "--SELECT--"
+        AddProduct.FormatPriceTextBox(AddProduct.TxtPrice)
+        AddProduct.TxtShow()
+        AddProduct.BtnSave.Text = "SAVE"
         AddProduct.TxtBarcode.Focus()
+        AddProduct.ShowDialog()
     End Sub
-<<<<<<< Updated upstream
-    Private Sub search_product_TextChanged(sender As Object, e As EventArgs) Handles TxtSearchProduct.TextChanged
-        Dim repo As New ProductRepo
-        repo.SearchProduct(TxtSearchProduct.Text.Trim())
-=======
-
 
     Private Sub DgManageProduct_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgManageProduct.CellClick
         Try
@@ -77,7 +85,6 @@
         Catch ex As Exception
             MessageBox.Show("Error retrieving data: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
->>>>>>> Stashed changes
     End Sub
 End Class
 

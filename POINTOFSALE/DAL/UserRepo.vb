@@ -5,6 +5,7 @@ Imports System.Text
 Public Class UserRepo
 
     Dim userInfo As New UserInfo
+    Dim mdf As New ManageDataRefresher
 
     Public Function HashPassword(password As String) As String
         Using sha256 As SHA256 = SHA256.Create()
@@ -14,45 +15,13 @@ Public Class UserRepo
         End Using
     End Function
 
-    Public Sub InsertUser()
-        Dim userInfo As New UserInfo
-        Dim id As String = AddUser.TxtId.Text.Trim().ToUpper
-        Dim firstName As String = AddUser.TxtFname.Text.Trim().ToUpper
-        Dim lastName As String = AddUser.TxtLname.Text.Trim().ToUpper
-        Dim userName As String = AddUser.TxtUsername.Text.Trim().ToUpper
-        Dim passWord As String = AddUser.TxtPass.Text.Trim().ToUpper
-        Dim role As String = AddUser.CbRole.Text.Trim().ToUpper
-
-        Dim passwordHash As String = HashPassword(password)
-        Dim query As String = "INSERT INTO users (id, firstname, lastname, username, password, usertype) VALUES (?, ?, ?, ?, ?, ?)"
-
-        Try
-            connect_me()
-            Using cmd As New OdbcCommand(query, con)
-                cmd.Parameters.AddWithValue("?", id)
-                cmd.Parameters.AddWithValue("?", firstName)
-                cmd.Parameters.AddWithValue("?", lastName)
-                cmd.Parameters.AddWithValue("?", userName)
-                cmd.Parameters.AddWithValue("?", passwordHash)
-                cmd.Parameters.AddWithValue("?", role)
-
-                cmd.ExecuteNonQuery()
-                MessageBox.Show("User Added Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Username already used" & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
     Public Function GetUserRole(username As String, password As String) As UserInfo
         'Dim userInfo As New UserInfo()
         Dim hashedPassword As String = HashPassword(password)
 
         Try
             connect_me()
-            Dim query As String = "SELECT id, usertype, firstname, lastname, username FROM users WHERE username = ? AND password = ?"
+            Dim query As String = "SELECT id, usertype, firstname, lastname, username, password FROM users WHERE username = ? AND password = ?"
             Dim cmd As New OdbcCommand(query, con)
 
             cmd.Parameters.AddWithValue("@username", username)
@@ -65,11 +34,12 @@ Public Class UserRepo
                 userInfo.Firstname = reader("firstname").ToString()
                 userInfo.lastname = reader("lastname").ToString()
                 userInfo.Username = reader("username").ToString()
+                userInfo.Password = reader("password").ToString()
             End If
             reader.Close()
 
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Error: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Finally
             con.Close()
         End Try
@@ -90,7 +60,7 @@ Public Class UserRepo
         If userInfo IsNot Nothing AndAlso Not String.IsNullOrEmpty(userInfo.Role) Then
             POSForm.txtFullName.Text = $"{userInfo.Firstname} {userInfo.lastname}"
         Else
-            MessageBox.Show("Invalid user type or password.")
+            MessageBox.Show("Invalid user type or password.", "Info")
         End If
     End Sub
 
@@ -107,44 +77,43 @@ Public Class UserRepo
             ' Assign the next transaction number
             AddUser.TxtId.Text = (number + 1).ToString()
         Catch ex As Exception
-            MessageBox.Show("An error occurred loading id..." & ex.Message)
+            MessageBox.Show("Error Get id: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Finally
             con.Close()
         End Try
     End Sub
 
-    Public Sub DeleteUser()
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+    Public Sub InsertUser()
+        Dim userInfo As New UserInfo
+        Dim id As String = AddUser.TxtId.Text.Trim().ToUpper
+        Dim firstName As String = AddUser.TxtFname.Text.Trim().ToUpper
+        Dim lastName As String = AddUser.TxtLname.Text.Trim().ToUpper
+        Dim userName As String = AddUser.TxtUsername.Text.Trim().ToUpper
+        Dim passWord As String = AddUser.TxtPass.Text.Trim().ToUpper
+        Dim role As String = AddUser.CbRole.Text.Trim().ToUpper
 
-        If result = DialogResult.No Then
-            ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
-            ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
-        Else
-            Try
-                connect_me()
-                ' Get selected user info
-                Dim selectedRow As DataGridViewRow = ManageUser.DgManageUser.Rows(ManageUser.DgManageUser.CurrentCell.RowIndex)
-                Dim id As String = selectedRow.Cells("USER ID").Value.ToString()
+        Dim passwordHash As String = HashPassword(passWord)
+        Dim query As String = "INSERT INTO users (id, firstname, lastname, username, password, usertype) VALUES (?, ?, ?, ?, ?, ?)"
 
-                ' Connect to the database and delete the user
-                Dim query As String = "DELETE FROM users WHERE id = ?"
-                Using cmd As New OdbcCommand(query, con)
-                    cmd.Parameters.AddWithValue("?", id)
-                    cmd.ExecuteNonQuery()
-                End Using
+        Try
+            connect_me()
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", id)
+                cmd.Parameters.AddWithValue("?", firstName)
+                cmd.Parameters.AddWithValue("?", lastName)
+                cmd.Parameters.AddWithValue("?", userName)
+                cmd.Parameters.AddWithValue("?", passwordHash)
+                cmd.Parameters.AddWithValue("?", role)
+                cmd.ExecuteNonQuery()
 
-                ' Refresh the DataGridView after deletion
-                MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ManageUser.DgManageUser.DefaultCellStyle.SelectionBackColor = Color.White
-                ManageUser.DgManageUser.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
-                Dim mdf As New ManageDataRefresher
-                mdf.GetManageUserData()
-            Catch ex As Exception
-                MessageBox.Show("Error deleting user: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                con.Close()
-            End Try
-        End If
+                MessageBox.Show("User ADDED Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                mdf.GetManageUserData("")
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error adding user: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     Public Sub EditUser()
@@ -152,11 +121,16 @@ Public Class UserRepo
         Dim firstname As String = AddUser.TxtFname.Text.Trim().ToUpper()
         Dim lastname As String = AddUser.TxtLname.Text.Trim().ToUpper()
         Dim username As String = AddUser.TxtUsername.Text.Trim().ToUpper()
-        Dim password As String = AddUser.TxtPass.Text.Trim().ToUpper()
+        Dim password As String = AddUser.TxtPass.Text.Trim()
         Dim role As String = AddUser.CbRole.Text
 
-        Dim passwordHash As String = HashPassword(password)
-        Dim query As String = "UPDATE users SET firstname = ?, lastname = ?, username = ?, password = ?, usertype = ? WHERE id = ?"
+        Dim query As String
+        If String.IsNullOrEmpty(password) Then
+            query = "UPDATE users SET firstname = ?, lastname = ?, username = ?, usertype = ? WHERE id = ?"
+        Else
+            Dim passwordHash As String = HashPassword(password)
+            query = "UPDATE users SET firstname = ?, lastname = ?, username = ?, password = ?, usertype = ? WHERE id = ?"
+        End If
 
         Try
             connect_me()
@@ -164,17 +138,88 @@ Public Class UserRepo
                 cmd.Parameters.AddWithValue("?", firstname)
                 cmd.Parameters.AddWithValue("?", lastname)
                 cmd.Parameters.AddWithValue("?", username)
-                cmd.Parameters.AddWithValue("?", passwordHash)
+                If Not String.IsNullOrEmpty(password) Then
+                    Dim passwordHash As String = HashPassword(password)
+                    cmd.Parameters.AddWithValue("?", passwordHash)
+                End If
                 cmd.Parameters.AddWithValue("?", role)
                 cmd.Parameters.AddWithValue("?", id)
                 cmd.ExecuteNonQuery()
             End Using
 
-            MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("User UPDATED successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            mdf.GetManageUserData("")
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Error updating user: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Finally
             con.Close()
         End Try
+    End Sub
+
+    Public Sub DeleteUser(ByVal id As String)
+        Dim query As String = "DELETE FROM users WHERE id = ?"
+        Try
+            connect_me()
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", id)
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("User DELETED Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error Deleting User : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Public Function ValidateOldPassword(userId As String, oldPassword As String) As Boolean
+        Dim isValid As Boolean = False
+        Try
+            connect_me()
+            Dim query As String = "SELECT password FROM users WHERE id = ?"
+            Dim cmd As New OdbcCommand(query, con)
+            cmd.Parameters.AddWithValue("?", userId)
+            Dim reader As OdbcDataReader = cmd.ExecuteReader()
+            If reader.Read() Then
+                Dim storedPasswordHash As String = reader("password").ToString()
+                Dim inputPasswordHash As String = HashPassword(oldPassword)
+                isValid = storedPasswordHash = inputPasswordHash
+            End If
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error validating old password: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Finally
+            con.Close()
+        End Try
+        Return isValid
+    End Function
+
+    Public Sub UpdatePassword()
+        Dim id As String = AddUser.TxtId.Text.Trim() 'userInfo.UserId
+        Dim oldPassword As String = ChangePasswordForm.TxtOldPass.Text.Trim()
+        Dim newPassword As String = ChangePasswordForm.TxtNewPass.Text.Trim()
+
+        Console.WriteLine("id: " & id)
+
+        If ValidateOldPassword(id, oldPassword) Then
+            Dim newPasswordHash As String = HashPassword(newPassword)
+            Dim query As String = "UPDATE users SET password = ? WHERE id = ?"
+            Try
+                connect_me()
+                Using cmd As New OdbcCommand(query, con)
+                    cmd.Parameters.AddWithValue("?", newPasswordHash)
+                    cmd.Parameters.AddWithValue("?", id)
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("Password UPDATED successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ChangePasswordForm.Close()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error updating password: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Finally
+                con.Close()
+            End Try
+        Else
+            MessageBox.Show("Old password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 End Class
