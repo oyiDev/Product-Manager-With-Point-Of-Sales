@@ -24,7 +24,11 @@ Partial Class adminDashboard
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(adminDashboard))
         Me.Panel1 = New System.Windows.Forms.Panel()
+<<<<<<< Updated upstream
 
+=======
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+>>>>>>> Stashed changes
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnManageUser = New System.Windows.Forms.Button()
         Me.btnManageSupplier = New System.Windows.Forms.Button()
@@ -42,7 +46,10 @@ Partial Class adminDashboard
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,6 +64,15 @@ Partial Class adminDashboard
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+<<<<<<< Updated upstream
+=======
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.btnExit)
+        Me.Panel1.Controls.Add(Me.PictureBox6)
+        Me.Panel1.Controls.Add(Me.PictureBox5)
+        Me.Panel1.Controls.Add(Me.PictureBox4)
+        Me.Panel1.Controls.Add(Me.PictureBox3)
+>>>>>>> Stashed changes
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.PictureBox1)
 
@@ -83,7 +99,10 @@ Partial Class adminDashboard
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -319,7 +338,10 @@ Partial Class adminDashboard
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()

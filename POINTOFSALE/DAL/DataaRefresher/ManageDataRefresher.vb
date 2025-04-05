@@ -147,6 +147,7 @@ Public Class ManageDataRefresher
                 ManageStock.DgManageStock.Columns.Add(refillButton)
             End If
 
+<<<<<<< Updated upstream
         Catch ex As Exception
             MessageBox.Show("Error loading stock: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -166,8 +167,10 @@ Public Class ManageDataRefresher
 
             ManageSupplier.dg_Supplier.DataSource = ds.Tables(0)
             ManageSupplier.dg_Supplier.Refresh()
+=======
+>>>>>>> Stashed changes
         Catch ex As Exception
-            MessageBox.Show("Error Loading Stock : " & ex.Message)
+            MessageBox.Show("Error loading stock: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             con.Close()
         End Try
