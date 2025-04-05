@@ -97,6 +97,12 @@
     <Compile Include="Forms\Admin\adminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Admin\ManageStock.Designer.vb">
+      <DependentUpon>ManageStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ManageStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\POS\ConTransForm.Designer.vb">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </Compile>
@@ -125,12 +131,6 @@
       <DependentUpon>ItemListForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\POS\ItemListForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Admin\ManageStock.Designer.vb">
-      <DependentUpon>ManageStock.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Admin\ManageStock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\ManageSupplier.Designer.vb">
@@ -200,12 +200,21 @@
     <Compile Include="modals\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="modals\ChangePasswordForm.Designer.vb">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </Compile>
     <Compile Include="modals\ChangePasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
+
+    <Compile Include="modals\ExpiredProductsForm.Designer.vb">
+      <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modals\ExpiredProductsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -258,6 +267,9 @@
     <EmbeddedResource Include="Forms\Admin\adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ManageStock.resx">
+      <DependentUpon>ManageStock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\ConTransForm.resx">
       <DependentUpon>ConTransForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -272,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\ItemListForm.resx">
       <DependentUpon>ItemListForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\ManageStock.resx">
-      <DependentUpon>ManageStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ManageSupplier.resx">
       <DependentUpon>ManageSupplier.vb</DependentUpon>
@@ -309,9 +318,18 @@
     <EmbeddedResource Include="modals\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="modals\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="modals\ExpiredProductsForm.resx">
+      <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="modals\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
