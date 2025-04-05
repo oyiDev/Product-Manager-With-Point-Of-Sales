@@ -1,10 +1,7 @@
 ﻿Imports System.Data.Odbc
-<<<<<<< Updated upstream
-Imports System.Data.SqlClient
-=======
->>>>>>> Stashed changes
 
 Public Class ProductRepo
+
     Public Sub HighlightAvailableProduct(ByVal dgv As DataGridView, ByVal columnName As String)
         For Each row As DataGridViewRow In dgv.Rows
             If Not row.IsNewRow Then ' Ensure we don't process the new row placeholder
@@ -79,48 +76,97 @@ Public Class ProductRepo
 
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Product Added Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim mdf As New ManageDataRefresher
+                AddProduct.AddProductTxtClear()
+                Get_id()
+                mdf.GetManageProductData("")
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("Error Inseting Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             AddProduct.TxtBarcode.Focus()
         Finally
             con.Close()
         End Try
     End Sub
 
-    Public Sub SearchProduct(searchTerm As String)
+    Public Sub DeleteProduct(ByVal id As String)
+        Dim query As String = "DELETE FROM products WHERE id = ?"
         Try
             connect_me()
-            Dim query As String = "SELECT * FROM products WHERE barcode LIKE ? OR genericname LIKE ? OR brandname LIKE ? OR id LIKE ?"
-
             Using cmd As New OdbcCommand(query, con)
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-                cmd.Parameters.AddWithValue("?", "%" & searchTerm & "%")
-
-                Dim adapter As New OdbcDataAdapter(cmd)
-                Dim table As New DataTable()
-                adapter.Fill(table)
-
-                ManageProduct.DgManageProduct.DataSource = table
-                ManageProduct.DgManageProduct.Refresh()
+                cmd.Parameters.AddWithValue("?", id)
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Product Deleted Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error Loading Item: " & ex.Message)
+            MessageBox.Show("Error Deleting Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             con.Close()
         End Try
     End Sub
 
-    Public Sub RowWhite(dg As DataGridView)
-        dg.DefaultCellStyle.SelectionBackColor = Color.White
-        dg.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.White
+    Public Sub UpdateProduct()
+        Dim query As String = "UPDATE products SET category = ?, barcode = ?, genericname = ?, brandname = ?, formula = ?, description = ?, price = ?, qty = ?, expiredate = ? WHERE id = ?"
+        Try
+            connect_me()
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", AddProduct.CbCategory.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtBarcode.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtGenericname.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtBrandname.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtFormula.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtDescription.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtPrice.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.Nqty.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtExpireDate.Text.Trim().ToUpper())
+                cmd.Parameters.AddWithValue("?", AddProduct.TxtId.Text.Trim().ToUpper())
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Product Updated Successfully..", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim mdf As New ManageDataRefresher
+                AddProduct.AddProductTxtClear()
+                mdf.GetManageProductData("")
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error Updating Product : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            AddProduct.TxtBarcode.Focus()
+        Finally
+            con.Close()
+        End Try
     End Sub
-<<<<<<< Updated upstream
 
-<<<<<<< Updated upstream
-=======
+    Public Sub ProductReport()
+        Dim res As Integer = MessageBox.Show("Print report?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If res = vbYes Then
+            Dim dt As New DataTable
+            dt.Columns.Add("barcode", Type.GetType("System.String"))
+            dt.Columns.Add("category", Type.GetType("System.String"))
+            dt.Columns.Add("genericname", Type.GetType("System.String"))
+            dt.Columns.Add("brandname", Type.GetType("System.String"))
+            dt.Columns.Add("formula", Type.GetType("System.String"))
+            dt.Columns.Add("description", Type.GetType("System.String"))
+            dt.Columns.Add("price", Type.GetType("System.String"))
+
+            ' Loop through the DataGridView rows and add them to the DataTable
+            For Each row As DataGridViewRow In ManageProduct.DgManageProduct.Rows
+                If Not row.IsNewRow Then
+                    dt.Rows.Add(row.Cells("barcodeCol").Value.ToString(), row.Cells("categoryCol").Value.ToString(), row.Cells("genericnameCol").Value.ToString(),
+                    row.Cells("brandnameCol").Value.ToString(), row.Cells("formulaCol").Value.ToString(), row.Cells("descriptionCol").Value.ToString(), row.Cells("priceCol").Value.ToString())
+                End If
+            Next
+
+            PrintForm.Show()
+            PrintForm.WindowState = FormWindowState.Maximized
+            Dim report As New ProductReport
+            report.SetDataSource(dt)
+
+            'Print the report
+            report.PrintToPrinter(1, False, 0, 0)
+            PrintForm.CViewer.ReportSource = report
+        Else
+            MessageBox.Show("Without receipt", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
     Public Sub PullProductExpired()
         Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
         Try
@@ -266,9 +312,88 @@ Public Class ProductRepo
             con.Close()
         End Try
     End Sub
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
+
+    Public Sub PullProductExpired()
+        Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
+        Try
+            connect_me()
+
+            Using cmd As New OdbcCommand(query, con)
+                cmd.Parameters.AddWithValue("?", Date.Today)
+                Dim reader As OdbcDataReader = cmd.ExecuteReader()
+
+                If reader.HasRows Then
+                    Dim expiredProducts As New List(Of String)
+
+                    ' Process each expired product
+                    While reader.Read()
+                        Dim id As String = If(IsDBNull(reader("id")), String.Empty, reader("id").ToString())
+                        Dim category As String = If(IsDBNull(reader("category")), String.Empty, reader("category").ToString())
+                        Dim barcode As String = If(IsDBNull(reader("barcode")), String.Empty, reader("barcode").ToString())
+                        Dim genericName As String = If(IsDBNull(reader("genericname")), String.Empty, reader("genericname").ToString())
+                        Dim brandName As String = If(IsDBNull(reader("brandname")), String.Empty, reader("brandname").ToString())
+                        Dim formula As String = If(IsDBNull(reader("formula")), String.Empty, reader("formula").ToString())
+                        Dim description As String = If(IsDBNull(reader("description")), String.Empty, reader("description").ToString())
+                        Dim price As Decimal = If(IsDBNull(reader("price")), 0D, Convert.ToDecimal(reader("price")))
+                        Dim qty As Integer = If(IsDBNull(reader("qty")), 0, Convert.ToInt32(reader("qty")))
+                        Dim expireDate As DateTime = If(IsDBNull(reader("expiredate")), DateTime.MinValue, Convert.ToDateTime(reader("expiredate")))
+
+                        expiredProducts.Add($"ID: {id}, Category: {category}, Barcode: {barcode}, Genericname: {genericName}, Expired on: {expireDate.ToShortDateString()}")
+                    End While
+                                        End sub                
+    Public Sub StockReport()
+        Dim res As Integer = MessageBox.Show("Print report?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If res = vbYes Then
+            Dim dt As New DataTable
+            dt.Columns.Add("qty", Type.GetType("System.String"))
+            dt.Columns.Add("category", Type.GetType("System.String"))
+            dt.Columns.Add("genericname", Type.GetType("System.String"))
+            dt.Columns.Add("price", Type.GetType("System.String"))
+            dt.Columns.Add("expiredate", Type.GetType("System.String"))
+
+
+            ' Loop through the DataGridView rows and add them to the DataTable
+            For Each row As DataGridViewRow In ManageStock.DgStock.Rows
+                If Not row.IsNewRow Then
+                    dt.Rows.Add(row.Cells("QTY").Value.ToString(), row.Cells("CATEGORY").Value.ToString(), row.Cells("GENERIC NAME").Value.ToString(),
+                    row.Cells("PRICE").Value.ToString(), row.Cells("EXPIREDATE").Value.ToString())
+                End If
+            Next
+
+            PrintForm.Show()
+            PrintForm.WindowState = FormWindowState.Maximized
+
+            Dim report As New StockReport
+            report.SetDataSource(dt)
+
+            'Print the report
+            report.PrintToPrinter(1, False, 0, 0)
+            PrintForm.CViewer.ReportSource = report
+
+        Else
+            MessageBox.Show("Without receipt", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+End Class
+
+                    ' Show expired products in a custom form with a print button
+                    If expiredProducts.Count > 0 Then
+                        Dim expiredForm As New ExpiredProductsForm(expiredProducts)
+                        expiredForm.Show()
+                        adminDashboard.Enabled = False
+                    Else
+                        MessageBox.Show("No expired products found.", "No Expired Products", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                Else
+                    MessageBox.Show("No expired products found.", "No Expired Products", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error fetching expired products: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
 
     Public Sub PullProductExpired()
         Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
@@ -317,56 +442,7 @@ Public Class ProductRepo
         End Try
     End Sub
 
-<<<<<<< Updated upstream
-=======
-    Public Sub PullProductExpired()
-        Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
-        Try
-            connect_me()
 
-            Using cmd As New OdbcCommand(query, con)
-                cmd.Parameters.AddWithValue("?", Date.Today)
-                Dim reader As OdbcDataReader = cmd.ExecuteReader()
-
-                If reader.HasRows Then
-                    Dim expiredProducts As New List(Of String)
-
-                    ' Process each expired product
-                    While reader.Read()
-                        Dim id As String = If(IsDBNull(reader("id")), String.Empty, reader("id").ToString())
-                        Dim category As String = If(IsDBNull(reader("category")), String.Empty, reader("category").ToString())
-                        Dim barcode As String = If(IsDBNull(reader("barcode")), String.Empty, reader("barcode").ToString())
-                        Dim genericName As String = If(IsDBNull(reader("genericname")), String.Empty, reader("genericname").ToString())
-                        Dim brandName As String = If(IsDBNull(reader("brandname")), String.Empty, reader("brandname").ToString())
-                        Dim formula As String = If(IsDBNull(reader("formula")), String.Empty, reader("formula").ToString())
-                        Dim description As String = If(IsDBNull(reader("description")), String.Empty, reader("description").ToString())
-                        Dim price As Decimal = If(IsDBNull(reader("price")), 0D, Convert.ToDecimal(reader("price")))
-                        Dim qty As Integer = If(IsDBNull(reader("qty")), 0, Convert.ToInt32(reader("qty")))
-                        Dim expireDate As DateTime = If(IsDBNull(reader("expiredate")), DateTime.MinValue, Convert.ToDateTime(reader("expiredate")))
-
-                        expiredProducts.Add($"ID: {id}, Category: {category}, Barcode: {barcode}, Genericname: {genericName}, Expired on: {expireDate.ToShortDateString()}")
-                    End While
-
-                    ' Show expired products in a custom form with a print button
-                    If expiredProducts.Count > 0 Then
-                        Dim expiredForm As New ExpiredProductsForm(expiredProducts)
-                        expiredForm.Show()
-                        adminDashboard.Enabled = False
-                    Else
-                        MessageBox.Show("No expired products found.", "No Expired Products", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    End If
-                Else
-                    MessageBox.Show("No expired products found.", "No Expired Products", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show($"Error fetching expired products: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
->>>>>>> Stashed changes
     Public Sub DeleteExpiredProducts()
         Try
             Dim query As String = "SELECT * FROM products WHERE expiredate < ?"
@@ -465,11 +541,5 @@ Public Class ProductRepo
             con.Close()
         End Try
     End Sub
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 End Class
 
