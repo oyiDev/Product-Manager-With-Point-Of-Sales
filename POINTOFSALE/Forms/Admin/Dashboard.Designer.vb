@@ -96,8 +96,11 @@ Partial Class DashboardPanelForm
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DashboardDgZeroProduct.DefaultCellStyle = DataGridViewCellStyle3
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 216)
 =======
+=======
+>>>>>>> Stashed changes
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 219)
         Me.DashboardDgZeroProduct.MultiSelect = False
 >>>>>>> Stashed changes

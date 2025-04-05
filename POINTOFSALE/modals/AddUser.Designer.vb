@@ -74,7 +74,10 @@ Partial Class AddUser
         Me.AddUserPanel.BackColor = System.Drawing.Color.White
         Me.AddUserPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         Me.AddUserPanel.Controls.Add(Me.Label10)
         Me.AddUserPanel.Controls.Add(Me.Label9)
         Me.AddUserPanel.Controls.Add(Me.Label8)
@@ -136,6 +139,9 @@ Partial Class AddUser
         Me.TxtUsername.Name = "TxtUsername"
         Me.TxtUsername.Size = New System.Drawing.Size(238, 25)
         Me.TxtUsername.TabIndex = 15
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'CbRole
@@ -153,6 +159,7 @@ Partial Class AddUser
         'Label4
         '
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(48, 240)
@@ -161,11 +168,16 @@ Partial Class AddUser
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "User Type / Role"
 =======
+=======
+>>>>>>> Stashed changes
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(47, 254)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 23)
         Me.Label4.TabIndex = 16
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'TxtLname
@@ -182,6 +194,9 @@ Partial Class AddUser
         Me.TxtLname.Name = "TxtLname"
         Me.TxtLname.Size = New System.Drawing.Size(238, 25)
         Me.TxtLname.TabIndex = 17
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'Label3
@@ -199,6 +214,9 @@ Partial Class AddUser
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(0, 15)
         Me.Label3.TabIndex = 18
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'TxtCpass
@@ -214,6 +232,9 @@ Partial Class AddUser
 =======
         Me.TxtCpass.Size = New System.Drawing.Size(238, 25)
         Me.TxtCpass.TabIndex = 19
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'TxtFname
@@ -230,6 +251,9 @@ Partial Class AddUser
         Me.TxtFname.Name = "TxtFname"
         Me.TxtFname.Size = New System.Drawing.Size(238, 25)
         Me.TxtFname.TabIndex = 20
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'Label6
@@ -257,6 +281,9 @@ Partial Class AddUser
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 15)
         Me.Label2.TabIndex = 21
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'TxtPass
@@ -272,6 +299,9 @@ Partial Class AddUser
 =======
         Me.TxtPass.Size = New System.Drawing.Size(238, 25)
         Me.TxtPass.TabIndex = 22
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'Label5
@@ -300,6 +330,9 @@ Partial Class AddUser
         Me.TxtId.Name = "TxtId"
         Me.TxtId.Size = New System.Drawing.Size(238, 25)
         Me.TxtId.TabIndex = 23
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         Me.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -368,6 +401,9 @@ Partial Class AddUser
         Me.Label10.Size = New System.Drawing.Size(70, 15)
         Me.Label10.TabIndex = 29
         Me.Label10.Text = "Usertype:"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         '
         'AddUser
@@ -412,5 +448,8 @@ Partial Class AddUser
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 End Class

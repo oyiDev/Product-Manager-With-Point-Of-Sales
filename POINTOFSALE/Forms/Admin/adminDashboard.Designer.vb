@@ -27,6 +27,9 @@ Partial Class adminDashboard
 <<<<<<< Updated upstream
 =======
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnManageUser = New System.Windows.Forms.Button()
@@ -87,6 +90,9 @@ Partial Class adminDashboard
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         'btnExit
         '

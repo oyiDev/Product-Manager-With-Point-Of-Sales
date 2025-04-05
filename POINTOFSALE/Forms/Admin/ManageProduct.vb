@@ -77,6 +77,9 @@
         Catch ex As Exception
             MessageBox.Show("Error retrieving data: " & ex.Message, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     End Sub
 End Class
