@@ -66,7 +66,7 @@ Partial Class DashboardPanelForm
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(2)
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Tomato
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DashboardDgZeroProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DashboardDgZeroProduct.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -92,10 +92,15 @@ Partial Class DashboardPanelForm
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(2)
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Tomato
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DashboardDgZeroProduct.DefaultCellStyle = DataGridViewCellStyle3
+<<<<<<< Updated upstream
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 216)
+=======
+        Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 219)
+        Me.DashboardDgZeroProduct.MultiSelect = False
+>>>>>>> Stashed changes
         Me.DashboardDgZeroProduct.Name = "DashboardDgZeroProduct"
         Me.DashboardDgZeroProduct.ReadOnly = True
         Me.DashboardDgZeroProduct.RowHeadersVisible = False

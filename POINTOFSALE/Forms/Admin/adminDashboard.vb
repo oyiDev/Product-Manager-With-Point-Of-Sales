@@ -6,8 +6,15 @@
         btn.FlatAppearance.BorderSize = 0
     End Sub
     Private Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+<<<<<<< Updated upstream
         Mdf.GetDashboardData()
         Mdf.GetZeroProduct()
+=======
+        Mdf.GetDashboardDatas()
+        productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
+>>>>>>> Stashed changes
 
         BtnBoreder(btnDashboard)
         BtnBoreder(btnManageProduct)
@@ -74,9 +81,9 @@
 
     Private Sub btnManageStock_Click(sender As Object, e As EventArgs) Handles btnManageStock.Click
         Mdf.GetManageStockData()
-        productRepo.HighlightAvailableProduct(ManageStock.DgStock, "qty")
-        productRepo.HighlightZeroQtyCells(ManageStock.DgStock, "qty")
-        productRepo.HighlightExpiredProduct(ManageStock.DgStock, "expiredate")
+        productRepo.HighlightAvailableProduct(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
+        productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
 
         btnDashboard.BackColor = Color.White
         btnManageProduct.BackColor = Color.White
@@ -129,6 +136,14 @@
 
         adminMainPanel.Controls.Add(ManageUser)
         ManageUser.Show()
+    End Sub
+
+    Private Sub btnExit_MouseEnter(sender As Object, e As EventArgs) Handles btnExit.MouseEnter
+        btnExit.BackColor = Color.Tomato
+    End Sub
+
+    Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnExit.MouseLeave
+        btnExit.BackColor = Color.WhiteSmoke
     End Sub
 
     Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles btnExit.Click
