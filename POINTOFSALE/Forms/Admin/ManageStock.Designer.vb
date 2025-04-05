@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ManageStock
     Inherits System.Windows.Forms.Form
 
@@ -65,18 +65,13 @@ Partial Class ManageStock
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.adminMainPanel.Controls.Add(Me.DgManageStock)
-<<<<<<< Updated upstream
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
         Me.adminMainPanel.Controls.Add(Me.Label2)
         Me.adminMainPanel.Controls.Add(Me.btnPullout)
         Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.adminMainPanel.Name = "adminMainPanel"
-        Me.adminMainPanel.Size = New System.Drawing.Size(871, 616)
-        Me.adminMainPanel.TabIndex = 28
-        '
-        'DgManageStock
-        '
+
         Me.DgManageStock.AllowUserToAddRows = False
         Me.DgManageStock.AllowUserToDeleteRows = False
         Me.DgManageStock.AllowUserToResizeColumns = False
@@ -386,11 +381,7 @@ Partial Class ManageStock
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
         Me.adminMainPanel.Controls.Add(Me.Label1)
         Me.adminMainPanel.Cursor = System.Windows.Forms.Cursors.Hand
-=======
-        Me.adminMainPanel.Controls.Add(Me.PictureBox1)
-        Me.adminMainPanel.Controls.Add(Me.Label2)
-        Me.adminMainPanel.Controls.Add(Me.btnPullout)
->>>>>>> Stashed changes
+
         Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.adminMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.adminMainPanel.Name = "adminMainPanel"
@@ -526,6 +517,7 @@ Partial Class ManageStock
         Me.DgStock.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DgStock.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DgStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -537,31 +529,7 @@ Partial Class ManageStock
         Me.DgStock.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DgStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgStock.Cursor = System.Windows.Forms.Cursors.Hand
-<<<<<<< Updated upstream
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.NullValue = Nothing
-        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(1)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgStock.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgStock.Location = New System.Drawing.Point(26, 67)
-=======
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.NullValue = Nothing
-        DataGridViewCellStyle5.Padding = New System.Windows.Forms.Padding(1)
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgStock.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DgStock.Location = New System.Drawing.Point(26, 77)
->>>>>>> Stashed changes
+
         Me.DgStock.Name = "DgStock"
         Me.DgStock.ReadOnly = True
         Me.DgStock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -610,10 +578,57 @@ Partial Class ManageStock
         Me.DgStock.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DgStock.RowHeadersVisible = False
         Me.DgStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgStock.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.DgStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgStock.Cursor = System.Windows.Forms.Cursors.Hand
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.NullValue = Nothing
+        DataGridViewCellStyle5.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgStock.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DgStock.Location = New System.Drawing.Point(26, 77)
+        Me.DgStock.Name = "DgStock"
+        Me.DgStock.ReadOnly = True
+        Me.DgStock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgStock.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DgStock.RowHeadersVisible = False
+        Me.DgStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+
         Me.DgStock.ShowEditingIcon = False
         Me.DgStock.ShowRowErrors = False
         Me.DgStock.Size = New System.Drawing.Size(821, 467)
         Me.DgStock.TabIndex = 26
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(39, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(116, 18)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "Manage Stock"
         '
         'Label1
         '
@@ -653,25 +668,27 @@ Partial Class ManageStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-<<<<<<< Updated upstream
+
         Me.ClientSize = New System.Drawing.Size(875, 667)
         Me.Controls.Add(Me.adminMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-=======
->>>>>>> Stashed changes
+
         Me.ClientSize = New System.Drawing.Size(873, 618)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+
         Me.Name = "ManageStock"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-<<<<<<< Updated upstream
+
+        Me.Name = "ManageStock"
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ManageStock"
 
-=======
->>>>>>> Stashed changes
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
         CType(Me.DgManageStock, System.ComponentModel.ISupportInitialize).EndInit()

@@ -1,4 +1,4 @@
-﻿Imports System.Data.Odbc
+Imports System.Data.Odbc
 
 Public Class ManageDataRefresher
 
@@ -25,7 +25,7 @@ Public Class ManageDataRefresher
             con.Close()
         End Try
     End Sub
-
+  
     Public Sub GetZeroProduct()
         Try
             connect_me()
@@ -147,28 +147,6 @@ Public Class ManageDataRefresher
                 ManageStock.DgManageStock.Columns.Add(refillButton)
             End If
 
-<<<<<<< Updated upstream
-        Catch ex As Exception
-            MessageBox.Show("Error loading stock: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            con.Close()
-        End Try
-    End Sub
-
-    Public Sub GetSupplierData()
-        Try
-            connect_me()
-            Dim query As String = "SELECT id AS ID, name AS NAME, phone AS PHONE, address AS ADDRESS FROM supplier"
-            Dim cmd As New OdbcCommand(query, con)
-            Dim da As New OdbcDataAdapter(cmd)
-            Dim ds As New Data.DataSet
-
-            da.Fill(ds, "supplier")
-
-            ManageSupplier.dg_Supplier.DataSource = ds.Tables(0)
-            ManageSupplier.dg_Supplier.Refresh()
-=======
->>>>>>> Stashed changes
         Catch ex As Exception
             MessageBox.Show("Error loading stock: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

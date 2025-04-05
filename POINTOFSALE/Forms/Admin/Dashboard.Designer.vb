@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class DashboardPanelForm
     Inherits System.Windows.Forms.Form
 
@@ -100,6 +100,7 @@ Partial Class DashboardPanelForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Tomato
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DashboardDgZeroProduct.DefaultCellStyle = DataGridViewCellStyle3
+
         Me.DashboardDgZeroProduct.Location = New System.Drawing.Point(15, 219)
         Me.DashboardDgZeroProduct.MultiSelect = False
 
