@@ -314,9 +314,8 @@
       <DependentUpon>ExpiredProductsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReceiptReport.rpt">
@@ -350,9 +349,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Reports\ReceiptDataSet.xsc">
       <DependentUpon>ReceiptDataSet.xsd</DependentUpon>
     </None>
@@ -364,73 +360,33 @@
     <None Include="Reports\ReceiptDataSet.xss">
       <DependentUpon>ReceiptDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Resources\Kelshen.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\5.png" />
+    <None Include="Resources\exitapp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\10.png" />
+    <None Include="Resources\dashboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\20.png" />
+    <None Include="Resources\production.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\50.png" />
+    <None Include="Resources\stock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\100.png" />
+    <None Include="Resources\supplier.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\200.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\500.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1000.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dashboard-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add-product-removebg-preview.png" />
+    <None Include="Resources\people.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\filter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\filter %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dashboard-removebg-preview1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\management-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stock-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\group-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\profile-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\out-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\out.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

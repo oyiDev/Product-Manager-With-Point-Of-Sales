@@ -25,7 +25,6 @@ Partial Class DashboardPanelForm
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardPanelForm))
         Me.DashboardDgZeroProduct = New System.Windows.Forms.DataGridView()
         Me.totalUser_pnl = New System.Windows.Forms.Panel()
         Me.totalUser_lbl = New System.Windows.Forms.Label()
@@ -43,7 +42,6 @@ Partial Class DashboardPanelForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.total_Supplierlbl = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -54,7 +52,6 @@ Partial Class DashboardPanelForm
         Me.totalProduct_pnl.SuspendLayout()
         Me.DashBoardPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -183,7 +180,7 @@ Partial Class DashboardPanelForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(39, 12)
+        Me.Label2.Location = New System.Drawing.Point(10, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(111, 18)
         Me.Label2.TabIndex = 11
@@ -197,7 +194,6 @@ Partial Class DashboardPanelForm
         Me.DashBoardPanel.BackColor = System.Drawing.Color.White
         Me.DashBoardPanel.Controls.Add(Me.Panel3)
         Me.DashBoardPanel.Controls.Add(Me.totalProduct_pnl)
-        Me.DashBoardPanel.Controls.Add(Me.PictureBox1)
         Me.DashBoardPanel.Controls.Add(Me.Panel2)
         Me.DashBoardPanel.Controls.Add(Me.DashboardDgZeroProduct)
         Me.DashBoardPanel.Controls.Add(Me.totalUser_pnl)
@@ -291,16 +287,6 @@ Partial Class DashboardPanelForm
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Qty of products 10 or less"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(21, 18)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.LightBlue
@@ -377,7 +363,6 @@ Partial Class DashboardPanelForm
         Me.DashBoardPanel.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -408,5 +393,4 @@ Partial Class DashboardPanelForm
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents PictureBox1 As PictureBox
 End Class

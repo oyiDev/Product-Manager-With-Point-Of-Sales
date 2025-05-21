@@ -22,10 +22,7 @@
         BtnBoreder(btnExit)
 
         btnDashboard.BackColor = Color.SteelBlue
-        btnManageProduct.BackColor = Color.White
-        btnManageStock.BackColor = Color.White
-        btnManageSupplier.BackColor = Color.White
-        btnManageUser.BackColor = Color.White
+        btnDashboard.ForeColor = Color.White
 
         adminMainPanel.Controls.Clear()
 
@@ -40,10 +37,19 @@
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
         Mdf.GetDashboardDatas()
 
+        btnDashboard.ForeColor = Color.White
         btnDashboard.BackColor = Color.SteelBlue
+
+        btnManageProduct.ForeColor = Color.Black
         btnManageProduct.BackColor = Color.White
+
+        btnManageStock.ForeColor = Color.Black
         btnManageStock.BackColor = Color.White
+
+        btnManageSupplier.ForeColor = Color.Black
         btnManageSupplier.BackColor = Color.White
+
+        btnManageUser.ForeColor = Color.Black
         btnManageUser.BackColor = Color.White
 
         adminMainPanel.Controls.Clear()
@@ -61,10 +67,19 @@
         ManageProduct.CbFilter.Text = "CATEGORY"
         ManageProduct.TxtSearchProduct.Clear()
 
+        btnDashboard.ForeColor = Color.Black
         btnDashboard.BackColor = Color.White
+
         btnManageProduct.BackColor = Color.SteelBlue
+        btnManageProduct.ForeColor = Color.White
+
+        btnManageStock.ForeColor = Color.Black
         btnManageStock.BackColor = Color.White
+
+        btnManageSupplier.ForeColor = Color.Black
         btnManageSupplier.BackColor = Color.White
+
+        btnManageUser.ForeColor = Color.Black
         btnManageUser.BackColor = Color.White
 
         adminMainPanel.Controls.Clear()
@@ -83,10 +98,22 @@
         productRepo.HighlightZeroQtyCells(ManageStock.DgManageStock, "QTY")
         productRepo.HighlightExpiredProduct(ManageStock.DgManageStock, "EXPIRY DATE")
 
+        btnDashboard.ForeColor = Color.Black
         btnDashboard.BackColor = Color.White
+
+        btnManageProduct.ForeColor = Color.Black
         btnManageProduct.BackColor = Color.White
+
+        btnManageStock.ForeColor = Color.Black
+        btnManageStock.BackColor = Color.White
+
+        btnManageStock.ForeColor = Color.White
         btnManageStock.BackColor = Color.SteelBlue
+
+        btnManageSupplier.ForeColor = Color.Black
         btnManageSupplier.BackColor = Color.White
+
+        btnManageUser.ForeColor = Color.Black
         btnManageUser.BackColor = Color.White
 
         adminMainPanel.Controls.Clear()
@@ -102,10 +129,19 @@
     Private Sub btnManageSupplier_Click(sender As Object, e As EventArgs) Handles btnManageSupplier.Click
         Mdf.GetSupplierData()
 
+        btnDashboard.ForeColor = Color.Black
         btnDashboard.BackColor = Color.White
+
+        btnManageProduct.ForeColor = Color.Black
         btnManageProduct.BackColor = Color.White
+
+        btnManageStock.ForeColor = Color.Black
         btnManageStock.BackColor = Color.White
+
+        btnManageSupplier.ForeColor = Color.White
         btnManageSupplier.BackColor = Color.SteelBlue
+
+        btnManageUser.ForeColor = Color.Black
         btnManageUser.BackColor = Color.White
 
         adminMainPanel.Controls.Clear()
@@ -122,10 +158,19 @@
         Mdf.GetManageUserData("")
         ManageUser.TxtUserSearch.Clear()
 
+        btnDashboard.ForeColor = Color.Black
         btnDashboard.BackColor = Color.White
+
+        btnManageProduct.ForeColor = Color.Black
         btnManageProduct.BackColor = Color.White
+
+        btnManageStock.ForeColor = Color.Black
         btnManageStock.BackColor = Color.White
+
+        btnManageSupplier.ForeColor = Color.Black
         btnManageSupplier.BackColor = Color.White
+
+        btnManageUser.ForeColor = Color.White
         btnManageUser.BackColor = Color.SteelBlue
 
         adminMainPanel.Controls.Clear()
@@ -147,6 +192,15 @@
     End Sub
 
     Private Sub exitBtn_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Dim res As Integer
+        res = MessageBox.Show("Quit application?", "Exit App", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+        If res = vbOK Then
+            Me.Hide()
+            LoginForm.Show()
+        End If
+    End Sub
+
+    Private Sub adminDashboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         Dim res As Integer
         res = MessageBox.Show("Quit application?", "Exit App", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
         If res = vbOK Then

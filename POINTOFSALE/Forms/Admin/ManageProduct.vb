@@ -71,6 +71,3 @@ Public Class ManageProduct
         End Try
     End Sub
 End Class
-
-
-

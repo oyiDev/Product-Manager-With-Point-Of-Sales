@@ -27,7 +27,6 @@ Partial Class ManageUser
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManageUser))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnAdduser = New System.Windows.Forms.Button()
         Me.adminMainPanel = New System.Windows.Forms.Panel()
@@ -41,12 +40,10 @@ Partial Class ManageUser
         Me.updatedatCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.editCol = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.deleteCol = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.searchBox = New System.Windows.Forms.PictureBox()
         Me.TxtUserSearch = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.adminMainPanel.SuspendLayout()
         CType(Me.DgManageUser, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.searchBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,7 +51,7 @@ Partial Class ManageUser
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(39, 13)
+        Me.Label1.Location = New System.Drawing.Point(10, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 18)
         Me.Label1.TabIndex = 9
@@ -62,12 +59,12 @@ Partial Class ManageUser
         '
         'btnAdduser
         '
-        Me.btnAdduser.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAdduser.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdduser.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnAdduser.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdduser.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAdduser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdduser.Location = New System.Drawing.Point(722, 554)
+        Me.btnAdduser.Location = New System.Drawing.Point(722, 27)
         Me.btnAdduser.Name = "btnAdduser"
         Me.btnAdduser.Size = New System.Drawing.Size(125, 44)
         Me.btnAdduser.TabIndex = 10
@@ -78,10 +75,9 @@ Partial Class ManageUser
         '
         Me.adminMainPanel.BackColor = System.Drawing.Color.White
         Me.adminMainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.adminMainPanel.Controls.Add(Me.DgManageUser)
-        Me.adminMainPanel.Controls.Add(Me.searchBox)
-        Me.adminMainPanel.Controls.Add(Me.TxtUserSearch)
         Me.adminMainPanel.Controls.Add(Me.PictureBox1)
+        Me.adminMainPanel.Controls.Add(Me.DgManageUser)
+        Me.adminMainPanel.Controls.Add(Me.TxtUserSearch)
         Me.adminMainPanel.Controls.Add(Me.Label1)
         Me.adminMainPanel.Controls.Add(Me.btnAdduser)
         Me.adminMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -214,35 +210,25 @@ Partial Class ManageUser
         Me.deleteCol.Name = "deleteCol"
         Me.deleteCol.ReadOnly = True
         '
-        'searchBox
-        '
-        Me.searchBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.searchBox.Image = CType(resources.GetObject("searchBox.Image"), System.Drawing.Image)
-        Me.searchBox.Location = New System.Drawing.Point(26, 45)
-        Me.searchBox.Name = "searchBox"
-        Me.searchBox.Size = New System.Drawing.Size(34, 26)
-        Me.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.searchBox.TabIndex = 22
-        Me.searchBox.TabStop = False
-        '
         'TxtUserSearch
         '
         Me.TxtUserSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtUserSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtUserSearch.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUserSearch.Location = New System.Drawing.Point(65, 45)
+        Me.TxtUserSearch.Location = New System.Drawing.Point(57, 45)
         Me.TxtUserSearch.Name = "TxtUserSearch"
         Me.TxtUserSearch.Size = New System.Drawing.Size(376, 26)
         Me.TxtUserSearch.TabIndex = 14
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(11, 11)
+        Me.PictureBox1.BackgroundImage = Global.POINTOFSALE.My.Resources.Resources.search
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 45)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(21, 18)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.Size = New System.Drawing.Size(31, 26)
+        Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         '
         'ManageUser
@@ -259,7 +245,6 @@ Partial Class ManageUser
         Me.adminMainPanel.ResumeLayout(False)
         Me.adminMainPanel.PerformLayout()
         CType(Me.DgManageUser, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.searchBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -267,9 +252,7 @@ Partial Class ManageUser
     Friend WithEvents Label1 As Label
     Friend WithEvents btnAdduser As Button
     Friend WithEvents adminMainPanel As Panel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TxtUserSearch As TextBox
-    Friend WithEvents searchBox As PictureBox
     Friend WithEvents DgManageUser As DataGridView
     Friend WithEvents idCol As DataGridViewTextBoxColumn
     Friend WithEvents firstnameCol As DataGridViewTextBoxColumn
@@ -280,4 +263,5 @@ Partial Class ManageUser
     Friend WithEvents updatedatCol As DataGridViewTextBoxColumn
     Friend WithEvents editCol As DataGridViewButtonColumn
     Friend WithEvents deleteCol As DataGridViewButtonColumn
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

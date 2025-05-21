@@ -21,7 +21,7 @@ Public Class UserRepo
 
         Try
             connect_me()
-            Dim query As String = "SELECT id, usertype, firstname, lastname, username, password FROM users WHERE username = ? AND password = ?"
+            Dim query As String = "SELECT * FROM users WHERE username = ? AND password = ?"
             Dim cmd As New OdbcCommand(query, con)
 
             cmd.Parameters.AddWithValue("@username", username)
